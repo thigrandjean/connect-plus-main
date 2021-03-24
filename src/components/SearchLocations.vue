@@ -72,7 +72,7 @@ export default {
 }
 .search-wrap {
   width: 100%;
-  padding: 1.785rem 1rem 1.785rem 1rem;
+  padding: 1.25rem 1rem 1.785rem 1rem;
   box-sizing: border-box;
 }
 .searchbox {

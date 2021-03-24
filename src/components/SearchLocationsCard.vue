@@ -62,11 +62,11 @@ export default {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 140px;
+  height: 10rem;
   position: relative;
   transition: height 0.2s ease-in-out;
   &.expanded {
-    height: 180px;
+    height: 12.8rem;
   }
 }
 .open-info {
@@ -99,15 +99,18 @@ h2.title {
   font-weight: 300;
   font-size: 1.285rem;
   color: $main-blue;
+  margin: 1rem 0 0.75rem 0;
 }
 h3.subtitle {
   font-weight: bold;
   font-size: 1.142rem;
   margin: 0;
+  color: #6b6b6b;
 }
 p {
   font-size: 1.142rem;
-  margin-top: 0;
+  margin: 0.15rem 0 0.5rem 0;
+  color: #6b6b6b;
   span {
     font-weight: bolder;
   }
