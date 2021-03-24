@@ -1,0 +1,28 @@
+{
+  "name": "connect",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build && cp -r dist/* /Applications/MAMP/htdocs/connect.test",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.6.4",
+    "gridsome": "^0.7.0",
+    "gridsome-plugin-i18n": "^1.6.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0",
+    "v-money": "^0.8.1",
+    "vue-click-outside": "^1.1.0",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "gridsome-plugin-bundle-analyzer": "^1.0.0",
+    "prettier": "^2.2.1",
+    "vue-svg-loader": "^0.16.0"
+  }
+}

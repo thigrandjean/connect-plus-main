@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'JT Marnie';
+    src: local('JT Marnie Bold'), local('JTMarnie-Bold'),
+        url('../fonts/JTMarnie-Bold.woff2') format('woff2'),
+        url('../fonts/JTMarnie-Bold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+// @font-face {
+//     font-family: 'JT Marnie';
+//     src: local('JT Marnie Bold Italic'), local('JTMarnie-BoldItalic'),
+//         url('../fonts/JTMarnie-BoldItalic.woff2') format('woff2'),
+//         url('../fonts/JTMarnie-BoldItalic.woff') format('woff');
+//     font-weight: 800;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+
+@font-face {
+    font-family: 'JT Marnie';
+    src: local('JT Marnie Medium'), local('JTMarnie-Medium'),
+        url('../fonts/JTMarnie-Medium.woff2') format('woff2'),
+        url('../fonts/JTMarnie-Medium.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JT Marnie';
+    src: local('JT Marnie Medium Italic'), local('JTMarnie-MediumItalic'),
+        url('../fonts/JTMarnie-MediumItalic.woff2') format('woff2'),
+        url('../fonts/JTMarnie-MediumItalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'JT Marnie';
+    src: local('JT Marnie Regular'), local('JTMarnie-Regular'),
+        url('../fonts/JTMarnie-Regular.woff2') format('woff2'),
+        url('../fonts/JTMarnie-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'JT Marnie';
+    src: local('JT Marnie Regular Italic'), local('JTMarnie-RegularItalic'),
+        url('../fonts/JTMarnie-RegularItalic.woff2') format('woff2'),
+        url('../fonts/JTMarnie-RegularItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'JT Marnie';
+    src: local('JT Marnie Light'), local('JTMarnie-Light'),
+        url('../fonts/JTMarnie-Light.woff2') format('woff2'),
+        url('../fonts/JTMarnie-Light.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
