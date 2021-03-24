@@ -3,8 +3,10 @@
     <div class="search-wrap">
       <div class="searchbox">
         <input
+          v-model="searchField"
           @focus="onFocus"
           @blur="onBlur"
+          @change="onSearch"
           class="search-input"
           type="search"
           placeholder="Enter a zip code or a address"
@@ -84,7 +86,7 @@
 
 <script>
 import SearchLocationsCard from '../components/SearchLocationsCard'
-import { OpenStreetMapProvider } from 'leaflet-geosearch'
+
 import 'leaflet/dist/leaflet.css'
 
 var Icon
@@ -103,6 +105,7 @@ export default {
   },
   data() {
     return {
+      searchField: '',
       isSearcFocused: false,
       showMap: true,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -115,6 +118,9 @@ export default {
     }
   },
   methods: {
+    onSearch() {
+      console.log(this.searchField)
+    },
     onFocus() {
       this.isSearcFocused = true
     },

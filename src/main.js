@@ -16,7 +16,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
     Vue.component("l-tile-layer", () => import ('vue2-leaflet').then(m => m.LTileLayer));
     Vue.component("l-marker", () => import ('vue2-leaflet').then(m => m.LMarker));
     Vue.component("l-feature-group", () => import ('vue2-leaflet').then(m => m.LFeatureGroup));
-    Vue.component("l-control", () => import ('vue2-leaflet').then(m => m.LControl));
+    Vue.component("l-control", () => import ('vue2-leaflet').then(m => m.LControl));   
   }
 
   appOptions.i18n.setLocaleMessage('it', require('./locales/it-it.json'))
