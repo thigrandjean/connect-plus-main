@@ -121,25 +121,41 @@
                 "address": "40 Hanway Street",
                 "address2": "W1T 1US",
                 "address3": "London",
-                "telephone": "+ 44 (0) 207 8361170"
+                "telephone": "+ 44 (0) 207 8361170",
+                "cordinates": {
+                    "lat": 51.516795342679146,
+                    "lon": -0.13268908756585465
+                }
             },
             {
                 "name": "Italy",
                 "subTitle": "Rome",
                 "address": "Via Cernaia 17, 00185, Rome, Italy",
-                "telephone": "+39 06 9209 7109"
+                "telephone": "+39 06 9209 7109",
+                "cordinates": {
+                    "lat": 41.905873946421146,
+                    "lon": 12.499214983409987
+                }
             },
             {
                 "name": "Italy",
                 "subTitle": "Milan",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milan, Italy",
-                "telephone": "+39 06 9209 7109"
+                "telephone": "+39 06 9209 7109",
+                "cordinates": {
+                    "lat": 45.4928264018771,
+                    "lon": 9.216239383476823
+                }
             },
             {
                 "name": "Spain",
                 "subTitle": "Barcelona",
                 "address": "Muntaner 20, 08011, Barcelona, Spain",
-                "telephone": "+34 603 42 27 03"
+                "telephone": "+34 603 42 27 03",
+                "cordinates": {
+                    "lat": 41.385347071427034,
+                    "lon": 2.1616914852496705
+                }
             }
         ]
     },

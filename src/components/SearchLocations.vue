@@ -72,15 +72,17 @@ export default {
 }
 .search-wrap {
   width: 100%;
+  max-width: 585px;
+  margin: 0 auto;
   padding: 1.25rem 1rem 1.785rem 1rem;
   box-sizing: border-box;
 }
 .searchbox {
-  display: grid;
-  grid-template-columns: 1fr 2rem;
   border-bottom: 2px solid #757575;
   width: 100%;
   box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 2rem;
 }
 
 .search-input {
@@ -107,7 +109,7 @@ export default {
   background: none;
   border: none;
   outline: none;
-  color: #c;
+  color: #757575;
   transition: color 0.3s ease-in-out;
 
   &.focused {
@@ -120,5 +122,20 @@ export default {
   background: #e9e9e9;
   display: grid;
   row-gap: 2px;
+  &::after {
+    content: 'There’re no more addresses to show here.';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #636363;
+    min-height: 5rem;
+    padding: 3rem;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  @media (min-width: $bp-mobile) {
+    column-gap: 2px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 </style>

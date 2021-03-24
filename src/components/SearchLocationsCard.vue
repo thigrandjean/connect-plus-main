@@ -1,6 +1,6 @@
 <template>
-  <li class="location-item" :class="{ expanded: !isColapsed }">
-    <div class="location-content">
+  <li class="location-item">
+    <div class="location-content" :class="{ expanded: !isColapsed }">
       <h2 class="title">{{ content.subTitle }}</h2>
       <h3 class="subtitle">{{ content.name }}</h3>
       <p>
@@ -57,16 +57,25 @@ export default {
 @import '~/assets/style/vars.scss';
 
 .location-item {
+  height: 10rem;
+  position: relative;
+}
+.location-content {
   background: white;
   padding: 0 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   height: 10rem;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   transition: height 0.2s ease-in-out;
   &.expanded {
+    z-index: 1000;
     height: 12.8rem;
+    border-bottom: 2px solid #e9e9e9;
   }
 }
 .open-info {
