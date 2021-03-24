@@ -10,6 +10,15 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   Vue.use(Vuex);
 
+  if (isClient) {
+    console.log('Client');
+    Vue.component("l-map", () => import ('vue2-leaflet').then(m => m.LMap));
+    Vue.component("l-tile-layer", () => import ('vue2-leaflet').then(m => m.LTileLayer));
+    Vue.component("l-marker", () => import ('vue2-leaflet').then(m => m.LMarker));
+    Vue.component("l-feature-group", () => import ('vue2-leaflet').then(m => m.LFeatureGroup));
+    Vue.component("l-control", () => import ('vue2-leaflet').then(m => m.LControl));
+  }
+
   appOptions.i18n.setLocaleMessage('it', require('./locales/it-it.json'))
   appOptions.i18n.setLocaleMessage('en', require('./locales/en-gb.json'))
   appOptions.i18n.setLocaleMessage('es', require('./locales/es.json'))
@@ -24,17 +33,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
         url: '/about',
         img: require('~/assets/images/bg-banner-about.jpg')
       },
-
-      // partners: {
-      //   headline: 'Our partners and certificates',
-      //   brands: [
-      //     { name: 'Financial Conduct Authority (FCA)', logo: '', nologo: 'REGULATED BY FCA REFERENCE NUMBER FCA 570843', description: 'Connect Plus Ltd is authorised by the Financial Conduct Authority, under the Payment Services Regulations, 2009, for the provision of payment services. FCA Registration No. (FRN 570843).'},
-      //     { name: 'Information Comissioners Office (ICO)', logo: 'ico.jpg', description: 'Connect Plus is registered as a data controller with the Information Commissioner’s Office. The ICO is the UK’s independent authority set up to uphold information rights.'},
-      //     // { name: 'Assiciation of UK Payment Institutions (AUKPI)', logo: 'aukp.jpg', description: 'Connect Plus is a member of the United Kingdom Money Transfer Association, the trade body for Payment Institutions and agencies in the UK.'},
-      //     // { name: 'HM Revenue and Customs (HMRC)', logo: 'hm-revenue.jpg', description: 'We are also registered with HMRC as a money service business.'}
-      //   ]
-
-      // },
 
       countries: [
           

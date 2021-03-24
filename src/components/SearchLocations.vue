@@ -34,12 +34,48 @@
       </div>
     </div>
 
+    <div class="map" v-show="showMap">
+      <ClientOnly>
+        <l-map
+          style="height: 100%; width: 100%"
+          :zoom="zoom"
+          :center="center"
+          @ready="locateMe"
+          @update:zoom="zoomUpdated"
+          @update:center="centerUpdated"
+          @update:bounds="boundsUpdated"
+        >
+          <l-tile-layer :url="url"></l-tile-layer>
+
+          <l-feature-group ref="group">
+            <l-marker
+              v-for="item in $t('locations.places')"
+              :key="item.subTitle"
+              :lat-lng="item.latLng"
+              @click="centerUpdated(item.latLng)"
+            ></l-marker>
+          </l-feature-group>
+
+          <l-control position="topright">
+            <button @click="locateMe">My location</button>
+          </l-control>
+        </l-map>
+      </ClientOnly>
+    </div>
+
+    <transition name="apear">
+      <div class="location-alert" v-show="gettingLocation">
+        <p>Getting your location</p>
+      </div>
+    </transition>
+
     <div class="locations">
       <ul class="locations-list">
         <SearchLocationsCard
           v-for="item in $t('locations.places')"
           :key="item.subTitle"
           :content="item"
+          @select="selectItem(item.latLng)"
         />
       </ul>
     </div>
@@ -48,11 +84,34 @@
 
 <script>
 import SearchLocationsCard from '../components/SearchLocationsCard'
+import { OpenStreetMapProvider } from 'leaflet-geosearch'
+import 'leaflet/dist/leaflet.css'
+
+var Icon
+if (process.isClient) {
+  Icon = require('leaflet').Icon
+  delete Icon.Default.prototype._getIconUrl
+  Icon.Default.mergeOptions({
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+  })
+}
 export default {
-  components: { SearchLocationsCard },
+  components: {
+    SearchLocationsCard,
+  },
   data() {
     return {
       isSearcFocused: false,
+      showMap: true,
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      zoom: 4,
+      center: [51.516795342679146, -0.13268908756585465],
+      bounds: null,
+      location: null,
+      gettingLocation: false,
+      errorStr: null,
     }
   },
   methods: {
@@ -61,6 +120,51 @@ export default {
     },
     onBlur() {
       this.isSearcFocused = false
+    },
+    zoomUpdated(zoom) {
+      this.zoom = zoom
+    },
+    centerUpdated(center) {
+      this.center = center
+    },
+    boundsUpdated(bounds) {
+      this.bounds = bounds
+    },
+    selectItem(latlang) {
+      this.zoomUpdated(12)
+      this.centerUpdated(latlang)
+    },
+    async getLocation() {
+      return new Promise((resolve, reject) => {
+        if (!('geolocation' in navigator)) {
+          reject(new Error('Geolocation is not available.'))
+        }
+
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            resolve(pos)
+          },
+          (err) => {
+            reject(err)
+          }
+        )
+      })
+    },
+    async locateMe() {
+      this.gettingLocation = true
+      try {
+        this.location = await this.getLocation()
+        let Lat = this.location.coords.latitude
+        let Lng = this.location.coords.longitude
+        console.log(Lat, Lng)
+        this.centerUpdated([Lat, Lng])
+        this.zoomUpdated(11)
+        this.gettingLocation = false
+      } catch (e) {
+        this.errorStr = e.message
+        console.log(this.errorStr)
+        this.gettingLocation = false
+      }
     },
   },
 }
@@ -137,5 +241,33 @@ export default {
     column-gap: 2px;
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.map {
+  width: 100%;
+  height: 21rem;
+  background: chartreuse;
+  overflow: hidden;
+  position: relative;
+}
+
+.location-alert {
+  font-size: 1rem;
+  text-align: center;
+  background: #e9e9e9;
+  padding: 0.5rem;
+  color: #636363;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+.apear-enter-active,
+.apear-leave-active {
+  transition: all 0.3s;
+}
+.apear-enter, .apear-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  height: 0;
 }
 </style>

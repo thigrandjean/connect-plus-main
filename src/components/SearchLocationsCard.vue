@@ -1,8 +1,8 @@
 <template>
   <li class="location-item">
     <div class="location-content" :class="{ expanded: !isColapsed }">
-      <h2 class="title">{{ content.subTitle }}</h2>
-      <h3 class="subtitle">{{ content.name }}</h3>
+      <h2 class="title" @click="setSelected">{{ content.subTitle }}</h2>
+      <h3 class="subtitle" @click="setSelected">{{ content.name }}</h3>
       <p>
         <span>{{ $t('locations.infos.address') }}:</span>
         {{ content.address
@@ -47,6 +47,9 @@ export default {
   methods: {
     toggleColapsed() {
       this.isColapsed = !this.isColapsed
+    },
+    setSelected() {
+      this.$emit('select')
     },
   },
 }
@@ -108,11 +111,13 @@ h2.title {
   font-weight: 300;
   font-size: 1.285rem;
   color: $main-blue;
+  cursor: pointer;
   margin: 1rem 0 0.75rem 0;
 }
 h3.subtitle {
   font-weight: bold;
   font-size: 1.142rem;
+  cursor: pointer;
   margin: 0;
   color: #6b6b6b;
 }
@@ -120,6 +125,7 @@ p {
   font-size: 1.142rem;
   margin: 0.15rem 0 0.5rem 0;
   color: #6b6b6b;
+
   span {
     font-weight: bolder;
   }

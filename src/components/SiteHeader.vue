@@ -218,7 +218,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: center;
-  z-index: 1000;
+  z-index: 1010;
   position: relative;
 }
 .header-wrap {
