@@ -3,6 +3,7 @@
 import DefaultLayout from '~/layouts/Default.vue'
 import Style from  '~/assets/style/style.scss'
 import Vuex from 'vuex'
+import VueGmaps from 'vue-gmaps'
 
 export default function (Vue, { router, head, isClient, appOptions }) {
   // Set default layout as a global component
@@ -15,6 +16,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
     Vue.component("l-map", () => import ('vue2-leaflet').then(m => m.LMap));
     Vue.component("l-tile-layer", () => import ('vue2-leaflet').then(m => m.LTileLayer));
     Vue.component("l-marker", () => import ('vue2-leaflet').then(m => m.LMarker));
+    Vue.component("l-tooltip", () => import ('vue2-leaflet').then(m => m.LTooltip));
     Vue.component("l-feature-group", () => import ('vue2-leaflet').then(m => m.LFeatureGroup));
     Vue.component("l-control", () => import ('vue2-leaflet').then(m => m.LControl));   
   }

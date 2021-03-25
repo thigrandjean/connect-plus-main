@@ -51,11 +51,14 @@
 
           <l-feature-group ref="group">
             <l-marker
-              v-for="item in $t('locations.places')"
+              v-for="item in markers"
               :key="item.subTitle"
               :lat-lng="item.latLng"
+              :name="item.name"
               @click="centerUpdated(item.latLng)"
-            ></l-marker>
+            >
+              <l-tooltip>{{ item.subTitle }}</l-tooltip>
+            </l-marker>
           </l-feature-group>
 
           <l-control position="topright">
@@ -115,9 +118,28 @@ export default {
       location: null,
       gettingLocation: false,
       errorStr: null,
+      place: null,
+      markers: null,
     }
   },
+  mounted() {
+    this.markers = this.$t('locations.places')
+  },
+
   methods: {
+    addMarker(cord) {
+      this.removeMarker()
+      const markerToAdd = { latLng: cord, subTitle: 'You are here' }
+      this.markers.push(markerToAdd)
+    },
+    removeMarker() {
+      var filtered = this.markers.filter(function (el) {
+        return el.subTitle != 'You are here'
+      })
+
+      this.markers = filtered
+    },
+
     onSearch() {
       console.log(this.searchField)
     },
@@ -162,8 +184,8 @@ export default {
         this.location = await this.getLocation()
         let Lat = this.location.coords.latitude
         let Lng = this.location.coords.longitude
-        console.log(Lat, Lng)
         this.centerUpdated([Lat, Lng])
+        this.addMarker([Lat, Lng])
         this.zoomUpdated(11)
         this.gettingLocation = false
       } catch (e) {
@@ -252,7 +274,7 @@ export default {
 .map {
   width: 100%;
   height: 21rem;
-  background: chartreuse;
+  background: $main-gold;
   overflow: hidden;
   position: relative;
 }
