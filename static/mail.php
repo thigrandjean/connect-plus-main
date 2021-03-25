@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+
 header('Content-Type: text/html; charset=UTF-8');
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -27,8 +28,24 @@ $mensagem .= "<br><br> <i>E-mail: ". $email . "</i>";
 
 require 'vendor/autoload.php';
 
+function logMail($mensagem){
+	$action = $_GET["action"];
+	$myText = $_POST["mytext"];
+	date_default_timezone_set('America/Sao_Paulo');
+	$date = date("d/m/Y - H:i");
+	
+	$data = $date . " - " .$mensagem.PHP_EOL;
+	
+	$targetFolder = "./maillog/";
+	file_put_contents($targetFolder."log.txt", $data, FILE_APPEND);
+}
+
+
 
 try {
+
+	logMail($mensagem);
+
 	$mail = new PHPMailer(true);
 	$mail->isSMTP();
 
@@ -52,6 +69,7 @@ try {
 	$mail->setFrom('info@cpmoneytransfer.com', 'Connect Plus');
 	$mail->addReplyTo('info@cpmoneytransfer.com');
 	$mail->addAddress('info@cpmoneytransfer.com', 'Connect Plus');
+	// $mail->addAddress('thigrandjean@gmail.com', 'Connect Plus');
 	$mail->Subject = $subject;
 
 	$mail->Body = $mensagem;

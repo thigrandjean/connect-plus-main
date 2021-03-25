@@ -6,12 +6,12 @@
           v-model="searchField"
           @focus="onFocus"
           @blur="onBlur"
-          @change="onSearch"
+          @input="onSearch"
           class="search-input"
           type="search"
           placeholder="Enter a zip code or a address"
         />
-        <button :class="{ focused: isSearcFocused }" class="search-button">
+        <div :class="{ focused: isSearcFocused }" class="search-button">
           <svg
             width="18"
             height="18"
@@ -32,7 +32,47 @@
               fill="currentColor"
             />
           </svg>
-        </button>
+        </div>
+      </div>
+      <div class="search-results" v-if="showResults">
+        <ul class="search-results-list">
+          <li
+            class="search-results-item"
+            v-for="(place, index) in searchResult"
+            :key="`${index}-${place.properties.osm_id}`"
+          >
+            <a
+              class="search-results-item-link"
+              href="#"
+              @click.prevent="searchItemClick(place.geometry.coordinates)"
+            >
+              <div class="address">
+                {{
+                  place.properties.name ? `${place.properties.name}, ` : null
+                }}
+                {{
+                  place.properties.district
+                    ? `${place.properties.district}, `
+                    : null
+                }}
+                {{
+                  place.properties.city ? `${place.properties.city}, ` : null
+                }}
+                {{
+                  place.properties.state ? `${place.properties.state}, ` : null
+                }}
+                {{
+                  place.properties.country
+                    ? `${place.properties.country}`
+                    : null
+                }}
+              </div>
+              <div class="search-results-item-type">
+                {{ place.properties.type }}
+              </div>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -57,12 +97,41 @@
               :name="item.name"
               @click="centerUpdated(item.latLng)"
             >
-              <l-tooltip>{{ item.subTitle }}</l-tooltip>
+              <l-tooltip>
+                <h3 class="tooltip-title">
+                  {{ item.subTitle }}
+                </h3>
+                <small>
+                  {{ item.address
+                  }}{{ item.address2 ? `, ${item.address2}` : null
+                  }}{{ item.address3 ? `, ${item.address3}` : null }}</small
+                >
+              </l-tooltip>
             </l-marker>
           </l-feature-group>
 
           <l-control position="topright">
-            <button @click="locateMe">My location</button>
+            <button
+              class="locate-me-btn"
+              aria-label="get my location"
+              @click="locateMe"
+            >
+              <svg
+                viewBox="0 0 48 48"
+                height="24"
+                width="24"
+                focusable="false"
+                role="img"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                class="StyledIconBase-ea9ulj-0 jZGNBW"
+              >
+                <title>Location icon</title>
+                <path
+                  d="M39.01 28.98A17 17 0 1 0 11 31.96l.02.02.02.02H11l10.09 10.7a4 4 0 0 0 5.82 0L37 32h-.04l.02-.02a16.76 16.76 0 0 0 2.03-3zm-15-1.48a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"
+                ></path>
+              </svg>
+            </button>
           </l-control>
         </l-map>
       </ClientOnly>
@@ -91,6 +160,7 @@
 import SearchLocationsCard from '../components/SearchLocationsCard'
 
 import 'leaflet/dist/leaflet.css'
+import '~/assets/style/geosearch.scss'
 
 var Icon
 if (process.isClient) {
@@ -109,11 +179,13 @@ export default {
   data() {
     return {
       searchField: '',
+      searchResult: [],
+      showResults: false,
       isSearcFocused: false,
       showMap: true,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       zoom: 4,
-      center: [51.516795342679146, -0.13268908756585465],
+      center: [-46.6333824, -23.5506507],
       bounds: null,
       location: null,
       gettingLocation: false,
@@ -142,9 +214,20 @@ export default {
 
     onSearch() {
       console.log(this.searchField)
+      if (this.searchField.length < 4) {
+        this.searchResult = []
+        return
+      }
+      fetch(`https://photon.komoot.io/api/?q=${this.searchField}&limit=5`)
+        .then((response) => response.json())
+        .then((data) => {
+          this.searchResult = data.features
+          console.log(this.searchResult)
+        })
     },
     onFocus() {
       this.isSearcFocused = true
+      this.showIfHasResults()
     },
     onBlur() {
       this.isSearcFocused = false
@@ -158,9 +241,21 @@ export default {
     boundsUpdated(bounds) {
       this.bounds = bounds
     },
+    searchItemClick(latLng) {
+      const lat = latLng[1]
+      const lng = latLng[0]
+      const cords = [lat, lng]
+      this.selectItem(cords)
+      this.addMarker([lat, lng])
+      this.showResults = false
+    },
+    showIfHasResults() {
+      this.showResults = this.searchResult.length > 1
+    },
     selectItem(latlang) {
-      this.zoomUpdated(12)
+      this.zoomUpdated(14)
       this.centerUpdated(latlang)
+      console.log(`select: ${latlang}`)
     },
     async getLocation() {
       return new Promise((resolve, reject) => {
@@ -195,19 +290,27 @@ export default {
       }
     },
   },
+  watch: {
+    searchResult: function () {
+      this.showIfHasResults()
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/style/vars.scss';
+
 .search-locations {
 }
+
 .search-wrap {
   width: 100%;
   max-width: 585px;
   margin: 0 auto;
   padding: 1.25rem 1rem 1.785rem 1rem;
   box-sizing: border-box;
+  position: relative;
 }
 .searchbox {
   border-bottom: 2px solid #757575;
@@ -215,6 +318,7 @@ export default {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 2rem;
+  position: relative;
 }
 
 .search-input {
@@ -243,10 +347,48 @@ export default {
   outline: none;
   color: #757575;
   transition: color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &.focused {
     color: #353c50;
   }
+}
+.search-results {
+  padding: 0.5rem 0 0 0;
+  border: 2px solid #e9e9e9;
+  background: white;
+  position: absolute;
+  right: 1rem;
+  left: 1rem;
+  top: 4.25rem;
+  z-index: 1010;
+}
+.search-results-list {
+}
+.search-results-item-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.5rem;
+  border-bottom: 2px solid #e9e9e9;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background: #e9e9e9;
+    outline: none;
+  }
+}
+.search-results-item-type {
+  background: #757575;
+  width: auto;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
 }
 
 .locations-list {
@@ -275,10 +417,18 @@ export default {
   width: 100%;
   height: 21rem;
   background: $main-gold;
-  overflow: hidden;
   position: relative;
 }
-
+.tooltip-title {
+  margin: 0;
+}
+.locate-me-btn {
+  background: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: #636363;
+}
 .location-alert {
   font-size: 1rem;
   text-align: center;

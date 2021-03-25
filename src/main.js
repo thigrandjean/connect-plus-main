@@ -3,14 +3,13 @@
 import DefaultLayout from '~/layouts/Default.vue'
 import Style from  '~/assets/style/style.scss'
 import Vuex from 'vuex'
-import VueGmaps from 'vue-gmaps'
 
 export default function (Vue, { router, head, isClient, appOptions }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 
   Vue.use(Vuex);
-
+  
   if (isClient) {
     console.log('Client');
     Vue.component("l-map", () => import ('vue2-leaflet').then(m => m.LMap));
