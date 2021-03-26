@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <div class="map" v-show="showMap">
+    <div class="map" v-show="!nomap">
       <ClientOnly>
         <l-map
           style="height: 100%; width: 100%"
@@ -138,7 +138,7 @@
     </div>
 
     <transition name="apear">
-      <div class="location-alert" v-show="gettingLocation">
+      <div class="location-alert" v-show="gettingLocation" v-if="!nomap">
         <p>Getting your location</p>
       </div>
     </transition>
@@ -173,6 +173,7 @@ if (process.isClient) {
   })
 }
 export default {
+  props: { nomap: Boolean },
   components: {
     SearchLocationsCard,
   },
@@ -185,7 +186,7 @@ export default {
       showMap: true,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       zoom: 4,
-      center: [-46.6333824, -23.5506507],
+      center: [51.516795342679146, -0.13268908756585465],
       bounds: null,
       location: null,
       gettingLocation: false,

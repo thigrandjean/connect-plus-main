@@ -145,14 +145,8 @@
                 "address": "Muntaner 20, 08011, Barcelona, Spain",
                 "telephone": "+34 603 42 27 03",
                 "latLng": [41.385347071427034, 2.1616914852496705]
-            },
-            {
-                "name": "Brasil",
-                "subTitle": "São Paulo",
-                "address": "Muntaner 20, 08011, Barcelona, Spain",
-                "telephone": "+34 603 42 27 03",
-                "latLng": [-23.56752460063881, -46.646313477035285]
             }
+
         ]
     },
     "partners": {
