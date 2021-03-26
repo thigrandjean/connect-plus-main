@@ -3,6 +3,7 @@
     <div class="search-wrap">
       <div class="searchbox">
         <input
+          id="adress-search"
           v-model="searchField"
           @focus="onFocus"
           @blur="onBlur"
@@ -34,7 +35,11 @@
           </svg>
         </div>
       </div>
-      <div class="search-results" v-if="showResults">
+      <div
+        class="search-results"
+        v-if="showResults"
+        id="address-search-results"
+      >
         <ul class="search-results-list">
           <li
             class="search-results-item"

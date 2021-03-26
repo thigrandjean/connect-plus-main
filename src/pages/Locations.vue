@@ -36,6 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/style/vars.scss';
 .pages-banner {
   height: 10.5rem;
   flex-direction: column;
@@ -46,6 +47,9 @@ export default {
   padding: 1rem;
   position: relative;
   overflow: hidden;
+  @media (min-width: $bp-mobile) {
+    height: 16.785rem;
+  }
   h1 {
     color: white;
     margin: 0;
@@ -53,6 +57,9 @@ export default {
     font-weight: normal;
     z-index: 3;
     font-size: 1.428rem;
+    @media (min-width: $bp-mobile) {
+      font-size: 3.428rem;
+    }
   }
   h2 {
     color: white;
@@ -63,6 +70,9 @@ export default {
     z-index: 3;
     font-size: 1.142rem;
     font-weight: 300;
+    @media (min-width: $bp-mobile) {
+      font-size: 1.71rem;
+    }
   }
 }
 </style>

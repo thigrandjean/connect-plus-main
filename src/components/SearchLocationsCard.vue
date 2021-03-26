@@ -124,6 +124,7 @@ h2.title {
   margin: 1rem 0 0.75rem 0;
   @media (min-width: $bp-mobile) {
     font-size: 2.142rem;
+    margin: 1rem 0 1.75rem 0;
   }
 }
 h3.subtitle {
