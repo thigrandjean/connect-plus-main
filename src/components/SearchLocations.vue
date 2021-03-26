@@ -153,8 +153,9 @@
         <SearchLocationsCard
           v-for="item in $t('locations.places')"
           :key="item.subTitle"
+          :selected="selectedPlace"
           :content="item"
-          @select="selectItem(item.latLng)"
+          @select="selectItem(item.latLng, item.subTitle)"
         />
       </ul>
     </div>
@@ -198,6 +199,7 @@ export default {
       errorStr: null,
       place: null,
       markers: null,
+      selectedPlace: '',
     }
   },
   mounted() {
@@ -258,9 +260,10 @@ export default {
     showIfHasResults() {
       this.showResults = this.searchResult.length > 1
     },
-    selectItem(latlang) {
+    selectItem(latlang, itemName) {
       this.zoomUpdated(14)
       this.centerUpdated(latlang)
+      this.selectedPlace = itemName
       console.log(`select: ${latlang}`)
     },
     async getLocation() {

@@ -24,6 +24,11 @@
         <label for="message">{{ $t('contactus.fields.message') }}</label>
         <textarea id="message" v-model="message" rows="3" />
         <div class="form-alert">{{ messageAlert }}</div>
+        <vue-recaptcha
+          class="captcha"
+          :sitekey="recaptchaSitekey"
+          @verify="onVerify"
+        />
 
         <button
           :id="`cta-contact-form-${place}`"
@@ -43,13 +48,15 @@
 </template>
 
 <script>
+import VueRecaptcha from 'vue-recaptcha'
+
 import Success from '@/components/Success.vue'
 import { mapState } from 'vuex'
 
 export default {
   props: ['title', 'subtitle', 'hide', 'contactpage', 'place'],
 
-  components: { Success },
+  components: { Success, VueRecaptcha },
 
   data() {
     return {
@@ -64,6 +71,8 @@ export default {
       messageAlert: '',
       serverAlert: '',
       formContent: '',
+      isNotRobot: false,
+      recaptchaSitekey: '6LdBQJAaAAAAAGJYToSkTg_WOezXl-x72x7yaISq',
     }
   },
   methods: {
@@ -84,8 +93,17 @@ export default {
       this.subject = ''
       this.message = ''
     },
+    onVerify(response) {
+      console.log(`Verificação: ${response}`)
+      //after verify recaptcha action you have to perform
+      this.isNotRobot = true
+    },
     validateForm() {
       let validated = true
+      if (!this.isNotRobot) {
+        this.serverAlert = 'Please, check the captcha'
+        validated = false
+      }
       if (!this.name) {
         console.log('name')
         this.nameAlert = 'Required Field'
@@ -242,7 +260,9 @@ export default {
     }
   }
 }
-
+.captcha {
+  margin: 0 0 2rem 0;
+}
 .loader {
   font-size: 10px;
   margin: 0 auto;

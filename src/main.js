@@ -9,7 +9,8 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component('Layout', DefaultLayout)
 
   Vue.use(Vuex);
-  
+  head.script.push({ src:"https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit", body:true})
+
   if (isClient) {
     console.log('Client');
     Vue.component("l-map", () => import ('vue2-leaflet').then(m => m.LMap));

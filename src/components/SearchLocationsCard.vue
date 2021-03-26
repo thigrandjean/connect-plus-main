@@ -1,6 +1,12 @@
 <template>
   <li class="location-item">
-    <div class="location-content" :class="{ expanded: !isColapsed }">
+    <div
+      class="location-content"
+      :class="{
+        expanded: !isColapsed,
+        selected: selected === content.subTitle,
+      }"
+    >
       <h2 class="title" @click="setSelected">{{ content.subTitle }}</h2>
       <h3 class="subtitle" @click="setSelected">{{ content.name }}</h3>
       <p>
@@ -38,7 +44,7 @@
 
 <script>
 export default {
-  props: ['content'],
+  props: ['content', 'selected'],
   data() {
     return {
       isColapsed: true,
@@ -60,33 +66,39 @@ export default {
 @import '~/assets/style/vars.scss';
 
 .location-item {
-  height: 10rem;
   position: relative;
   @media (min-width: $bp-mobile) {
-    height: 13.571rem;
+    height: 13.285rem;
   }
 }
 .location-content {
   background: white;
-  padding: 0 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   height: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   transition: height 0.2s ease-in-out;
+  padding: 1rem 1rem;
+  position: relative;
   @media (min-width: $bp-mobile) {
-    height: 13.571rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    padding: 2.428rem 4.285rem;
+    height: 13.285rem;
+  }
+  &.selected h2,
+  &.selected h3,
+  &.selected p {
+    color: $main-gold;
   }
   &.expanded {
     z-index: 1000;
     height: 12.8rem;
     border-bottom: 2px solid #e9e9e9;
     @media (min-width: $bp-mobile) {
-      height: 15rem;
+      height: 15.142rem;
     }
   }
 }
@@ -105,6 +117,10 @@ export default {
   justify-content: space-around;
   border: 1px solid $sec-blue-03;
   transition: all 0.3s ease-in-out;
+  @media (min-width: $bp-mobile) {
+    right: 4.285rem;
+    bottom: 1.428rem;
+  }
   svg {
     transition: transform 0.3s ease-in-out;
   }
@@ -121,10 +137,10 @@ h2.title {
   font-size: 1.285rem;
   color: $main-blue;
   cursor: pointer;
-  margin: 1rem 0 0.75rem 0;
+  margin: 0 0 0.75rem 0;
   @media (min-width: $bp-mobile) {
     font-size: 2.142rem;
-    margin: 1rem 0 1.75rem 0;
+    margin: 0 0 1rem 0;
   }
 }
 h3.subtitle {
