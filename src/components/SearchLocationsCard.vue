@@ -62,6 +62,9 @@ export default {
 .location-item {
   height: 10rem;
   position: relative;
+  @media (min-width: $bp-mobile) {
+    height: 13.571rem;
+  }
 }
 .location-content {
   background: white;
@@ -75,10 +78,16 @@ export default {
   left: 0;
   right: 0;
   transition: height 0.2s ease-in-out;
+  @media (min-width: $bp-mobile) {
+    height: 13.571rem;
+  }
   &.expanded {
     z-index: 1000;
     height: 12.8rem;
     border-bottom: 2px solid #e9e9e9;
+    @media (min-width: $bp-mobile) {
+      height: 15rem;
+    }
   }
 }
 .open-info {
@@ -113,6 +122,9 @@ h2.title {
   color: $main-blue;
   cursor: pointer;
   margin: 1rem 0 0.75rem 0;
+  @media (min-width: $bp-mobile) {
+    font-size: 2.142rem;
+  }
 }
 h3.subtitle {
   font-weight: bold;
@@ -120,6 +132,9 @@ h3.subtitle {
   cursor: pointer;
   margin: 0;
   color: #6b6b6b;
+  @media (min-width: $bp-mobile) {
+    font-size: 1.285rem;
+  }
 }
 p {
   font-size: 1.142rem;
