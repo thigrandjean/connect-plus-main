@@ -9,7 +9,7 @@
     >
       <h2 class="title" @click="setSelected">{{ content.subTitle }}</h2>
       <h3 class="subtitle" @click="setSelected">{{ content.name }}</h3>
-      <p>
+      <p class="address" @click="setSelected">
         <span>{{ $t('locations.infos.address') }}:</span>
         {{ content.address
         }}{{ content.address2 ? `, ${content.address2}` : null
@@ -152,6 +152,9 @@ h3.subtitle {
   @media (min-width: $bp-mobile) {
     font-size: 1.285rem;
   }
+}
+p.address {
+  cursor: pointer;
 }
 p {
   font-size: 1.142rem;

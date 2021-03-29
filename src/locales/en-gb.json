@@ -122,7 +122,8 @@
                 "address2": "W1T 1US",
                 "address3": "London",
                 "telephone": "+ 44 (0) 207 8361170",
-                "latLng": [51.516795342679146, -0.13268908756585465]
+                "latLng": [51.516795342679146, -0.13268908756585465],
+                "distance": 1
 
             },
             {
@@ -130,21 +131,32 @@
                 "subTitle": "Rome",
                 "address": "Via Cernaia 17, 00185, Rome, Italy",
                 "telephone": "+39 06 9209 7109",
-                "latLng": [41.905873946421146, 12.499214983409987]
+                "latLng": [41.905873946421146, 12.499214983409987],
+                "distance": 2
             },
             {
                 "name": "Italy",
                 "subTitle": "Milan",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milan, Italy",
                 "telephone": "+39 06 9209 7109",
-                "latLng": [45.4928264018771, 9.216239383476823]
+                "latLng": [45.4928264018771, 9.216239383476823],
+                "distance": 3
             },
             {
                 "name": "Spain",
                 "subTitle": "Barcelona",
                 "address": "Muntaner 20, 08011, Barcelona, Spain",
                 "telephone": "+34 603 42 27 03",
-                "latLng": [41.385347071427034, 2.1616914852496705]
+                "latLng": [41.385347071427034, 2.1616914852496705],
+                "distance": 4
+            },
+            {
+                "name": "São Paulo",
+                "subTitle": "São Paulo",
+                "address": "Avenida Paulista, 1000",
+                "telephone": "+11 5555-5555",
+                "latLng": [-23.564735535943775, -46.651894686318684],
+                "distance": 5
             }
 
         ]

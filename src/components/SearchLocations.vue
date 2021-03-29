@@ -90,6 +90,7 @@
     <div class="map" v-show="!nomap">
       <ClientOnly>
         <l-map
+          ref="map"
           style="height: 100%; width: 100%"
           :zoom="zoom"
           :center="center"
@@ -119,11 +120,12 @@
                 >
               </l-tooltip>
               <l-icon
-                v-if="item.address"
                 :icon-size="[45, 52]"
                 :icon-anchor="[22, 52]"
                 :icon-url="markerIcon"
               />
+            </l-marker>
+            <l-marker :lat-lng="currentLocation" name="You are here">
             </l-marker>
           </l-feature-group>
 
@@ -157,7 +159,7 @@
     <div class="locations">
       <ul class="locations-list">
         <SearchLocationsCard
-          v-for="item in $t('locations.places')"
+          v-for="item in sortedMarkers"
           :key="item.subTitle"
           :selected="selectedPlace"
           :content="item"
@@ -199,6 +201,7 @@ export default {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       zoom: 4,
       center: [51.516795342679146, -0.13268908756585465],
+      currentLocation: [0, 0],
       bounds: null,
       location: null,
       iconSize: [64, 74],
@@ -216,21 +219,7 @@ export default {
   },
 
   methods: {
-    addMarker(cord) {
-      this.removeMarker()
-      const markerToAdd = { latLng: cord, subTitle: 'You are here' }
-      this.markers.push(markerToAdd)
-    },
-    removeMarker() {
-      var filtered = this.markers.filter(function (el) {
-        return el.subTitle != 'You are here'
-      })
-
-      this.markers = filtered
-    },
-
     onSearch() {
-      console.log(this.searchField)
       if (this.searchField.length < 4) {
         this.searchResult = []
         return
@@ -239,7 +228,6 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           this.searchResult = data.features
-          console.log(this.searchResult)
         })
     },
     onFocus() {
@@ -268,10 +256,11 @@ export default {
       const lat = latLng[1]
       const lng = latLng[0]
       const cords = [lat, lng]
+      this.currentLocation = cords
       this.selectItem(cords)
-      this.addMarker([lat, lng])
       this.showResults = false
       this.resetSelectedItem()
+      this.getAllDistances()
     },
     showIfHasResults() {
       this.showResults = this.searchResult.length > 1
@@ -307,10 +296,11 @@ export default {
         this.location = await this.getLocation()
         let Lat = this.location.coords.latitude
         let Lng = this.location.coords.longitude
-        this.centerUpdated([Lat, Lng])
-        this.addMarker([Lat, Lng])
+        this.currentLocation = [Lat, Lng]
+        this.centerUpdated(this.currentLocation)
         this.zoomUpdated(11)
         this.gettingLocation = false
+        this.getAllDistances()
       } catch (e) {
         this.errorStr = e.message
         console.log(this.errorStr)
@@ -319,6 +309,32 @@ export default {
     },
     dynamicAnchor() {
       return [this.iconSize / 2, this.iconSize * 1.15]
+    },
+    getDistance(pointA, pointB) {
+      const mapEl = this.$refs.map.mapObject
+      const distance = mapEl.distance(pointA, pointB).toFixed(0)
+      return distance
+    },
+    getAllDistances() {
+      this.markers.map((item) => {
+        const distanceTo = this.getDistance(item.latLng, this.center)
+        item.distance = distanceTo
+      })
+      this.markers.sort(this.sortByDistance)
+    },
+    sortByDistance(a, b) {
+      if (a.distance > b.distance) {
+        return 1
+      }
+      if (a.distance < b.distance) {
+        return -1
+      }
+      return 0
+    },
+  },
+  computed: {
+    sortedMarkers: function () {
+      if (this.markers) return this.markers.sort(this.sortByDistance)
     },
   },
   watch: {
