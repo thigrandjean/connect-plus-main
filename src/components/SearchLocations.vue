@@ -81,6 +81,12 @@
       </div>
     </div>
 
+    <transition name="apear">
+      <div class="location-alert" v-show="gettingLocation" v-if="!nomap">
+        <p>Getting your location</p>
+      </div>
+    </transition>
+
     <div class="map" v-show="!nomap">
       <ClientOnly>
         <l-map
@@ -100,7 +106,7 @@
               :key="item.subTitle"
               :lat-lng="item.latLng"
               :name="item.name"
-              @click="centerUpdated(item.latLng)"
+              @click="clickOnMarker(item.latLng, item.subTitle)"
             >
               <l-tooltip>
                 <h3 class="tooltip-title">
@@ -147,12 +153,6 @@
         </l-map>
       </ClientOnly>
     </div>
-
-    <transition name="apear">
-      <div class="location-alert" v-show="gettingLocation" v-if="!nomap">
-        <p>Getting your location</p>
-      </div>
-    </transition>
 
     <div class="locations">
       <ul class="locations-list">
@@ -255,6 +255,12 @@ export default {
     centerUpdated(center) {
       this.center = center
     },
+    clickOnMarker(center, itemName) {
+      this.center = center
+      if (itemName !== undefined && itemName !== '') {
+        this.selectedPlace = itemName
+      }
+    },
     boundsUpdated(bounds) {
       this.bounds = bounds
     },
@@ -265,6 +271,7 @@ export default {
       this.selectItem(cords)
       this.addMarker([lat, lng])
       this.showResults = false
+      this.resetSelectedItem()
     },
     showIfHasResults() {
       this.showResults = this.searchResult.length > 1
@@ -273,7 +280,9 @@ export default {
       this.zoomUpdated(14)
       this.centerUpdated(latlang)
       this.selectedPlace = itemName
-      console.log(`select: ${latlang}`)
+    },
+    resetSelectedItem() {
+      this.selectedPlace = ''
     },
     async getLocation() {
       return new Promise((resolve, reject) => {
@@ -293,6 +302,7 @@ export default {
     },
     async locateMe() {
       this.gettingLocation = true
+      this.resetSelectedItem()
       try {
         this.location = await this.getLocation()
         let Lat = this.location.coords.latitude
