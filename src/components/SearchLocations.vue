@@ -112,6 +112,12 @@
                   }}{{ item.address3 ? `, ${item.address3}` : null }}</small
                 >
               </l-tooltip>
+              <l-icon
+                v-if="item.address"
+                :icon-size="[45, 52]"
+                :icon-anchor="[22, 52]"
+                :icon-url="markerIcon"
+              />
             </l-marker>
           </l-feature-group>
 
@@ -195,6 +201,9 @@ export default {
       center: [51.516795342679146, -0.13268908756585465],
       bounds: null,
       location: null,
+      iconSize: [64, 74],
+      markerIcon: require('../../src/assets/images/marker-icon.png'),
+      staticAnchor: [16, 37],
       gettingLocation: false,
       errorStr: null,
       place: null,
@@ -297,6 +306,9 @@ export default {
         console.log(this.errorStr)
         this.gettingLocation = false
       }
+    },
+    dynamicAnchor() {
+      return [this.iconSize / 2, this.iconSize * 1.15]
     },
   },
   watch: {
