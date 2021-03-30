@@ -13,9 +13,10 @@
       hide="true"
     />
 
-    <Separator />
-
-    <Locations />
+    <!-- <Separator /> -->
+    <BannerPageTopLocations />
+    <SearchLocations nomap />
+    <!-- <Locations /> -->
   </Layout>
 </template>
 
@@ -24,9 +25,18 @@ import BannersPageFooter from '@/components/BannersPageFooter.vue'
 import ContactUs from '@/components/ContactUs.vue'
 import Separator from '@/components/Separator.vue'
 import Locations from '@/components/Locations.vue'
+import BannerPageTopLocations from '@/components/BannerPageTopLocations.vue'
+import SearchLocations from '../../components/SearchLocations.vue'
 
 export default {
-  components: { BannersPageFooter, ContactUs, Separator, Locations },
+  components: {
+    BannersPageFooter,
+    ContactUs,
+    Separator,
+    Locations,
+    BannerPageTopLocations,
+    SearchLocations,
+  },
 
   metaInfo() {
     return {
