@@ -1,44 +1,52 @@
 <template>
-  <li class="location-item">
+  <li
+    class="location-item"
+    :class="{
+      expanded: !isColapsed,
+    }"
+  >
     <div
+      @click="setSelected"
       class="location-content"
       :class="{
         expanded: !isColapsed,
         selected: selected === content.subTitle,
       }"
     >
-      <h2 class="title" @click="setSelected">{{ content.subTitle }}</h2>
-      <h3 class="subtitle" @click="setSelected">{{ content.name }}</h3>
-      <p class="address" @click="setSelected">
+      <h2 class="title">{{ content.subTitle }}</h2>
+      <h3 class="subtitle">{{ content.name }}</h3>
+      <p class="address">
         <span>{{ $t('locations.infos.address') }}:</span>
         {{ content.address
         }}{{ content.address2 ? `, ${content.address2}` : null
         }}{{ content.address3 ? `, ${content.address3}` : null }}
       </p>
+      <!-- <p>{{ content.distance }}</p> -->
       <transition name="apear">
         <p class="hidden-content" v-if="!isColapsed">
           <span>{{ $t('locations.infos.telephone') }}:</span>
           {{ content.telephone }}
         </p>
       </transition>
-      <a
-        @click.prevent="toggleColapsed"
-        class="open-info"
-        href="#"
-        :class="{ close: !isColapsed }"
-      >
-        <span>{{ isColapsed ? 'Open info' : 'Close info' }}</span>
-        <svg
-          width="12"
-          height="7"
-          viewBox="0 0 12 7"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M1 1L6 6L11 1" stroke="currentColor" />
-        </svg>
-      </a>
     </div>
+    <a
+      @click.prevent="toggleColapsed"
+      class="open-info"
+      href="#"
+      :class="{ close: !isColapsed }"
+      :id="`openinfo-to-${sanitizeTitle(content.subTitle)}`"
+    >
+      <span>{{ isColapsed ? 'Open info' : 'Close info' }}</span>
+      <svg
+        width="12"
+        height="7"
+        viewBox="0 0 12 7"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M1 1L6 6L11 1" stroke="currentColor" />
+      </svg>
+    </a>
   </li>
 </template>
 
@@ -56,6 +64,27 @@ export default {
     },
     setSelected() {
       this.$emit('select')
+    },
+    sanitizeTitle(title) {
+      var slug = ''
+      // Change to lower case
+      var titleLower = title.toLowerCase()
+      // Letter "e"
+      slug = titleLower.replace(/e|é|è|ẽ|ẻ|ẹ|ê|ế|ề|ễ|ể|ệ/gi, 'e')
+      // Letter "a"
+      slug = slug.replace(/a|á|à|ã|ả|ạ|ă|ắ|ằ|ẵ|ẳ|ặ|â|ấ|ầ|ẫ|ẩ|ậ/gi, 'a')
+      // Letter "o"
+      slug = slug.replace(/o|ó|ò|õ|ỏ|ọ|ô|ố|ồ|ỗ|ổ|ộ|ơ|ớ|ờ|ỡ|ở|ợ/gi, 'o')
+      // Letter "u"
+      slug = slug.replace(/u|ú|ù|ũ|ủ|ụ|ư|ứ|ừ|ữ|ử|ự/gi, 'u')
+      // Letter "d"
+      slug = slug.replace(/đ/gi, 'd')
+      // Trim the last whitespace
+      slug = slug.replace(/\s*$/g, '')
+      // Change whitespace to "-"
+      slug = slug.replace(/\s+/g, '-')
+
+      return slug
     },
   },
 }
@@ -77,9 +106,17 @@ export default {
   display: flex;
   flex-direction: column;
   height: 10rem;
-  transition: height 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   padding: 1rem 1rem;
   position: relative;
+  cursor: pointer;
+  &:hover {
+    h2,
+    h3,
+    p {
+      color: $main-gold;
+    }
+  }
   @media (min-width: $bp-mobile) {
     top: 0;
     left: 0;
@@ -116,10 +153,19 @@ export default {
   align-items: center;
   justify-content: space-around;
   border: 1px solid $sec-blue-03;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 1001;
+
+  &:hover {
+    background: $main-gold;
+    border-color: $main-gold;
+  }
   @media (min-width: $bp-mobile) {
     right: 4.285rem;
     bottom: 1.428rem;
+    &.close {
+      bottom: 0rem;
+    }
   }
   svg {
     transition: transform 0.3s ease-in-out;
@@ -127,6 +173,10 @@ export default {
   &.close {
     background: white;
     color: $sec-blue-03;
+    &:hover {
+      color: $main-gold;
+      border-color: $main-gold;
+    }
     svg {
       transform: rotate(180deg);
     }

@@ -52,7 +52,7 @@ export default {
   padding: 1rem;
   position: relative;
   overflow: hidden;
-  background-image: url('../assets/images/patterns/bg-light-blue.jpg');
+  background-image: url('../../assets/images/patterns/bg-light-blue.jpg');
   padding-top: 1.5rem;
   h1 {
     color: white;

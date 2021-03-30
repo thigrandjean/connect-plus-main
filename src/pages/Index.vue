@@ -2,6 +2,8 @@
   <Layout>
     <SiteHero />
 
+    <banner-locations-home />
+
     <HomeFeatures>
       <h2>{{ $t('features.title') }}</h2>
     </HomeFeatures>
@@ -30,6 +32,7 @@ import Partners from '@/components/Partners.vue'
 import BannerWorkWithUs from '@/components/BannerWorkWithUs.vue'
 import ContactUs from '@/components/ContactUs.vue'
 import Separator from '@/components/Separator.vue'
+import BannerLocationsHome from '../components/BannerLocationsHome.vue'
 
 export default {
   components: {
@@ -40,6 +43,7 @@ export default {
     BannerWorkWithUs,
     ContactUs,
     Separator,
+    BannerLocationsHome,
   },
 
   metaInfo() {

@@ -118,6 +118,9 @@
                   }}{{ item.address2 ? `, ${item.address2}` : null
                   }}{{ item.address3 ? `, ${item.address3}` : null }}</small
                 >
+                <p class="tooltip-distance">
+                  <small>{{ item.distance / 1000 }} km</small>
+                </p>
               </l-tooltip>
               <l-icon
                 :icon-size="[45, 52]"
@@ -386,6 +389,9 @@ export default {
   &:focus {
     color: #353c50;
     outline: none;
+    &::placeholder {
+      color: #353c50;
+    }
   }
 }
 .search-button {
@@ -467,6 +473,9 @@ export default {
   position: relative;
 }
 .tooltip-title {
+  margin: 0;
+}
+.tooltip-distance {
   margin: 0;
 }
 .locate-me-btn {

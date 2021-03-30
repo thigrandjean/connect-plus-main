@@ -55,6 +55,7 @@
             }
         ]
     },
+
     "aboutus": {
         "title": "About Us",
         "description": "Learn more about our company",
@@ -107,7 +108,8 @@
     },
     "ourlocations": {
         "title": "Our Locations",
-        "description": "Find the agency closest to you"
+        "description": "Find the agency closest to you",
+        "cta": "See here you can find us"
     },
     "locations": {
         "title": "Our locations",
