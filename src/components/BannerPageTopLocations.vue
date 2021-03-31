@@ -34,10 +34,13 @@
     font-weight: normal;
     z-index: 3;
     font-size: 1.428rem;
+    line-height: 0.5rem;
     @media (min-width: $bp-mobile) {
+      line-height: 1.9rem;
       font-size: 3.428rem;
     }
   }
+
   h2 {
     color: white;
     margin: 0;

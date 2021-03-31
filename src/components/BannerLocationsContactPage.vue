@@ -36,15 +36,19 @@ export default {
   justify-content: center;
   margin-bottom: 0;
   box-sizing: border-box;
+  padding: 0 2rem;
   @media (min-width: $bp-mobile) {
     height: 12.857rem;
   }
 }
 h2 {
+  padding: 0 2rem;
+
   position: relative;
   font-size: 1.5rem;
   color: white;
   margin-top: 0;
+  text-align: center;
   @media (min-width: $bp-mobile) {
     font-size: 2.142rem;
   }

@@ -30,10 +30,13 @@ export default {}
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 100;
   margin-bottom: 3rem;
   @media (min-width: $bp-mobile) {
+    height: 7.142rem;
     flex-direction: row;
     justify-content: center;
+    margin-top: -2rem;
   }
 }
 h2 {

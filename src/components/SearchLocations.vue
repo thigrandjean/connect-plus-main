@@ -459,9 +459,12 @@ export default {
 
 .map {
   width: 100%;
-  height: 21rem;
+  height: 14.285rem;
   background: $main-gold;
   position: relative;
+  @media (min-width: 361px) {
+    height: 21rem;
+  }
 }
 .tooltip-title {
   margin: 0;
