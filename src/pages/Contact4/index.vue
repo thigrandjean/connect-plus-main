@@ -14,7 +14,7 @@
     />
 
     <!-- <Separator /> -->
-    <BannerLocationsContactPage link="/contact3/locations/" />
+    <BannerLocationsContactPage link="/contact4/locations/" />
     <!-- <SearchLocations nomap /> -->
     <!-- <Locations /> -->
   </Layout>

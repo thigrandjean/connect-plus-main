@@ -326,6 +326,7 @@ export default {
       this.markers.sort(this.sortByDistance)
     },
     sortByDistance(a, b) {
+      console.log(a, b)
       if (a.distance > b.distance) {
         return 1
       }
