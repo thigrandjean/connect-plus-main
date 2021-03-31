@@ -119,7 +119,7 @@
                   }}{{ item.address3 ? `, ${item.address3}` : null }}</small
                 >
                 <p class="tooltip-distance">
-                  <small>{{ item.distance / 1000 }} km</small>
+                  <small>{{ item.distance }} km</small>
                 </p>
               </l-tooltip>
               <l-icon
@@ -162,7 +162,7 @@
     <div class="locations">
       <ul class="locations-list">
         <SearchLocationsCard
-          v-for="item in sortedMarkers"
+          v-for="item in markers"
           :key="item.subTitle"
           :selected="selectedPlace"
           :content="item"
@@ -321,26 +321,16 @@ export default {
     getAllDistances() {
       this.markers.map((item) => {
         const distanceTo = this.getDistance(item.latLng, this.center)
-        item.distance = distanceTo
+        item.distance = distanceTo / 1000
+        // console.log(`${item.subTitle} => ${item.distance}`)
       })
-      this.markers.sort(this.sortByDistance)
+      this.markers.sort(this.sortList)
     },
-    sortByDistance(a, b) {
-      console.log(a, b)
-      if (a.distance > b.distance) {
-        return 1
-      }
-      if (a.distance < b.distance) {
-        return -1
-      }
-      return 0
+    sortList(a, b) {
+      return a.distance > b.distance ? 1 : -1
     },
   },
-  computed: {
-    sortedMarkers: function () {
-      if (this.markers) return this.markers.sort(this.sortByDistance)
-    },
-  },
+
   watch: {
     searchResult: function () {
       this.showIfHasResults()
