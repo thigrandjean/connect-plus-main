@@ -27,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/style/vars.scss';
 .banner {
-  height: 12.285rem;
+  height: 10rem;
   overflow: hidden;
   position: relative;
   display: flex;
