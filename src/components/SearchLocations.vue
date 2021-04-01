@@ -102,32 +102,6 @@
           <l-tile-layer :url="url"></l-tile-layer>
 
           <l-feature-group ref="group">
-            <!-- <l-marker
-              v-for="item in markers"
-              :key="item.subTitle"
-              :lat-lng="item.latLng"
-              :name="item.name"
-              @click="clickOnMarker(item.latLng, item.subTitle)"
-            >
-              <l-tooltip>
-                <h3 class="tooltip-title">
-                  {{ item.subTitle }}
-                </h3>
-                <small>
-                  {{ item.address
-                  }}{{ item.address2 ? `, ${item.address2}` : null
-                  }}{{ item.address3 ? `, ${item.address3}` : null }}</small
-                >
-                <p class="tooltip-distance">
-                  <small>{{ item.distance }} km</small>
-                </p>
-              </l-tooltip>
-              <l-icon
-                :icon-size="[45, 52]"
-                :icon-anchor="[22, 52]"
-                :icon-url="markerIcon"
-              />
-            </l-marker> -->
             <l-marker
               v-for="item in allLocations"
               :key="item.gsx$id.$t"
@@ -146,9 +120,9 @@
                     item.gsx$city.$t ? `, ${item.gsx$city.$t}` : null
                   }}</small
                 >
-                <!-- <p class="tooltip-distance">
+                <p class="tooltip-distance">
                   <small>{{ item.distance }} km</small>
-                </p> -->
+                </p>
               </l-tooltip>
               <l-icon
                 :icon-size="[45, 52]"
@@ -376,9 +350,9 @@ export default {
           this.allLocations.map((i) => {
             i.latLng = [i.gsx$lat.$t, i.gsx$lng.$t]
 
-            console.log('- - - - - - - - ')
+            // console.log('- - - - - - - - ')
             //   console.log(i.gsx$id.$t)
-            console.log(i.gsx$name.$t)
+            // console.log(i.gsx$name.$t)
             //   console.log(i.gsx$address.$t)
             //   console.log(i.gsx$region.$t)
             //   console.log(i.gsx$city.$t)
@@ -386,9 +360,9 @@ export default {
             //   console.log(i.gsx$zipcode.$t)
             //   console.log(i.gsx$lat.$t)
             //   console.log(i.gsx$lng.$t)
-            console.log(i.latLng)
+            // console.log(i.latLng)
             //   console.log(i.gsx$telephone.$t)
-            console.log('- - - - - - - - ')
+            // console.log('- - - - - - - - ')
           })
         })
     },

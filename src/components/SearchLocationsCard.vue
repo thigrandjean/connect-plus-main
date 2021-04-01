@@ -15,38 +15,44 @@
     >
       <h2 class="title">{{ content.gsx$name.$t }}</h2>
       <h3 class="subtitle">{{ content.gsx$city.$t }}</h3>
+      <!-- <p>{{ content.distance }}</p> -->
       <p class="address">
         <span>{{ $t('locations.infos.address') }}:</span>
-        {{ content.gsx$address.$t
-        }}{{ content.gsx$region.$t ? `, ${content.gsx$region.$t}` : null
-        }}{{ content.gsx$city.$t ? `, ${content.gsx$city.$t}` : null }}
+        {{ content.gsx$address.$t }}
       </p>
-      <!-- <p>{{ content.distance }}</p> -->
       <transition name="apear">
-        <p class="hidden-content" v-if="!isColapsed">
-          <span>{{ $t('locations.infos.telephone') }}:</span>
-          {{ content.gsx$telephone.$t }}
-        </p>
+        <div v-if="!isColapsed">
+          <!-- <p>
+            {{ content.gsx$region.$t ? `${content.gsx$region.$t}` : null
+            }}{{
+              content.gsx$country.$t ? `, ${content.gsx$country.$t}` : null
+            }}
+          </p> -->
+          <p class="telephone" v-if="content.gsx$telephone.$t">
+            <span>{{ $t('locations.infos.telephone') }}:</span>
+            {{ content.gsx$telephone.$t }}
+          </p>
+        </div>
       </transition>
-    </div>
-    <a
-      @click.prevent="toggleColapsed"
-      class="open-info"
-      href="#"
-      :class="{ close: !isColapsed }"
-      :id="`openinfo-to-${sanitizeTitle(content.gsx$name.$t)}`"
-    >
-      <span>{{ isColapsed ? 'Open info' : 'Close info' }}</span>
-      <svg
-        width="12"
-        height="7"
-        viewBox="0 0 12 7"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+      <a
+        @click.prevent="toggleColapsed"
+        class="open-info"
+        href="#"
+        :class="{ close: !isColapsed }"
+        :id="`openinfo-to-${sanitizeTitle(content.gsx$name.$t)}`"
       >
-        <path d="M1 1L6 6L11 1" stroke="currentColor" />
-      </svg>
-    </a>
+        <span>{{ isColapsed ? 'Open info' : 'Close info' }}</span>
+        <svg
+          width="12"
+          height="7"
+          viewBox="0 0 12 7"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M1 1L6 6L11 1" stroke="currentColor" />
+        </svg>
+      </a>
+    </div>
   </li>
 </template>
 
@@ -132,11 +138,13 @@ export default {
   }
   &.expanded {
     z-index: 1000;
-    height: 12.8rem;
+    /* height: 12.8rem; */
+    height: min-content;
     border-bottom: 2px solid #e9e9e9;
-    @media (min-width: $bp-mobile) {
+    /* @media (min-width: $bp-mobile) {
       height: 15.142rem;
-    }
+    } */
+    min-height: 15.142rem;
   }
 }
 .open-info {
@@ -164,7 +172,7 @@ export default {
     right: 4.285rem;
     bottom: 1.428rem;
     &.close {
-      bottom: 0rem;
+      /* bottom: 0rem; */
     }
   }
   svg {
@@ -188,9 +196,11 @@ h2.title {
   color: $main-blue;
   cursor: pointer;
   margin: 0 0 0.75rem 0;
+  text-transform: capitalize;
   @media (min-width: $bp-mobile) {
     font-size: 2.142rem;
-    margin: 0 0 1rem 0;
+    font-size: 1.285rem;
+    margin: 0 0 0.571rem 0;
   }
 }
 h3.subtitle {
@@ -208,7 +218,7 @@ p.address {
 }
 p {
   font-size: 1.142rem;
-  margin: 0.15rem 0 0.5rem 0;
+  margin: 0.15rem 0 1rem 0;
   color: #6b6b6b;
 
   span {
