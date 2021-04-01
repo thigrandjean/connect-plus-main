@@ -102,7 +102,7 @@
           <l-tile-layer :url="url"></l-tile-layer>
 
           <l-feature-group ref="group">
-            <l-marker
+            <!-- <l-marker
               v-for="item in markers"
               :key="item.subTitle"
               :lat-lng="item.latLng"
@@ -121,6 +121,34 @@
                 <p class="tooltip-distance">
                   <small>{{ item.distance }} km</small>
                 </p>
+              </l-tooltip>
+              <l-icon
+                :icon-size="[45, 52]"
+                :icon-anchor="[22, 52]"
+                :icon-url="markerIcon"
+              />
+            </l-marker> -->
+            <l-marker
+              v-for="item in allLocations"
+              :key="item.gsx$id.$t"
+              :lat-lng="item.latLng"
+              :name="item.gsx$name.$t"
+              @click="clickOnMarker(item.latLng, item.gsx$name.$t)"
+            >
+              <l-tooltip>
+                <h3 class="tooltip-title">
+                  {{ item.gsx$name.$t }}
+                </h3>
+                <small>
+                  {{ item.gsx$address.$t
+                  }}{{ item.gsx$region.$t ? `, ${item.gsx$region.$t}` : null
+                  }}{{
+                    item.gsx$city.$t ? `, ${item.gsx$city.$t}` : null
+                  }}</small
+                >
+                <!-- <p class="tooltip-distance">
+                  <small>{{ item.distance }} km</small>
+                </p> -->
               </l-tooltip>
               <l-icon
                 :icon-size="[45, 52]"
@@ -162,12 +190,19 @@
     <div class="locations">
       <ul class="locations-list">
         <SearchLocationsCard
+          v-for="item in allLocations"
+          :key="item.gsx$id.$t"
+          :selected="selectedPlace"
+          :content="item"
+          @select="selectItem(item.latLng, item.gsx$id.$t)"
+        />
+        <!-- <SearchLocationsCard
           v-for="item in markers"
           :key="item.subTitle"
           :selected="selectedPlace"
           :content="item"
           @select="selectItem(item.latLng, item.subTitle)"
-        />
+        /> -->
       </ul>
     </div>
   </div>
@@ -215,10 +250,12 @@ export default {
       place: null,
       markers: null,
       selectedPlace: '',
+      allLocations: [],
     }
   },
   mounted() {
     this.markers = this.$t('locations.places')
+    this.getAllLocations()
   },
 
   methods: {
@@ -319,15 +356,41 @@ export default {
       return distance
     },
     getAllDistances() {
-      this.markers.map((item) => {
+      this.allLocations.map((item) => {
         const distanceTo = this.getDistance(item.latLng, this.center)
         item.distance = distanceTo / 1000
         // console.log(`${item.subTitle} => ${item.distance}`)
       })
-      this.markers.sort(this.sortList)
+      this.allLocations.sort(this.sortList)
     },
     sortList(a, b) {
       return a.distance > b.distance ? 1 : -1
+    },
+    async getAllLocations() {
+      fetch(
+        'https://spreadsheets.google.com/feeds/list/1Swp4zo7svUOkwcOrNsGW-Ic056Z2IQUJXt1gKRsPqPM/od6/public/values?alt=json'
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          this.allLocations = data.feed.entry
+          this.allLocations.map((i) => {
+            i.latLng = [i.gsx$lat.$t, i.gsx$lng.$t]
+
+            console.log('- - - - - - - - ')
+            //   console.log(i.gsx$id.$t)
+            console.log(i.gsx$name.$t)
+            //   console.log(i.gsx$address.$t)
+            //   console.log(i.gsx$region.$t)
+            //   console.log(i.gsx$city.$t)
+            //   console.log(i.gsx$country.$t)
+            //   console.log(i.gsx$zipcode.$t)
+            //   console.log(i.gsx$lat.$t)
+            //   console.log(i.gsx$lng.$t)
+            console.log(i.latLng)
+            //   console.log(i.gsx$telephone.$t)
+            console.log('- - - - - - - - ')
+          })
+        })
     },
   },
 

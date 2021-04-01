@@ -10,22 +10,22 @@
       class="location-content"
       :class="{
         expanded: !isColapsed,
-        selected: selected === content.subTitle,
+        selected: selected === content.gsx$name.$t,
       }"
     >
-      <h2 class="title">{{ content.subTitle }}</h2>
-      <h3 class="subtitle">{{ content.name }}</h3>
+      <h2 class="title">{{ content.gsx$name.$t }}</h2>
+      <h3 class="subtitle">{{ content.gsx$city.$t }}</h3>
       <p class="address">
         <span>{{ $t('locations.infos.address') }}:</span>
-        {{ content.address
-        }}{{ content.address2 ? `, ${content.address2}` : null
-        }}{{ content.address3 ? `, ${content.address3}` : null }}
+        {{ content.gsx$address.$t
+        }}{{ content.gsx$region.$t ? `, ${content.gsx$region.$t}` : null
+        }}{{ content.gsx$city.$t ? `, ${content.gsx$city.$t}` : null }}
       </p>
       <!-- <p>{{ content.distance }}</p> -->
       <transition name="apear">
         <p class="hidden-content" v-if="!isColapsed">
           <span>{{ $t('locations.infos.telephone') }}:</span>
-          {{ content.telephone }}
+          {{ content.gsx$telephone.$t }}
         </p>
       </transition>
     </div>
@@ -34,7 +34,7 @@
       class="open-info"
       href="#"
       :class="{ close: !isColapsed }"
-      :id="`openinfo-to-${sanitizeTitle(content.subTitle)}`"
+      :id="`openinfo-to-${sanitizeTitle(content.gsx$name.$t)}`"
     >
       <span>{{ isColapsed ? 'Open info' : 'Close info' }}</span>
       <svg
