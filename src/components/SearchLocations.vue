@@ -104,24 +104,22 @@
           <l-feature-group ref="group">
             <l-marker
               v-for="item in allLocations"
-              :key="item.gsx$id.$t"
-              :lat-lng="item.latLng"
-              :name="item.gsx$name.$t"
-              @click="clickOnMarker(item.latLng, item.gsx$name.$t)"
+              :key="item.node.id"
+              :lat-lng="item.node.latLng"
+              :name="item.node.name"
+              @click="clickOnMarker(item.node.latLng, item.node.name)"
             >
               <l-tooltip>
                 <h3 class="tooltip-title">
-                  {{ item.gsx$name.$t }}
+                  {{ item.node.name }}
                 </h3>
                 <small>
-                  {{ item.gsx$address.$t
-                  }}{{ item.gsx$region.$t ? `, ${item.gsx$region.$t}` : null
-                  }}{{
-                    item.gsx$city.$t ? `, ${item.gsx$city.$t}` : null
-                  }}</small
+                  {{ item.node.address
+                  }}{{ item.node.region ? `, ${item.node.region}` : null
+                  }}{{ item.node.city ? `, ${item.node.city}` : null }}</small
                 >
                 <p class="tooltip-distance">
-                  <small>{{ item.distance }} km</small>
+                  <small>{{ item.node.distance }} km</small>
                 </p>
               </l-tooltip>
               <l-icon
@@ -165,22 +163,35 @@
       <ul class="locations-list">
         <SearchLocationsCard
           v-for="item in allLocations"
-          :key="item.gsx$id.$t"
+          :key="item.node.id"
           :selected="selectedPlace"
-          :content="item"
-          @select="selectItem(item.latLng, item.gsx$id.$t)"
+          :content="item.node"
+          @select="selectItem(item.node.latLng, item.node.id)"
         />
-        <!-- <SearchLocationsCard
-          v-for="item in markers"
-          :key="item.subTitle"
-          :selected="selectedPlace"
-          :content="item"
-          @select="selectItem(item.latLng, item.subTitle)"
-        /> -->
       </ul>
     </div>
   </div>
 </template>
+
+<static-query>
+query {
+  allAgencies {
+    edges {
+      node {
+        id
+        name
+       	address
+        zipcode
+        city
+        region
+        country
+        lat
+        lng
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
 import SearchLocationsCard from '../components/SearchLocationsCard'
@@ -331,8 +342,8 @@ export default {
     },
     getAllDistances() {
       this.allLocations.map((item) => {
-        const distanceTo = this.getDistance(item.latLng, this.center)
-        item.distance = distanceTo / 1000
+        const distanceTo = this.getDistance(item.node.latLng, this.center)
+        item.node.distance = distanceTo / 1000
         // console.log(`${item.subTitle} => ${item.distance}`)
       })
       this.allLocations.sort(this.sortList)
@@ -340,31 +351,11 @@ export default {
     sortList(a, b) {
       return a.distance > b.distance ? 1 : -1
     },
-    async getAllLocations() {
-      fetch(
-        'https://spreadsheets.google.com/feeds/list/1Swp4zo7svUOkwcOrNsGW-Ic056Z2IQUJXt1gKRsPqPM/od6/public/values?alt=json'
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          this.allLocations = data.feed.entry
-          this.allLocations.map((i) => {
-            i.latLng = [i.gsx$lat.$t, i.gsx$lng.$t]
-
-            // console.log('- - - - - - - - ')
-            //   console.log(i.gsx$id.$t)
-            // console.log(i.gsx$name.$t)
-            //   console.log(i.gsx$address.$t)
-            //   console.log(i.gsx$region.$t)
-            //   console.log(i.gsx$city.$t)
-            //   console.log(i.gsx$country.$t)
-            //   console.log(i.gsx$zipcode.$t)
-            //   console.log(i.gsx$lat.$t)
-            //   console.log(i.gsx$lng.$t)
-            // console.log(i.latLng)
-            //   console.log(i.gsx$telephone.$t)
-            // console.log('- - - - - - - - ')
-          })
-        })
+    getAllLocations() {
+      this.allLocations = this.$static.allAgencies.edges
+      this.allLocations.map((i) => {
+        i.node.latLng = [i.node.lat, i.node.lng]
+      })
     },
   },
 

@@ -9,6 +9,7 @@
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
+    "csv-parse": "^4.15.3",
     "gridsome": "^0.7.0",
     "gridsome-plugin-i18n": "^1.6.0",
     "leaflet": "^1.7.1",

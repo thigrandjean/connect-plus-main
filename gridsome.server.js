@@ -5,12 +5,24 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
-    // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-  })
+const {readFileSync} = require('fs');
+const parse = require('csv-parse/lib/sync');
 
-  api.createPages(({ createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
+module.exports = function (api) {
+  api.loadSource(async (actions) => {
+    const input = readFileSync('./src/data/agencies.csv', 'utf8');
+
+    const Agencies = parse(input, {
+      columns: true,
+      skip_empty_lines: true,
+    });
+
+    const collection = actions.addCollection({
+      typeName: 'Agencies',
+    });
+
+    for (const agency of Agencies) {
+      collection.addNode(agency);
+    }
   })
 }

@@ -10,27 +10,25 @@
       class="location-content"
       :class="{
         expanded: !isColapsed,
-        selected: selected === content.gsx$name.$t,
+        selected: selected === content.name,
       }"
     >
-      <h2 class="title">{{ content.gsx$name.$t }}</h2>
-      <h3 class="subtitle">{{ content.gsx$city.$t }}</h3>
+      <h2 class="title">{{ content.name }}</h2>
+      <h3 class="subtitle">{{ content.city }}</h3>
       <!-- <p>{{ content.distance }}</p> -->
       <p class="address">
         <span>{{ $t('locations.infos.address') }}:</span>
-        {{ content.gsx$address.$t }}
+        {{ content.address }}
       </p>
       <transition name="apear">
         <div v-if="!isColapsed">
-          <!-- <p>
-            {{ content.gsx$region.$t ? `${content.gsx$region.$t}` : null
-            }}{{
-              content.gsx$country.$t ? `, ${content.gsx$country.$t}` : null
-            }}
-          </p> -->
-          <p class="telephone" v-if="content.gsx$telephone.$t">
+          <p>
+            {{ content.region ? `${content.region}` : null
+            }}{{ content.country ? `, ${content.country}` : null }}
+          </p>
+          <p class="telephone" v-if="content.telephone">
             <span>{{ $t('locations.infos.telephone') }}:</span>
-            {{ content.gsx$telephone.$t }}
+            {{ content.telephone }}
           </p>
         </div>
       </transition>
@@ -39,7 +37,7 @@
         class="open-info"
         href="#"
         :class="{ close: !isColapsed }"
-        :id="`openinfo-to-${sanitizeTitle(content.gsx$name.$t)}`"
+        :id="`openinfo-to-${sanitizeTitle(content.name)}`"
       >
         <span>{{ isColapsed ? 'Open info' : 'Close info' }}</span>
         <svg
