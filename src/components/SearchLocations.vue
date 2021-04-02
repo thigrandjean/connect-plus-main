@@ -185,8 +185,10 @@ query {
         city
         region
         country
+        telephone
         lat
         lng
+        distance
       }
     }
   }
@@ -344,12 +346,13 @@ export default {
       this.allLocations.map((item) => {
         const distanceTo = this.getDistance(item.node.latLng, this.center)
         item.node.distance = distanceTo / 1000
-        // console.log(`${item.subTitle} => ${item.distance}`)
+        console.log(`${item.node.name} => ${item.node.distance}`)
       })
       this.allLocations.sort(this.sortList)
+      console.log(this.allLocations)
     },
     sortList(a, b) {
-      return a.distance > b.distance ? 1 : -1
+      return a.node.distance > b.node.distance ? 1 : -1
     },
     getAllLocations() {
       this.allLocations = this.$static.allAgencies.edges

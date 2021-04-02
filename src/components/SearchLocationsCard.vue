@@ -18,17 +18,16 @@
       <!-- <p>{{ content.distance }}</p> -->
       <p class="address">
         <span>{{ $t('locations.infos.address') }}:</span>
-        {{ content.address }}
+        {{ content.address }}{{ content.zipcode ? `, ${content.zipcode}` : null
+        }}{{ content.city ? `, ${content.city}` : null
+        }}{{ content.country ? `, ${content.country}` : null }}
       </p>
       <transition name="apear">
         <div v-if="!isColapsed">
-          <p>
-            {{ content.region ? `${content.region}` : null
-            }}{{ content.country ? `, ${content.country}` : null }}
-          </p>
+          <p></p>
           <p class="telephone" v-if="content.telephone">
             <span>{{ $t('locations.infos.telephone') }}:</span>
-            {{ content.telephone }}
+            +{{ content.telephone }}
           </p>
         </div>
       </transition>
