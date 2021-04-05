@@ -28,7 +28,7 @@ export default {
 @import '@/assets/style/vars.scss';
 .banner {
   height: 10rem;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -41,6 +41,7 @@ export default {
     height: 12.857rem;
   }
 }
+
 h2 {
   padding: 0 2rem;
 

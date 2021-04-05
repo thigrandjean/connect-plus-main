@@ -31,7 +31,7 @@
           </p>
         </div>
       </transition>
-      <a
+      <!-- <a
         @click.prevent="toggleColapsed"
         class="open-info"
         href="#"
@@ -48,7 +48,7 @@
         >
           <path d="M1 1L6 6L11 1" stroke="currentColor" />
         </svg>
-      </a>
+      </a> -->
     </div>
   </li>
 </template>

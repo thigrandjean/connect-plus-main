@@ -346,10 +346,10 @@ export default {
       this.allLocations.map((item) => {
         const distanceTo = this.getDistance(item.node.latLng, this.center)
         item.node.distance = distanceTo / 1000
-        console.log(`${item.node.name} => ${item.node.distance}`)
+        // console.log(`${item.node.name} => ${item.node.distance}`)
       })
       this.allLocations.sort(this.sortList)
-      console.log(this.allLocations)
+      // console.log(this.allLocations)
     },
     sortList(a, b) {
       return a.node.distance > b.node.distance ? 1 : -1
@@ -374,6 +374,7 @@ export default {
 @import '~/assets/style/vars.scss';
 
 .search-locations {
+  position: relative;
 }
 
 .search-wrap {

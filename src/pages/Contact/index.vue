@@ -15,7 +15,7 @@
 
     <!-- <Separator /> -->
     <BannerPageTopLocations />
-    <SearchLocations nomap />
+    <SearchLocations />
     <!-- <Locations /> -->
   </Layout>
 </template>

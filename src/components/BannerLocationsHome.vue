@@ -4,7 +4,7 @@
     <g-link
       id="banner-our-location-cta"
       class="cta cta-main cta-banner-locations"
-      :to="$tp('/contact/locations/')"
+      :to="$tp('/contact/#search-our-locations')"
       >{{ $t('ourlocations.cta') }}</g-link
     >
     <div class="img-wrap">
@@ -15,10 +15,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {}
-</script>
 
 <style lang="scss" scoped>
 @import '@/assets/style/vars.scss';

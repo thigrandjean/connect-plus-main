@@ -1,5 +1,7 @@
 <template>
   <div class="pages-banner">
+    <div id="search-our-locations">asdasdasd</div>
+
     <h1>{{ $t('ourlocations.title') }}</h1>
     <h2>{{ $t('ourlocations.description') }}</h2>
 
@@ -14,6 +16,11 @@
 
 <style lang="scss" scoped>
 @import '~/assets/style/vars.scss';
+/* 
+$header-mob-h: 5.357rem;
+$header-desk-h: 6.785rem;
+$header-menu-desk-h: 4.642rem; */
+
 .pages-banner {
   height: 10.5rem;
   flex-direction: column;
@@ -23,9 +30,20 @@
   box-sizing: border-box;
   padding: 1rem;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   @media (min-width: $bp-mobile) {
     height: 16.785rem;
+  }
+  #search-our-locations {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background: greenyellow;
+    top: -$header-mob-h;
+    z-index: 1000000;
+    @media (min-width: $bp-mobile) {
+      top: -($header-desk-h + $header-menu-desk-h);
+    }
   }
   h1 {
     color: white;

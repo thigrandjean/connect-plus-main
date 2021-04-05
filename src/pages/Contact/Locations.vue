@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <BannerPageTopLocations />
-    <SearchLocations nomap />
+    <SearchLocations />
   </Layout>
 </template>
 
