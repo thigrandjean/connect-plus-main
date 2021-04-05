@@ -166,7 +166,7 @@
           :key="item.node.id"
           :selected="selectedPlace"
           :content="item.node"
-          @select="selectItem(item.node.latLng, item.node.id)"
+          @select="selectItem(item.node.latLng, item.node.name)"
         />
       </ul>
     </div>
@@ -293,6 +293,8 @@ export default {
       this.showResults = this.searchResult.length > 1
     },
     selectItem(latlang, itemName) {
+      console.log(itemName)
+
       this.zoomUpdated(14)
       this.centerUpdated(latlang)
       this.selectedPlace = itemName
