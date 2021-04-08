@@ -16,6 +16,11 @@
         "anti_money_laundering": "Anti Money Laundering"
     },
     "hero": {
+        "banner": {
+            "title": "All transfers for 1 €",
+            "text": "All transfers through our website cost only 1 euro to any destination in Latin America and Nigeria.",
+            "msg": "Valid for transfers made in Italy only."
+        },
         "title": "Sending money with us is easy",
         "conversor": {
             "select": "Select the country that will receive the money",

@@ -32,7 +32,7 @@
     height: 7.142rem;
     flex-direction: row;
     justify-content: center;
-    margin-top: -2rem;
+    /* margin-top: -2rem; */
   }
 }
 h2 {

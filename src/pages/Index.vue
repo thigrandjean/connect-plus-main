@@ -1,6 +1,7 @@
 <template>
   <Layout>
-    <SiteHero />
+    <site-hero-full-width />
+    <!-- <SiteHero /> -->
 
     <banner-locations-home />
 
@@ -33,6 +34,7 @@ import BannerWorkWithUs from '@/components/BannerWorkWithUs.vue'
 import ContactUs from '@/components/ContactUs.vue'
 import Separator from '@/components/Separator.vue'
 import BannerLocationsHome from '../components/BannerLocationsHome.vue'
+import SiteHeroFullWidth from '../components/SiteHeroFullWidth.vue'
 
 export default {
   components: {
@@ -44,6 +46,7 @@ export default {
     ContactUs,
     Separator,
     BannerLocationsHome,
+    SiteHeroFullWidth,
   },
 
   metaInfo() {

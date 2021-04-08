@@ -11,15 +11,20 @@
         "about_us": "Chi siamo",
         "how_it_works": "Come funziona",
         "work_with_us": "Lavora con noi",
-        "contact": "Contatti" ,
+        "contact": "Contatti",
         "terms": "Termini di utilizzo e informativa sulla privacy ",
         "anti_money_laundering": "Anti Riciclaggio di Denaro"
     },
     "hero": {
+        "banner": {
+            "title": "Tutti i transferimenti per 1 €",
+            "text": "Per tutto aprile, la Connect Plus lancia una promozione speciale su tutti i transferimenti dall’Italia a Nigeria e America Latina effettuati dal nostro sito web. Solo 1 euro di commissione per qualunque invio.",
+            "msg": "Valid for transfers made in Italy only."
+        },
         "title": "Inviare denaro con noi è facile",
         "conversor": {
             "select": "Seleziona il paese che riceverà il denaro",
-            "value":  "Digita il valore",
+            "value": "Digita il valore",
             "receiving": "Seleziona la valuta di ricezione",
             "ps": "*Questo è una tariffa indicativa, solo quando viene effettuata la transazione apparirà la tariffa reale",
             "cta_01": "Cambio di valuta",
@@ -33,11 +38,26 @@
     },
     "features": {
         "title": "Inviare denaro in modo rapido, economico e sicuro",
-        "list": [
-            { "title": "Missione Aziendale", "icon":"Mission", "txt": "Offrire solo le condizioni migliori e altamente vantaggiose per i nostri clienti, agenti e associati, attraverso commissioni eque e tassi di cambio preferenziali). Dare sempre la priorità all'agilità e alla trasparenza nei nostri servizi, con un tocco personalizzato ma altamente professionale, lungo tutta la catena delle operazioni."},
-            { "title": "Valori", "icon":"Values", "txt": "Trasparenza, sicurezza e attenzione al cliente sono i nostri valori principali. Operiamo sempre secondo il rigoroso rispetto delle normative vigenti in materia di prevenzione del riciclaggio di denaro e finanziamento di operazioni terroristiche, in conformità con la legislazione di ogni Paese in cui operiamo."},
-            { "title": "Visione", "icon":"Vision", "txt": "La nostra visione è servire i nostri clienti con i migliori mezzi possibili, innovando ogni volta che possiamo in modo che ogni processo sia sicuro e affidabile. Rispettiamo il lavoro e la cultura dei nostri clienti in ogni paese in cui operiamo e vogliamo essere visti in questo modo."},
-            { "title": "Globale", "icon":"Global", "txt": "Trasferimento di denaro ovunque nel mondo. Miglior cambio di valuta garantito, commissione minima e massima sicurezza."}
+        "list": [{
+                "title": "Missione Aziendale",
+                "icon": "Mission",
+                "txt": "Offrire solo le condizioni migliori e altamente vantaggiose per i nostri clienti, agenti e associati, attraverso commissioni eque e tassi di cambio preferenziali). Dare sempre la priorità all'agilità e alla trasparenza nei nostri servizi, con un tocco personalizzato ma altamente professionale, lungo tutta la catena delle operazioni."
+            },
+            {
+                "title": "Valori",
+                "icon": "Values",
+                "txt": "Trasparenza, sicurezza e attenzione al cliente sono i nostri valori principali. Operiamo sempre secondo il rigoroso rispetto delle normative vigenti in materia di prevenzione del riciclaggio di denaro e finanziamento di operazioni terroristiche, in conformità con la legislazione di ogni Paese in cui operiamo."
+            },
+            {
+                "title": "Visione",
+                "icon": "Vision",
+                "txt": "La nostra visione è servire i nostri clienti con i migliori mezzi possibili, innovando ogni volta che possiamo in modo che ogni processo sia sicuro e affidabile. Rispettiamo il lavoro e la cultura dei nostri clienti in ogni paese in cui operiamo e vogliamo essere visti in questo modo."
+            },
+            {
+                "title": "Globale",
+                "icon": "Global",
+                "txt": "Trasferimento di denaro ovunque nel mondo. Miglior cambio di valuta garantito, commissione minima e massima sicurezza."
+            }
         ]
     },
     "aboutus": {
@@ -54,14 +74,13 @@
     },
     "howitworks": {
         "title": "Come invamo il tuo denaro",
-        "content": [
-            {
+        "content": [{
                 "title": "Come lavoriamo",
-                "txt":  "Lavoriamo con i più recenti sistemi di informazione e telecomunicazione e database per elaborare e inviare rapidamente le tue transazioni alla tua destinazione."
+                "txt": "Lavoriamo con i più recenti sistemi di informazione e telecomunicazione e database per elaborare e inviare rapidamente le tue transazioni alla tua destinazione."
             },
             {
                 "title": "Perché Connect Plus?",
-                "txt":  "Abbiamo 15 anni di esperienza nel settore del trasferimento di denaro, in cui abbiamo sviluppato competenze avanzate che sono sempre pronte ad offrirti un servizio tempestivo e affidabile ogni volta che ne hai bisogno."
+                "txt": "Abbiamo 15 anni di esperienza nel settore del trasferimento di denaro, in cui abbiamo sviluppato competenze avanzate che sono sempre pronte ad offrirti un servizio tempestivo e affidabile ogni volta che ne hai bisogno."
             }
         ]
     },
@@ -93,29 +112,28 @@
     },
     "locations": {
         "title": "Le nostre sedi",
-        "infos": { 
+        "infos": {
             "address": "Indirizzo",
             "telephone": "Telefono"
         },
-        "places": [
-            { 
-                "name": "Italy", 
+        "places": [{
+                "name": "Italy",
                 "subTitle": "Milan HQ",
-                "address": "Via Giulio e Corrado Venini 71, 20127, Milano, Italia", 
+                "address": "Via Giulio e Corrado Venini 71, 20127, Milano, Italia",
                 "telephone": "+39 06 9209 7109"
             },
-            { 
-                "name": "", 
-                "subTitle": "Roma Filiale", 
-                "address": "Via Cernaia 17, 00185, Roma, Italia", 
+            {
+                "name": "",
+                "subTitle": "Roma Filiale",
+                "address": "Via Cernaia 17, 00185, Roma, Italia",
                 "telephone": "+39 06 9209 7109"
             },
-            { 
-                "name": "UK", 
-                "subTitle": "Londres", 
-                "address": "40 Hanway Street", 
-                "address2": "W1T 1US", 
-                "address3": "Londres", 
+            {
+                "name": "UK",
+                "subTitle": "Londres",
+                "address": "40 Hanway Street",
+                "address2": "W1T 1US",
+                "address3": "Londres",
                 "telephone": "+ 44 (0) 207 8361170"
             }
         ]
@@ -123,105 +141,477 @@
     "partners": {
         "title": "I nostri partner e certificati",
         "fca": "Autorizzazione Banca D'Italia 36885.2",
-        "brands": [
-          { "name": "", "logo": "", "nologo": "Autorizzazione Banca D'Italia 36885.2", "description": "."}
-        ]
-      },
-      "currenciesfrom": [
-        { "name": "EUR", "code": "EUR", "symbol": "€"}
-      ],
-      "countries": [
-        { "name": "Albania", "currency": ["ALL"], "code": "al" },
-        { "name": "Argentina", "currency": ["ARS", "USD"], "code": "ar" },
-        { "name": "Australia", "currency": ["AUD"], "code": "au" },
-        { "name": "Austria", "currency": ["EUR"], "code": "at" },
-        { "name": "Bangladesh", "currency": ["BDT"], "code": "bd" },
-        { "name": "Bielorrusia", "currency": ["BYN", "USD"], "code": "by" },
-        { "name": "Belgio", "currency": ["EUR"], "code": "be" },
-        { "name": "Benin", "currency": ["XOF"], "code": "bj" },
-        { "name": "Bolivia", "currency": ["BOB", "USD"], "code": "bo" },
-        { "name": "Brasile", "currency": ["BRL"], "code": "br" },
-        { "name": "Bulgaria", "currency": ["BGN"], "code": "bg" },
-        { "name": "Camerun", "currency": ["XAF"], "code": "cm" },
-        { "name": "Mantello Verde", "currency": ["CVE"], "code": "cv" },
-        { "name": "Chile", "currency": ["CLP", "USD"], "code": "cl" },
-        { "name": "Cina", "currency": ["CNY"], "code": "cn" },
-        { "name": "Colombia", "currency": ["COP"], "code": "co" },
-        { "name": "Costa Rica", "currency": ["CRC", "USD"], "code": "cr" },
-        { "name": "Costa D'Avorio", "currency": ["XOF"], "code": "ci" },
-        { "name": "Croazia", "currency": ["HRK"], "code": "hr" },
-        { "name": "Cipro", "currency": ["EUR", "TRY"], "code": "cy" },
-        { "name": "Repubblica Ceca", "currency": ["CZK"], "code": "cz" },
-        { "name": "Danimarca", "currency": ["DKK"], "code": "dk" },
-        { "name": "Repubblica Dominicana", "currency": ["DOP", "USD"], "code": "do" },
-        { "name": "Ecuador", "currency": ["USD"], "code": "ec" },
-        { "name": "Egitto", "currency": ["EGP", "USD", "EUR"], "code": "eg" },
-        { "name": "El Salvador", "currency": ["USD"], "code": "sv" },
-        { "name": "Estonia", "currency": ["EUR"], "code": "ee" },
-        { "name": "Fidji", "currency": ["FJD"], "code": "fj" },
-        { "name": "Finlandia", "currency": ["EUR"], "code": "fi" },
-        { "name": "Francia", "currency": ["EUR"], "code": "fr" },
-        { "name": "Gabon", "currency": ["XAF"], "code": "ga" },
-        { "name": "Gambia", "currency": ["GMD"], "code": "gm" },
-        { "name": "Georgia", "currency": ["GEL"], "code": "ge" },
-        { "name": "Germania", "currency": ["EUR"], "code": "de" },
-        { "name": "Ghana", "currency": ["GHC"], "code": "gh" },
-        { "name": "Grecia", "currency": ["EUR"], "code": "gr" },
-        { "name": "Guatemala", "currency": ["GTQ", "USD"], "code": "gt" },
-        { "name": "Guinea", "currency": ["GNF", "USD"], "code": "gn" },
-        { "name": "Guinea-Bissau", "currency": ["GWP", "USD"], "code": "bw" },
-        { "name": "Honduras", "currency": ["HNL", "USD"], "code": "hn" },
-        { "name": "Hong Kong", "currency": ["HKD"], "code": "hk" },
-        { "name": "Ungheria", "currency": ["HUF"], "code": "hu" },
-        { "name": "Islanda", "currency": ["ISK"], "code": "is" },
-        { "name": "India", "currency": ["INR"], "code": "in" },
-        { "name": "Indonesia", "currency": ["IDR"], "code": "id" },
-        { "name": "Irlanda", "currency": ["EUR"], "code": "ie" },
-        { "name": "Italia", "currency": ["EUR"], "code": "it" },
-        { "name": "Kenia", "currency": ["KES"], "code": "ke" },
-        { "name": "Lettonia", "currency": ["EUR"], "code": "lv" },
-        { "name": "Liechtenstein", "currency": ["CHF"], "code": "li" },
-        { "name": "Lituania", "currency": ["EUR"], "code": "lt" },
-        { "name": "Lussemburgo", "currency": ["EUR"], "code": "lu" },
-        { "name": "Malaysia", "currency": ["MYR"], "code": "my" },
-        { "name": "Malta", "currency": ["MTL"], "code": "mt" },
-        { "name": "Messico", "currency": ["MXN"], "code": "mx" },
-        { "name": "Moldava", "currency": ["MDL"], "code": "md" },
-        { "name": "Monaco", "currency": ["EUR"], "code": "mc" },
-        { "name": "Marruecos", "currency": ["MAD"], "code": "ma" },
-        { "name": "Nepal", "currency": ["NPR"], "code": "np" },
-        { "name": "Olanda", "currency": ["EUR"], "code": "nl" },
-        { "name": "Nicaragua", "currency": ["NIO"], "code": "ni" },
-        { "name": "Niger", "currency": ["XOF"], "code": "ne" },
-        { "name": "Nigeria", "currency": ["NGN", "USD"], "code": "ng" },
-        { "name": "Norvegia", "currency": ["NOK"], "code": "no" },
-        { "name": "Pakistan", "currency": ["PKR"], "code": "pk" },
-        { "name": "Panama", "currency": ["PAB", "USD"], "code": "pa" },
-        { "name": "Paraguay", "currency": ["PYG", "USD"], "code": "py" },
-        { "name": "Perù", "currency": ["PEN", "USD", "EUR"], "code": "pe" },
-        { "name": "Filippine", "currency": ["PHP"], "code": "ph" },
-        { "name": "Polonia", "currency": ["PLN"], "code": "pl" },
-        { "name": "Portogallo", "currency": ["EUR"], "code": "pt" },
-        { "name": "Rumania", "currency": ["RON", "EUR"], "code": "ro" },
-        { "name": "Russia", "currency": ["RUR"], "code": "ru" },
-        { "name": "San Marino", "currency": ["EUR"], "code": "sm" },
-        { "name": "Senegal", "currency": ["XOF"], "code": "sn" },
-        { "name": "Slovacchia", "currency": ["EUR"], "code": "sk" },
-        { "name": "Slovenia", "currency": ["EUR"], "code": "si" },
-        { "name": "Surafrica", "currency": ["ZAR"], "code": "za" },
-        { "name": "España", "currency": ["EUR"], "code": "es" },
-        { "name": "Svezia", "currency": ["EUR", "USD"], "code": "se" },
-        { "name": "Suiza", "currency": ["CHF"], "code": "ch" },
-        { "name": "Thailandia", "currency": ["THB"], "code": "th" },
-        { "name": "Andare", "currency": ["XOF"], "code": "tg" },
-        { "name": "Tacchino", "currency": ["USD", "EUR"], "code": "tr" },
-        { "name": "Uganda", "currency": ["UGX"], "code": "ug" },
-        { "name": "Ucraina", "currency": ["UAH"], "code": "ua" },
-        { "name": "Emirati Arabi Uniti", "currency": ["AED"], "code": "ae" },
-        { "name": "Uk", "currency": ["GBP", "EUR"], "code": "gb" },
-        { "name": "Noi", "currency": ["USS"], "code": "us" },
-        { "name": "Uruguay", "currency": ["UYU", "USD", "EUR"], "code": "uy" },
-        { "name": "Venezuela", "currency": ["VEF", "USD"], "code": "ve" },
-        { "name": "Vietnam", "currency": ["VND", "USD"],  "code": "vn" }
+        "brands": [{
+            "name": "",
+            "logo": "",
+            "nologo": "Autorizzazione Banca D'Italia 36885.2",
+            "description": "."
+        }]
+    },
+    "currenciesfrom": [{
+        "name": "EUR",
+        "code": "EUR",
+        "symbol": "€"
+    }],
+    "countries": [{
+            "name": "Albania",
+            "currency": ["ALL"],
+            "code": "al"
+        },
+        {
+            "name": "Argentina",
+            "currency": ["ARS", "USD"],
+            "code": "ar"
+        },
+        {
+            "name": "Australia",
+            "currency": ["AUD"],
+            "code": "au"
+        },
+        {
+            "name": "Austria",
+            "currency": ["EUR"],
+            "code": "at"
+        },
+        {
+            "name": "Bangladesh",
+            "currency": ["BDT"],
+            "code": "bd"
+        },
+        {
+            "name": "Bielorrusia",
+            "currency": ["BYN", "USD"],
+            "code": "by"
+        },
+        {
+            "name": "Belgio",
+            "currency": ["EUR"],
+            "code": "be"
+        },
+        {
+            "name": "Benin",
+            "currency": ["XOF"],
+            "code": "bj"
+        },
+        {
+            "name": "Bolivia",
+            "currency": ["BOB", "USD"],
+            "code": "bo"
+        },
+        {
+            "name": "Brasile",
+            "currency": ["BRL"],
+            "code": "br"
+        },
+        {
+            "name": "Bulgaria",
+            "currency": ["BGN"],
+            "code": "bg"
+        },
+        {
+            "name": "Camerun",
+            "currency": ["XAF"],
+            "code": "cm"
+        },
+        {
+            "name": "Mantello Verde",
+            "currency": ["CVE"],
+            "code": "cv"
+        },
+        {
+            "name": "Chile",
+            "currency": ["CLP", "USD"],
+            "code": "cl"
+        },
+        {
+            "name": "Cina",
+            "currency": ["CNY"],
+            "code": "cn"
+        },
+        {
+            "name": "Colombia",
+            "currency": ["COP"],
+            "code": "co"
+        },
+        {
+            "name": "Costa Rica",
+            "currency": ["CRC", "USD"],
+            "code": "cr"
+        },
+        {
+            "name": "Costa D'Avorio",
+            "currency": ["XOF"],
+            "code": "ci"
+        },
+        {
+            "name": "Croazia",
+            "currency": ["HRK"],
+            "code": "hr"
+        },
+        {
+            "name": "Cipro",
+            "currency": ["EUR", "TRY"],
+            "code": "cy"
+        },
+        {
+            "name": "Repubblica Ceca",
+            "currency": ["CZK"],
+            "code": "cz"
+        },
+        {
+            "name": "Danimarca",
+            "currency": ["DKK"],
+            "code": "dk"
+        },
+        {
+            "name": "Repubblica Dominicana",
+            "currency": ["DOP", "USD"],
+            "code": "do"
+        },
+        {
+            "name": "Ecuador",
+            "currency": ["USD"],
+            "code": "ec"
+        },
+        {
+            "name": "Egitto",
+            "currency": ["EGP", "USD", "EUR"],
+            "code": "eg"
+        },
+        {
+            "name": "El Salvador",
+            "currency": ["USD"],
+            "code": "sv"
+        },
+        {
+            "name": "Estonia",
+            "currency": ["EUR"],
+            "code": "ee"
+        },
+        {
+            "name": "Fidji",
+            "currency": ["FJD"],
+            "code": "fj"
+        },
+        {
+            "name": "Finlandia",
+            "currency": ["EUR"],
+            "code": "fi"
+        },
+        {
+            "name": "Francia",
+            "currency": ["EUR"],
+            "code": "fr"
+        },
+        {
+            "name": "Gabon",
+            "currency": ["XAF"],
+            "code": "ga"
+        },
+        {
+            "name": "Gambia",
+            "currency": ["GMD"],
+            "code": "gm"
+        },
+        {
+            "name": "Georgia",
+            "currency": ["GEL"],
+            "code": "ge"
+        },
+        {
+            "name": "Germania",
+            "currency": ["EUR"],
+            "code": "de"
+        },
+        {
+            "name": "Ghana",
+            "currency": ["GHC"],
+            "code": "gh"
+        },
+        {
+            "name": "Grecia",
+            "currency": ["EUR"],
+            "code": "gr"
+        },
+        {
+            "name": "Guatemala",
+            "currency": ["GTQ", "USD"],
+            "code": "gt"
+        },
+        {
+            "name": "Guinea",
+            "currency": ["GNF", "USD"],
+            "code": "gn"
+        },
+        {
+            "name": "Guinea-Bissau",
+            "currency": ["GWP", "USD"],
+            "code": "bw"
+        },
+        {
+            "name": "Honduras",
+            "currency": ["HNL", "USD"],
+            "code": "hn"
+        },
+        {
+            "name": "Hong Kong",
+            "currency": ["HKD"],
+            "code": "hk"
+        },
+        {
+            "name": "Ungheria",
+            "currency": ["HUF"],
+            "code": "hu"
+        },
+        {
+            "name": "Islanda",
+            "currency": ["ISK"],
+            "code": "is"
+        },
+        {
+            "name": "India",
+            "currency": ["INR"],
+            "code": "in"
+        },
+        {
+            "name": "Indonesia",
+            "currency": ["IDR"],
+            "code": "id"
+        },
+        {
+            "name": "Irlanda",
+            "currency": ["EUR"],
+            "code": "ie"
+        },
+        {
+            "name": "Italia",
+            "currency": ["EUR"],
+            "code": "it"
+        },
+        {
+            "name": "Kenia",
+            "currency": ["KES"],
+            "code": "ke"
+        },
+        {
+            "name": "Lettonia",
+            "currency": ["EUR"],
+            "code": "lv"
+        },
+        {
+            "name": "Liechtenstein",
+            "currency": ["CHF"],
+            "code": "li"
+        },
+        {
+            "name": "Lituania",
+            "currency": ["EUR"],
+            "code": "lt"
+        },
+        {
+            "name": "Lussemburgo",
+            "currency": ["EUR"],
+            "code": "lu"
+        },
+        {
+            "name": "Malaysia",
+            "currency": ["MYR"],
+            "code": "my"
+        },
+        {
+            "name": "Malta",
+            "currency": ["MTL"],
+            "code": "mt"
+        },
+        {
+            "name": "Messico",
+            "currency": ["MXN"],
+            "code": "mx"
+        },
+        {
+            "name": "Moldava",
+            "currency": ["MDL"],
+            "code": "md"
+        },
+        {
+            "name": "Monaco",
+            "currency": ["EUR"],
+            "code": "mc"
+        },
+        {
+            "name": "Marruecos",
+            "currency": ["MAD"],
+            "code": "ma"
+        },
+        {
+            "name": "Nepal",
+            "currency": ["NPR"],
+            "code": "np"
+        },
+        {
+            "name": "Olanda",
+            "currency": ["EUR"],
+            "code": "nl"
+        },
+        {
+            "name": "Nicaragua",
+            "currency": ["NIO"],
+            "code": "ni"
+        },
+        {
+            "name": "Niger",
+            "currency": ["XOF"],
+            "code": "ne"
+        },
+        {
+            "name": "Nigeria",
+            "currency": ["NGN", "USD"],
+            "code": "ng"
+        },
+        {
+            "name": "Norvegia",
+            "currency": ["NOK"],
+            "code": "no"
+        },
+        {
+            "name": "Pakistan",
+            "currency": ["PKR"],
+            "code": "pk"
+        },
+        {
+            "name": "Panama",
+            "currency": ["PAB", "USD"],
+            "code": "pa"
+        },
+        {
+            "name": "Paraguay",
+            "currency": ["PYG", "USD"],
+            "code": "py"
+        },
+        {
+            "name": "Perù",
+            "currency": ["PEN", "USD", "EUR"],
+            "code": "pe"
+        },
+        {
+            "name": "Filippine",
+            "currency": ["PHP"],
+            "code": "ph"
+        },
+        {
+            "name": "Polonia",
+            "currency": ["PLN"],
+            "code": "pl"
+        },
+        {
+            "name": "Portogallo",
+            "currency": ["EUR"],
+            "code": "pt"
+        },
+        {
+            "name": "Rumania",
+            "currency": ["RON", "EUR"],
+            "code": "ro"
+        },
+        {
+            "name": "Russia",
+            "currency": ["RUR"],
+            "code": "ru"
+        },
+        {
+            "name": "San Marino",
+            "currency": ["EUR"],
+            "code": "sm"
+        },
+        {
+            "name": "Senegal",
+            "currency": ["XOF"],
+            "code": "sn"
+        },
+        {
+            "name": "Slovacchia",
+            "currency": ["EUR"],
+            "code": "sk"
+        },
+        {
+            "name": "Slovenia",
+            "currency": ["EUR"],
+            "code": "si"
+        },
+        {
+            "name": "Surafrica",
+            "currency": ["ZAR"],
+            "code": "za"
+        },
+        {
+            "name": "España",
+            "currency": ["EUR"],
+            "code": "es"
+        },
+        {
+            "name": "Svezia",
+            "currency": ["EUR", "USD"],
+            "code": "se"
+        },
+        {
+            "name": "Suiza",
+            "currency": ["CHF"],
+            "code": "ch"
+        },
+        {
+            "name": "Thailandia",
+            "currency": ["THB"],
+            "code": "th"
+        },
+        {
+            "name": "Andare",
+            "currency": ["XOF"],
+            "code": "tg"
+        },
+        {
+            "name": "Tacchino",
+            "currency": ["USD", "EUR"],
+            "code": "tr"
+        },
+        {
+            "name": "Uganda",
+            "currency": ["UGX"],
+            "code": "ug"
+        },
+        {
+            "name": "Ucraina",
+            "currency": ["UAH"],
+            "code": "ua"
+        },
+        {
+            "name": "Emirati Arabi Uniti",
+            "currency": ["AED"],
+            "code": "ae"
+        },
+        {
+            "name": "Uk",
+            "currency": ["GBP", "EUR"],
+            "code": "gb"
+        },
+        {
+            "name": "Noi",
+            "currency": ["USS"],
+            "code": "us"
+        },
+        {
+            "name": "Uruguay",
+            "currency": ["UYU", "USD", "EUR"],
+            "code": "uy"
+        },
+        {
+            "name": "Venezuela",
+            "currency": ["VEF", "USD"],
+            "code": "ve"
+        },
+        {
+            "name": "Vietnam",
+            "currency": ["VND", "USD"],
+            "code": "vn"
+        }
     ]
 }

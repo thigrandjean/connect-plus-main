@@ -16,6 +16,11 @@
         "anti_money_laundering": "Anti Lavado de Activos"
     },
     "hero": {
+        "banner": {
+            "title": "Todos los envios a 1 €",
+            "text": "Todos los envios a través de nuestro sitio web pagan solo 1 euro a cualquier destino Latino America y Nigeria.",
+            "msg": "Validos para envios desde Italia."
+        },
         "title": "Enviar dinero con nosotros es fácil",
         "conversor": {
             "select": "Seleccione el país que recibirá el dinero",
