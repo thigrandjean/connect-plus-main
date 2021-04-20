@@ -1,8 +1,19 @@
 <template>
-  <div class="wrapper">
+  <div
+    class="wrapper"
+    :class="{
+      isFloatingButtonWrapper: isFloatingButtonActive,
+      hasPassedScrollLimit: Scrolled,
+    }"
+  >
     <a
-      v-if="isFloating"
-      id="floating-action-button"
+      class="floating-action-button"
+      :class="{
+        isFloatingButton: isFloatingButtonActive,
+        floatinActionButton01: !isTestB,
+        floatinActionButton02: isTestB,
+      }"
+      id="floating-action-btn"
       :href="link"
       target="_blank"
       rel="noopener"
@@ -14,34 +25,93 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isTestB: false,
+      isFloatingButtonActive: true,
+      Scrolled: false,
+    }
+  },
   props: {
     link: String,
-    isFloating: { type: Boolean, default: true },
+  },
+  mounted() {
+    vm.FloatingButton = this
+    this.isTestB && this.setTestB()
+  },
+  computed: {
+    setTest: function () {
+      this.isTestB && this.setTestB()
+    },
   },
   methods: {
-    toggleFloatingButton() {
-      console.log('Floating Button Toggled')
+    setTestB() {
+      this.isTestB = true
+      this.isFloatingButtonActive = false
+      window.addEventListener('scroll', this.handleScroll)
+    },
+    floatingButtonDisabled() {
+      this.isFloatingButtonActive = false
+      this.Scrolled = false
+    },
+    floatingButtonEnabled() {
+      this.isFloatingButtonActive = true
+      this.Scrolled = this.isTestB
+    },
+    handleScroll(e) {
+      window.scrollY > 80
+        ? this.floatingButtonEnabled()
+        : this.floatingButtonDisabled()
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/style/vars.scss';
 .wrapper {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  position: relative;
+  z-index: $layerTop;
+  margin-top: -1rem;
+  @media (min-width: $bp-mobile) {
+    position: fixed;
+    bottom: 2.142rem;
+    right: 1.142rem;
+  }
+  @media (max-width: $bp-mobile) {
+    &.isFloatingButtonWrapper,
+    .hasPassedScrollLimit {
+      position: fixed;
+      bottom: 1.142rem;
+      right: 1.142rem;
+    }
+    &.hasPassedScrollLimit {
+      @media (max-width: $bp-mobile) {
+        animation: showUp 0.3s ease-in-out;
+      }
+    }
+  }
+}
+@keyframes showUp {
+  0% {
+    transform: translateY(3rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-#floating-action-button {
+.floating-action-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* position: fixed; */
+  position: relative;
+  z-index: $layerFg;
   width: fit-content;
   z-index: 100000;
-  bottom: 1rem;
-  right: 1rem;
   height: 40px;
   font-size: 18px;
   border-radius: 30px;
