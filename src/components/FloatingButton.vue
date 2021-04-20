@@ -36,6 +36,7 @@ export default {
     link: String,
   },
   mounted() {
+    window.vm = {}
     vm.FloatingButton = this
     this.isTestB && this.setTestB()
   },
