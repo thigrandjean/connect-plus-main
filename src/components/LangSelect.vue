@@ -128,7 +128,7 @@ export default {
     flex-direction: column;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 0px 0px 5px 5px;
-    z-index: 10;
+    z-index: $layerTop;
     .lang-item {
       color: white;
       text-decoration: none;

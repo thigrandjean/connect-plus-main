@@ -36,7 +36,7 @@
     .work-image {
       width: 80%;
       position: relative;
-      z-index: 2;
+      z-index: $layerBase;
       margin-top: -8rem;
       img {
         width: 100%;
@@ -46,7 +46,7 @@
     .work-content {
       width: 100%;
       position: relative;
-      z-index: 1;
+      /* z-index: 1; */
       color: white;
       display: flex;
       flex-direction: column;

@@ -115,14 +115,14 @@
       </button>
     </form>
 
-    <a
+    <!-- <a
       id="cta-money-transfer"
       class="cta cta-sec"
       target="_blank"
       rel="noopener"
       :href="$t('hero.conversor.link_cta_02')"
       >{{ $t('hero.conversor.cta_02') }}</a
-    >
+    > -->
   </div>
 </template>
 
@@ -310,7 +310,7 @@ export default {
 
 .conversor {
   position: relative;
-  z-index: 1;
+  z-index: $layerFg;
   color: $main-grey;
 }
 .country-select {
@@ -333,7 +333,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  z-index: 1;
+  z-index: $layerFg;
   .current-country {
     width: 15rem;
     display: flex;
@@ -436,7 +436,7 @@ svg path {
   background: #ffffff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 5px 5px;
-  z-index: 1;
+  z-index: $layerFg;
   max-height: 19rem;
   overflow-y: scroll;
 

@@ -15,7 +15,12 @@
 
       <div class="hero-conversor">
         <div class="hero-conversor-wrap">
+          <floating-button :link="$t('hero.conversor.link_cta_02')">
+            {{ $t('hero.conversor.cta_02') }}
+          </floating-button>
+
           <h1>{{ $t('hero.title') }}</h1>
+
           <conversor />
         </div>
       </div>
@@ -25,9 +30,10 @@
 
 <script>
 import Conversor from '../components/Conversor.vue'
+import FloatingButton from '../components/FloatingButton.vue'
 
 export default {
-  components: { Conversor },
+  components: { Conversor, FloatingButton },
 }
 </script>
 

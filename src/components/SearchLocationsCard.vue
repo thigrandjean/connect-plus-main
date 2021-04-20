@@ -134,7 +134,7 @@ export default {
     color: $main-gold;
   }
   &.expanded {
-    z-index: 1000;
+    z-index: $layerTopAll;
     /* height: 12.8rem; */
     height: min-content;
     border-bottom: 2px solid #e9e9e9;

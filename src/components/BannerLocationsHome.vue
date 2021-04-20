@@ -26,7 +26,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: $layerBase;
   margin-bottom: 3rem;
   @media (min-width: $bp-mobile) {
     height: 7.142rem;
@@ -57,12 +57,12 @@ h2 {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: -1;
+  z-index: $layerBg;
 }
 
 img {
   position: absolute;
-  z-index: 0;
+  z-index: $layerBase;
   object-fit: cover;
   width: 100%;
 }

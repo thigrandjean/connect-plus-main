@@ -293,7 +293,7 @@ export default {
       this.showResults = this.searchResult.length > 1
     },
     selectItem(latlang, itemName) {
-      console.log(itemName)
+      // console.log(itemName)
 
       this.zoomUpdated(14)
       this.centerUpdated(latlang)
@@ -332,7 +332,7 @@ export default {
         this.getAllDistances()
       } catch (e) {
         this.errorStr = e.message
-        console.log(this.errorStr)
+        // console.log(this.errorStr)
         this.gettingLocation = false
       }
     },
@@ -441,7 +441,7 @@ export default {
   right: 1rem;
   left: 1rem;
   top: 4.25rem;
-  z-index: 1010;
+  z-index: $layerTopAll;
 }
 .search-results-list {
 }
