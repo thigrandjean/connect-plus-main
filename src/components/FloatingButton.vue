@@ -87,14 +87,14 @@ export default {
   margin-top: -1rem;
   @media (min-width: $bp-mobile) {
     position: fixed;
-    bottom: 2.142rem;
+    bottom: 0.642rem;
     right: 1.142rem;
   }
   @media (max-width: $bp-mobile) {
     &.isFloatingButtonWrapper,
     .hasPassedScrollLimit {
       position: fixed;
-      bottom: 1.142rem;
+      bottom: 0.642rem;
       right: 1.142rem;
     }
     &.hasPassedScrollLimit {
@@ -129,6 +129,7 @@ export default {
   padding: 0 1.285rem;
   transition: background 0.3s ease-in-out;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  margin-bottom: 0.5rem;
   &:hover {
     background: #3b475c;
   }
