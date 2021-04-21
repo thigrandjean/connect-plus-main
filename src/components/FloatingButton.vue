@@ -2,7 +2,7 @@
   <div
     class="wrapper"
     :class="{
-      isFloatingButtonWrapper: isFloatingButtonActive,
+      isFloatingButtonWrapper: !this.$store.state.isTestB || Scrolled,
       hasPassedScrollLimit: Scrolled,
     }"
   >
@@ -10,8 +10,8 @@
       class="floating-action-button"
       :class="{
         isFloatingButton: isFloatingButtonActive,
-        floatinActionButton01: !isTestB,
-        floatinActionButton02: isTestB,
+        floatinActionButton01: !this.$store.state.isTestB,
+        floatinActionButton02: this.$store.state.isTestB,
       }"
       id="floating-action-btn"
       :href="link"
@@ -27,7 +27,7 @@
 export default {
   data() {
     return {
-      isTestB: false,
+      // isOnTestB: null,
       isFloatingButtonActive: true,
       Scrolled: false,
     }
@@ -38,17 +38,18 @@ export default {
   mounted() {
     window.vm = {}
     vm.FloatingButton = this
-    this.isTestB && this.setTestB()
+    this.$store.state.isTestB &&
+      window.addEventListener('scroll', this.handleScroll)
   },
-  computed: {
-    setTest: function () {
-      this.isTestB && this.setTestB()
-    },
-  },
+
+  // computed: {
+  //   setTest: function () {
+  //     this.isTestB && this.setTestB()
+  //   },
+  // },
   methods: {
     setTestB() {
-      this.isTestB = true
-      this.isFloatingButtonActive = false
+      this.$store.commit('turnOnTestB')
       window.addEventListener('scroll', this.handleScroll)
     },
     floatingButtonDisabled() {
@@ -57,7 +58,7 @@ export default {
     },
     floatingButtonEnabled() {
       this.isFloatingButtonActive = true
-      this.Scrolled = this.isTestB
+      this.Scrolled = true
     },
     handleScroll(e) {
       window.scrollY > 80
@@ -65,6 +66,13 @@ export default {
         : this.floatingButtonDisabled()
     },
   },
+  // watch: {
+  //   '$store.state.isTestB': function () {
+  //     !this.$store.state.isTestB
+  //       ? (this.isOnTestB = true)
+  //       : (this.isOnTestB = false)
+  //   },
+  // },
 }
 </script>
 
