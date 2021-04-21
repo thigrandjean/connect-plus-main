@@ -11,7 +11,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   head.script.push({ src:"https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit", body:true})
 
   if (isClient) {
-    console.log('Client');
+    // console.log('Client');
     Vue.component("l-map", () => import ('vue2-leaflet').then(m => m.LMap));
     Vue.component("l-tile-layer", () => import ('vue2-leaflet').then(m => m.LTileLayer));
     Vue.component("l-marker", () => import ('vue2-leaflet').then(m => m.LMarker));
@@ -27,6 +27,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   appOptions.store = new Vuex.Store({
     state: {
+      isTestB: true,
       currentLang: 'en',
       currentLangFlag: 'uk',
       bannerAbout: {
@@ -221,7 +222,9 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
     },
     mutations: {
-
+      turnOnTestB(state) {
+        state.isTestB = true
+      }
     },
     actions: {
 

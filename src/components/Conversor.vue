@@ -108,11 +108,15 @@
         </div>
       </div>
 
-      <p class="ps">{{ $t('hero.conversor.ps') }}</p>
+      <div class="cta-wrap">
+        <p class="ps" :class="{ psAfter: !$store.state.isTestB }">
+          {{ $t('hero.conversor.ps') }}
+        </p>
 
-      <button id="cta-currency-exchange" class="cta cta-main">
-        {{ $t('hero.conversor.cta_01') }}
-      </button>
+        <button id="cta-currency-exchange" class="cta cta-main">
+          {{ $t('hero.conversor.cta_01') }}
+        </button>
+      </div>
     </form>
 
     <!-- <a
@@ -138,6 +142,7 @@ export default {
   components: { Flags, Money, AllFlags },
   data() {
     return {
+      isTestB: false,
       moedaA: '',
       moedaB: 'BRL',
       moedaAVal: '0',
@@ -162,7 +167,9 @@ export default {
   },
   mounted() {
     this.changeCurrencyA(this.$t('currenciesfrom[0].code'))
+    this.isTestB = this.$store.state.testB
   },
+  computed: mapState(['testB']),
   methods: {
     convertFromWP(code) {
       // pega o valor digitado
@@ -291,6 +298,7 @@ export default {
     // moedaAVal: function() {
     //   this.convert()
     // }
+
     '$i18n.locale': function () {
       this.changeCurrencyA(this.$t('currenciesfrom[0].code'))
       if (this.$i18n.locale === 'en') this.changeCountry('Brazil')
@@ -463,9 +471,22 @@ svg path {
   width: 10.428rem;
   max-height: 13.5rem;
 }
-
 button,
 .cta {
-  margin: 1rem auto;
+  margin: 0 auto;
+}
+.cta-wrap {
+  margin: 0 auto 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: $bp-mobile) {
+  .cta-wrap {
+    .psAfter {
+      order: 1;
+      margin-top: 1rem;
+    }
+  }
 }
 </style>      

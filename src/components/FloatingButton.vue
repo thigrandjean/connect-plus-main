@@ -2,7 +2,7 @@
   <div
     class="wrapper"
     :class="{
-      isFloatingButtonWrapper: isFloatingButtonActive,
+      isFloatingButtonWrapper: !this.$store.state.isTestB || Scrolled,
       hasPassedScrollLimit: Scrolled,
     }"
   >
@@ -10,8 +10,8 @@
       class="floating-action-button"
       :class="{
         isFloatingButton: isFloatingButtonActive,
-        floatinActionButton01: !isTestB,
-        floatinActionButton02: isTestB,
+        floatinActionButton01: !this.$store.state.isTestB,
+        floatinActionButton02: this.$store.state.isTestB,
       }"
       id="floating-action-btn"
       :href="link"
@@ -27,7 +27,6 @@
 export default {
   data() {
     return {
-      isTestB: true,
       isFloatingButtonActive: true,
       Scrolled: false,
     }
@@ -38,17 +37,18 @@ export default {
   mounted() {
     window.vm = {}
     vm.FloatingButton = this
-    this.isTestB && this.setTestB()
+    this.$store.state.isTestB &&
+      window.addEventListener('scroll', this.handleScroll)
   },
-  computed: {
-    setTest: function () {
-      this.isTestB && this.setTestB()
-    },
-  },
+
+  // computed: {
+  //   setTest: function () {
+  //     this.isTestB && this.setTestB()
+  //   },
+  // },
   methods: {
     setTestB() {
-      this.isTestB = true
-      this.isFloatingButtonActive = false
+      this.$store.commit('turnOnTestB')
       window.addEventListener('scroll', this.handleScroll)
     },
     floatingButtonDisabled() {
@@ -57,7 +57,7 @@ export default {
     },
     floatingButtonEnabled() {
       this.isFloatingButtonActive = true
-      this.Scrolled = this.isTestB
+      this.Scrolled = true
     },
     handleScroll(e) {
       window.scrollY > 80
@@ -65,6 +65,13 @@ export default {
         : this.floatingButtonDisabled()
     },
   },
+  // watch: {
+  //   '$store.state.isTestB': function () {
+  //     !this.$store.state.isTestB
+  //       ? (this.isOnTestB = true)
+  //       : (this.isOnTestB = false)
+  //   },
+  // },
 }
 </script>
 
@@ -79,14 +86,14 @@ export default {
   margin-top: -1rem;
   @media (min-width: $bp-mobile) {
     position: fixed;
-    bottom: 2.142rem;
+    bottom: 0.642rem;
     right: 1.142rem;
   }
   @media (max-width: $bp-mobile) {
     &.isFloatingButtonWrapper,
     .hasPassedScrollLimit {
       position: fixed;
-      bottom: 1.142rem;
+      bottom: 0.642rem;
       right: 1.142rem;
     }
     &.hasPassedScrollLimit {
@@ -121,6 +128,7 @@ export default {
   padding: 0 1.285rem;
   transition: background 0.3s ease-in-out;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  margin-bottom: 0.5rem;
   &:hover {
     background: #3b475c;
   }
