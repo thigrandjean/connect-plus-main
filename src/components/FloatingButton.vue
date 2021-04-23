@@ -1,8 +1,9 @@
 <template>
   <div
+    v-if="$store.state.testVersion != 'default'"
     class="wrapper"
     :class="{
-      isFloatingButtonWrapper: !this.$store.state.isTestB || Scrolled,
+      isFloatingButtonWrapper: $store.state.testVersion === 'testA' || Scrolled,
       hasPassedScrollLimit: Scrolled,
     }"
   >
@@ -10,8 +11,8 @@
       class="floating-action-button"
       :class="{
         isFloatingButton: isFloatingButtonActive,
-        floatinActionButton01: !this.$store.state.isTestB,
-        floatinActionButton02: this.$store.state.isTestB,
+        floatinActionButton01: this.$store.state.testVersion === 'testA',
+        floatinActionButton02: this.$store.state.testVersion === 'testB',
       }"
       id="floating-action-btn"
       :href="link"
@@ -37,7 +38,7 @@ export default {
   mounted() {
     window.vm = {}
     vm.FloatingButton = this
-    this.$store.state.isTestB &&
+    this.$store.state.testVersion === 'testB' &&
       window.addEventListener('scroll', this.handleScroll)
   },
 
@@ -47,6 +48,9 @@ export default {
   //   },
   // },
   methods: {
+    setTestA() {
+      this.$store.commit('turnOnTestA')
+    },
     setTestB() {
       this.$store.commit('turnOnTestB')
       window.addEventListener('scroll', this.handleScroll)

@@ -27,6 +27,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   appOptions.store = new Vuex.Store({
     state: {
+      testVersion: 'default',// 'default', 'testA', 'testB'
       isTestB: true,
       currentLang: 'en',
       currentLangFlag: 'uk',
@@ -222,8 +223,11 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
     },
     mutations: {
+      turnOnTestA(state) {
+        state.testVersion = 'testA'
+      },
       turnOnTestB(state) {
-        state.isTestB = true
+        state.testVersion = 'testB'
       }
     },
     actions: {

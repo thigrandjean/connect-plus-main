@@ -109,7 +109,10 @@
       </div>
 
       <div class="cta-wrap">
-        <p class="ps" :class="{ psAfter: !$store.state.isTestB }">
+        <p
+          class="ps"
+          :class="{ psAfter: $store.state.testVersion === 'testA' }"
+        >
           {{ $t('hero.conversor.ps') }}
         </p>
 
@@ -119,14 +122,15 @@
       </div>
     </form>
 
-    <!-- <a
+    <a
       id="cta-money-transfer"
+      v-if="$store.state.testVersion === 'default'"
       class="cta cta-sec"
       target="_blank"
       rel="noopener"
       :href="$t('hero.conversor.link_cta_02')"
       >{{ $t('hero.conversor.cta_02') }}</a
-    > -->
+    >
   </div>
 </template>
 
@@ -480,6 +484,9 @@ button,
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+#cta-money-transfer {
+  margin-bottom: 1rem;
 }
 @media (max-width: $bp-mobile) {
   .cta-wrap {
