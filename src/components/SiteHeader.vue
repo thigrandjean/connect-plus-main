@@ -53,8 +53,13 @@
         <LangSelect />
       </div>
 
-      <nav class="header-menu" :class="{ menuon: menuOpen }">
-        <ul class="menu" v-click-outside="closeMenu">
+      <nav
+        class="header-menu"
+        :class="{ menuon: menuOpen }"
+        ref="menuoverlay"
+        @click="overlayClick"
+      >
+        <ul class="menu">
           <li class="close-menu-wrap">
             <a
               id="close-menu"
@@ -186,7 +191,7 @@ import LogoHorizontal from '@/components/LogoHorizontal.vue'
 import SocialIcons from '@/components/SocialIcons.vue'
 import LangSelect from '@/components/LangSelect.vue'
 import { mapState } from 'vuex'
-import ClickOutside from 'vue-click-outside'
+// import ClickOutside from 'vue-click-outside'
 
 export default {
   data() {
@@ -198,16 +203,19 @@ export default {
   components: { LogoHorizontal, SocialIcons, LangSelect },
 
   methods: {
+    overlayClick(e) {
+      e.target === this.$refs.menuoverlay ? this.closeMenu() : null
+    },
     openMenu() {
-      this.menuOpen = true
+      !this.menuOpen ? (this.menuOpen = true) : null
     },
     closeMenu() {
-      this.menuOpen = false
+      this.menuOpen ? (this.menuOpen = false) : null
     },
   },
-  directives: {
-    ClickOutside,
-  },
+  // directives: {
+  //   ClickOutside,
+  // },
 }
 </script>
 
