@@ -110,6 +110,11 @@
             "cta": "Invia informazioni"
         }
     },
+    "ourlocations": {
+        "title": "Our Locations",
+        "description": "Find the agency closest to you",
+        "cta": "See here where you can find us"
+    },
     "locations": {
         "title": "Le nostre sedi",
         "infos": {

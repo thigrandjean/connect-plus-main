@@ -46,6 +46,9 @@ h2 {
 }
 .cta-banner-locations {
   height: 2.285rem;
+  width: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
   @media (min-width: $bp-mobile) {
     height: 2.857rem;
   }
