@@ -1,28 +1,39 @@
 <template>
   <section class="hero">
-    <div class="hero-image">
-      <g-image
+    <div class="hero-wrap">
+      <div class="hero-description">
+        <h2>{{ $t('hero.banner.title') }}</h2>
+        <p>{{ $t('hero.banner.text') }}</p>
+        <p class="msg">{{ $t('hero.banner.msg') }}</p>
+        <!-- <g-image
         src="~/assets/images/page-banner-calculator.png"
         alt="Banner Calculator"
         width="790"
         height="551"
-      />
-    </div>
+      /> -->
+      </div>
 
-    <div class="hero-conversor">
-      <div class="hero-conversor-wrap">
-        <h1>{{ $t('hero.title') }}</h1>
-        <conversor />
+      <div class="hero-conversor">
+        <div class="hero-conversor-wrap">
+          <floating-button :link="$t('hero.conversor.link_cta_02')">
+            {{ $t('hero.conversor.cta_02') }}
+          </floating-button>
+
+          <h1>{{ $t('hero.title') }}</h1>
+
+          <conversor />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import Conversor from '../components/Conversor.vue'
+import Conversor from './Conversor.vue'
+import FloatingButton from './FloatingButton.vue'
 
 export default {
-  components: { Conversor },
+  components: { Conversor, FloatingButton },
 }
 </script>
 
@@ -46,9 +57,7 @@ h1 {
   grid-template-columns: 1fr;
   background: $cinza-claro-bg;
   box-sizing: border-box;
-  .hero-image {
-    display: none;
-  }
+
   .hero-conversor {
     padding: 2rem 2rem 0.5rem 2rem;
     margin-right: 0;
@@ -56,37 +65,67 @@ h1 {
     max-width: 100vw;
   }
 }
-
+.hero-description {
+  display: none;
+}
 @media (min-width: $bp-mobile) {
   h1 {
     margin-top: 0;
     font-size: 2.571rem;
   }
-  .hero {
-    padding-top: 2.714rem;
-    padding-bottom: 3rem;
-    grid-template-columns: auto 1fr;
-    gap: 4rem;
-    .hero-image {
-      display: block;
-      max-width: 56.428rem;
-      display: flex;
-      align-items: flex-start;
-      img {
-        max-width: 100%;
-        /* width: 100%;
-                object-fit: scale-down;
-                min-width: 100%; */
-      }
+  .hero-wrap {
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 3rem;
+    box-sizing: border-box;
+    h2 {
+      margin: 0;
+      font-size: 3.428rem;
+      color: white;
     }
-    .hero-conversor {
-      padding: 1rem 2rem;
-      margin-right: 3rem;
-      display: flex;
-      justify-content: center;
-      .hero-conversor-wrap {
-        max-width: 30rem;
-      }
+    p {
+      font-size: 1.571rem;
+      line-height: 136.8%;
+    }
+    p.msg {
+      text-align: right;
+    }
+  }
+
+  .hero {
+    padding-top: 1.571rem;
+    padding-bottom: 1.571rem;
+    /* grid-template-columns: auto 1fr; */
+    /* gap: 4rem; */
+    justify-content: flex-end;
+    display: flex;
+    background: url('../assets/images/bg-hero-home.jpg');
+    background-size: cover;
+    background-position: center center;
+  }
+  .hero-description {
+    padding: 2rem 7.785rem 5rem 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+  }
+  .hero-conversor {
+    padding: 1rem 2rem;
+    /* margin-right: 3rem; */
+    display: flex;
+    justify-content: center;
+    background: #f0f0f0;
+    max-width: 30.642;
+    border-radius: 10px;
+    box-sizing: border-box;
+    .hero-conversor-wrap {
+      /* max-width: 30.64rem; */
     }
   }
 }
