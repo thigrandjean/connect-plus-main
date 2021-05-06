@@ -27,7 +27,8 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   appOptions.store = new Vuex.Store({
     state: {
-      testVersion: 'default',// 'default', 'testA', 'testB', 'testC', 'testD'
+      testCtaVersion: 'default',// 'default', 'testA', 'testB', 'testC', 'testD'
+      testBannerVersion: 'default',// 'default', 'testA', 'testB'
       isTestB: true,
       currentLang: 'en',
       currentLangFlag: 'uk',
@@ -223,14 +224,11 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
     },
     mutations: {
-      turnOnTestA(state) {
-        state.testVersion = 'testA'
+      setCtaTest(state, test) {
+        state.testCtaVersion = test
       },
-      turnOnTestB(state) {
-        state.testVersion = 'testB'
-      },
-      setTest(state, test) {
-        state.testVersion = test
+      setBannerTest(state, test) {
+        state.testBannerVersion = test
       }
     },
     actions: {

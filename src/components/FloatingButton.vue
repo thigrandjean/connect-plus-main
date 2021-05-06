@@ -49,10 +49,11 @@ export default {
   // },
   methods: {
     setTestA() {
-      this.$store.commit('turnOnTestA')
+      this.$store.commit('setCtaTest', 'testA')
     },
     setTestB() {
-      this.$store.commit('turnOnTestB')
+      // this.$store.commit('turnOnTestB')
+      this.$store.commit('setCtaTest', 'testB')
       window.addEventListener('scroll', this.handleScroll)
     },
     floatingButtonDisabled() {
