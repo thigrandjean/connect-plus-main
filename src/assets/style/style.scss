@@ -13,44 +13,56 @@ ul {
     padding: 0;
     margin: 0;
 }
+
 h2 {
     color: $headings;
 }
+
 p {
     font-weight: 300;
 }
+
 .page-content {
     line-height: 1.3;
+
     p {
         text-align: justify;
     }
+
     h2 {
         font-size: 1.5rem;
         font-weight: 300;
     }
+
     h3 {
         font-size: 1.285rem;
     }
-    ul{
+
+    ul {
         li {
-          &::before {
-              content: '- ';
-          }
+            &::before {
+                content: '- ';
+            }
         }
-      }
-    &.page-content-terms{
+    }
+
+    &.page-content-terms {
         h2 {
             text-align: center;
         }
+
         h3 {
             font-weight: 300;
         }
+
         h4 {
             font-weight: 800;
         }
+
         ol {
             margin: 0;
             padding: 0 1rem;
+
             li {
                 margin: 0;
                 padding: 0;
@@ -62,6 +74,7 @@ p {
 h2 {
     font-weight: normal;
     font-size: 1.5rem;
+
     @media (min-width: $bp-mobile) {
         font-size: 2.142rem;
     }
@@ -70,12 +83,14 @@ h2 {
 a {
     color: $main-grey;
     text-decoration: none;
-    &:hover{
+
+    &:hover {
         color: $headings;
     }
 }
 
-input, textarea {
+input,
+textarea {
     background: #FFFFFF;
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
@@ -91,11 +106,13 @@ input, textarea {
     align-items: center;
     position: relative;
 }
+
 textarea {
     max-width: 100%;
     min-width: 100%;
     width: 100%;
 }
+
 input {
     height: 2.85rem;
 }
@@ -116,39 +133,45 @@ input {
     font-size: 1.142rem;
     font-weight: 400;
 }
+
 .cta-main {
     background: $main-gold;
     color: white;
     border-color: transparent;
-    &:hover{
+
+    &:hover {
         background: white;
         color: $main-gold;
         cursor: pointer;
     }
 }
+
 .cta-sec {
     background: none;
     color: $main-gold;
     border-color: $main-gold;
-    &:hover{
+
+    &:hover {
         background: white;
         color: $main-blue;
         border-color: $main-blue;
         cursor: pointer;
     }
 }
+
 .cta-third {
     background: $sec-blue-03;
     color: white;
     border-color: transparent;
-    &:hover{
+
+    &:hover {
         background: white;
         color: $sec-blue-03;
         cursor: pointer;
     }
 }
 
-.image-wrap{
+.image-wrap {
     position: absolute;
     top: 0;
     right: 0;
@@ -157,7 +180,7 @@ input {
     z-index: 1;
     display: flex;
     align-items: center;
-    
+
     img {
         min-width: 100%;
         min-height: 100%;
@@ -176,21 +199,25 @@ input {
 
     .page-content {
         font-size: 1.285rem;
+
         h2 {
             font-size: 2.142rem;
         }
-        ul{
+
+        ul {
             li {
-              &::before {
-                  content: '- ';
-              }
+                &::before {
+                    content: '- ';
+                }
             }
-          }
-        &.page-content-terms{
+        }
+
+        &.page-content-terms {
             h2 {
                 text-align: center;
                 font-size: 2.571rem;
             }
+
             h3 {
                 font-size: 2.142rem;
             }
