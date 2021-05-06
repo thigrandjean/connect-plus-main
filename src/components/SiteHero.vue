@@ -5,23 +5,27 @@
         <h2>{{ $t('hero.banner.title') }}</h2>
         <p>{{ $t('hero.banner.text') }}</p>
         <p class="msg">{{ $t('hero.banner.msg') }}</p>
-        <!-- <g-image
-        src="~/assets/images/page-banner-calculator.png"
-        alt="Banner Calculator"
-        width="790"
-        height="551"
-      /> -->
       </div>
 
       <div class="hero-conversor">
         <div class="hero-conversor-wrap">
-          <floating-button :link="$t('hero.conversor.link_cta_02')">
+          <floating-button
+            v-if="showFloatingButton"
+            :btnType="floatBtnType"
+            :link="$t('hero.conversor.link_cta_02')"
+          >
             {{ $t('hero.conversor.cta_02') }}
           </floating-button>
 
           <h1>{{ $t('hero.title') }}</h1>
 
-          <conversor />
+          <conversor
+            :showMsgAfter="conversorShowMsgAfter"
+            :showSecondaryButton="conversorShowSecondaryButton"
+            :secondarybuttonColor="conversorSecondarybuttonColor"
+            :autoCalc="conversorAutoCalc"
+            :ctaAsLink="conversorCtaAsLink"
+          />
         </div>
       </div>
     </div>
@@ -33,7 +37,88 @@ import Conversor from './Conversor.vue'
 import FloatingButton from './FloatingButton.vue'
 
 export default {
+  data() {
+    return {
+      floatBtnType: 'default',
+      showFloatingButton: false,
+      conversorShowMsgAfter: false,
+      conversorShowSecondaryButton: true,
+      conversorAutoCalc: false,
+      conversorCtaAsLink: false,
+      conversorSecondarybuttonColor: 'default', // default (gold), blue
+    }
+  },
   components: { Conversor, FloatingButton },
+  mounted() {
+    window.vm = {}
+    vm.SiteHero = this
+    if (this.$store.state.testCtaVersion === 'testA') {
+      this.apllyTestA()
+    }
+    if (this.$store.state.testCtaVersion === 'testB') {
+      this.apllyTestB()
+    }
+    if (this.$store.state.testCtaVersion === 'testC') {
+      this.apllyTestC()
+    }
+    if (this.$store.state.testCtaVersion === 'testD') {
+      this.apllyTestD()
+    }
+  },
+  methods: {
+    apllyTestA() {
+      this.floatBtnType = 'default'
+      this.showFloatingButton = true
+      this.conversorShowSecondaryButton = false
+      this.conversorSecondarybuttonColor = 'default'
+      this.conversorShowMsgAfter = true
+      this.conversorAutoCalc = false
+      this.conversorCtaAsLink = false
+    },
+    apllyTestB() {
+      this.floatBtnType = 'top'
+      this.showFloatingButton = true
+      this.conversorShowSecondaryButton = false
+      this.conversorSecondarybuttonColor = 'default'
+      this.conversorShowMsgAfter = false
+      this.conversorAutoCalc = false
+      this.conversorCtaAsLink = false
+    },
+    apllyTestC() {
+      this.floatBtnType = 'default'
+      this.showFloatingButton = false
+      this.conversorShowSecondaryButton = false
+      this.conversorSecondarybuttonColor = 'default'
+      this.conversorShowMsgAfter = false
+      this.conversorAutoCalc = true
+      this.conversorCtaAsLink = true
+    },
+    apllyTestD() {
+      this.floatBtnType = 'default'
+      this.showFloatingButton = false
+      this.conversorShowSecondaryButton = true
+      this.conversorSecondarybuttonColor = 'blue'
+      this.conversorShowMsgAfter = false
+      this.conversorAutoCalc = false
+      this.conversorCtaAsLink = false
+    },
+    setCtaTestA() {
+      this.$store.commit('setCtaTest', 'testA')
+      this.apllyTestA()
+    },
+    setCtaTestB() {
+      this.$store.commit('setCtaTest', 'testB')
+      this.apllyTestB()
+    },
+    setCtaTestC() {
+      this.$store.commit('setCtaTest', 'testC')
+      this.apllyTestC()
+    },
+    setCtaTestD() {
+      this.$store.commit('setCtaTest', 'testD')
+      this.apllyTestD()
+    },
+  },
 }
 </script>
 

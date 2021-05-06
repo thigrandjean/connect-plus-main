@@ -1,9 +1,8 @@
 <template>
   <div
-    v-if="$store.state.testVersion != 'default'"
     class="wrapper"
     :class="{
-      isFloatingButtonWrapper: $store.state.testVersion === 'testA' || Scrolled,
+      isFloatingButtonWrapper: btnType === 'default' || Scrolled,
       hasPassedScrollLimit: Scrolled,
     }"
   >
@@ -11,8 +10,8 @@
       class="floating-action-button"
       :class="{
         isFloatingButton: isFloatingButtonActive,
-        floatinActionButton01: this.$store.state.testVersion === 'testA',
-        floatinActionButton02: this.$store.state.testVersion === 'testB',
+        floatinActionButton01: btnType === 'default',
+        floatinActionButton02: btnType === 'top',
       }"
       id="floating-action-btn"
       :href="link"
@@ -34,28 +33,13 @@ export default {
   },
   props: {
     link: String,
+    btnType: { type: String, default: 'fixed' }, // fixed, top
   },
   mounted() {
-    window.vm = {}
-    vm.FloatingButton = this
-    this.$store.state.testVersion === 'testB' &&
+    this.btnType === 'top' &&
       window.addEventListener('scroll', this.handleScroll)
   },
-
-  // computed: {
-  //   setTest: function () {
-  //     this.isTestB && this.setTestB()
-  //   },
-  // },
   methods: {
-    setTestA() {
-      this.$store.commit('setCtaTest', 'testA')
-    },
-    setTestB() {
-      // this.$store.commit('turnOnTestB')
-      this.$store.commit('setCtaTest', 'testB')
-      window.addEventListener('scroll', this.handleScroll)
-    },
     floatingButtonDisabled() {
       this.isFloatingButtonActive = false
       this.Scrolled = false
@@ -70,13 +54,14 @@ export default {
         : this.floatingButtonDisabled()
     },
   },
-  // watch: {
-  //   '$store.state.isTestB': function () {
-  //     !this.$store.state.isTestB
-  //       ? (this.isOnTestB = true)
-  //       : (this.isOnTestB = false)
-  //   },
-  // },
+  watch: {
+    btnType: {
+      immediate: true,
+      handler(newVal, oldVal) {
+        // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+      },
+    },
+  },
 }
 </script>
 

@@ -109,23 +109,36 @@
       </div>
 
       <div class="cta-wrap">
-        <p
-          class="ps"
-          :class="{ psAfter: $store.state.testVersion === 'testA' }"
-        >
+        <p class="ps" :class="{ psAfter: showMsgAfter }">
           {{ $t('hero.conversor.ps') }}
         </p>
 
-        <button id="cta-currency-exchange" class="cta cta-main">
+        <button
+          v-if="!ctaAsLink"
+          id="cta-currency-exchange"
+          class="cta cta-main"
+        >
           {{ $t('hero.conversor.cta_01') }}
         </button>
+
+        <a
+          v-if="ctaAsLink"
+          id="cta-currency-exchange-link"
+          class="cta cta-main"
+          target="_blank"
+          rel="noopener"
+          :href="$t('hero.conversor.link_cta_02')"
+        >
+          {{ $t('hero.conversor.cta_01') }}
+        </a>
       </div>
     </form>
 
     <a
       id="cta-money-transfer"
-      v-if="$store.state.testVersion === 'default'"
+      v-if="showSecondaryButton"
       class="cta cta-sec"
+      :class="`cta-${secondarybuttonColor}`"
       target="_blank"
       rel="noopener"
       :href="$t('hero.conversor.link_cta_02')"
@@ -143,10 +156,31 @@ import { Money } from 'v-money'
 import { mapState } from 'vuex'
 
 export default {
+  props: {
+    showSecondaryButton: {
+      type: Boolean,
+      default: true,
+    },
+    showMsgAfter: {
+      type: Boolean,
+      default: false,
+    },
+    autoCalc: {
+      type: Boolean,
+      default: false,
+    },
+    ctaAsLink: {
+      type: Boolean,
+      default: false,
+    },
+    secondarybuttonColor: {
+      type: String,
+      default: 'default',
+    },
+  },
   components: { Flags, Money, AllFlags },
   data() {
     return {
-      isTestB: false,
       moedaA: '',
       moedaB: 'BRL',
       moedaAVal: '0',
@@ -171,7 +205,6 @@ export default {
   },
   mounted() {
     this.changeCurrencyA(this.$t('currenciesfrom[0].code'))
-    this.isTestB = this.$store.state.testB
   },
   computed: mapState(['testB']),
   methods: {
@@ -299,9 +332,16 @@ export default {
   },
 
   watch: {
-    // moedaAVal: function() {
-    //   this.convert()
-    // }
+    moedaAVal: function () {
+      this.autoCalc && this.convert()
+    },
+
+    autoCalc: {
+      immediate: true,
+      handler(newVal, oldVal) {
+        console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+      },
+    },
 
     '$i18n.locale': function () {
       this.changeCurrencyA(this.$t('currenciesfrom[0].code'))
@@ -487,6 +527,15 @@ button,
 }
 #cta-money-transfer {
   margin-bottom: 1rem;
+}
+.cta-blue {
+  border-color: $sec-blue-02;
+  background: $sec-blue-02;
+  color: white;
+  &:hover {
+    background: white;
+    color: $sec-blue-02;
+  }
 }
 @media (max-width: $bp-mobile) {
   .cta-wrap {
