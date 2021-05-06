@@ -339,7 +339,7 @@ export default {
     autoCalc: {
       immediate: true,
       handler(newVal, oldVal) {
-        console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+        // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
       },
     },
 
