@@ -73,18 +73,18 @@ export default {
   justify-content: flex-end;
   position: relative;
   z-index: $layerTop;
-  margin-top: -1rem;
+  margin: 1rem 1rem 0 0;
   @media (min-width: $bp-mobile) {
     position: fixed;
     bottom: 0.642rem;
-    right: 1.142rem;
+    right: 0;
   }
   @media (max-width: $bp-mobile) {
     &.isFloatingButtonWrapper,
     .hasPassedScrollLimit {
       position: fixed;
       bottom: 0.642rem;
-      right: 1.142rem;
+      right: 0;
     }
     &.hasPassedScrollLimit {
       @media (max-width: $bp-mobile) {
