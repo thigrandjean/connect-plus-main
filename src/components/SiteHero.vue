@@ -17,15 +17,42 @@
             {{ $t('hero.conversor.cta_02') }}
           </floating-button>
 
-          <h1>{{ $t('hero.title') }}</h1>
+          <div class="conversor-banner" :class="{ bgBanner: bannerWithBg }">
+            <h1>
+              <span
+                :class="{ hideOnMobile: showMiniBanner }"
+                class="conversor-title-desktop"
+                >{{ $t('hero.title') }}</span
+              >
+              <span
+                v-if="showMiniBanner"
+                :class="{ showOnMobile: showMiniBanner }"
+                class="conversor-title-mobile"
+                >{{ $t('hero.banner.title') }}</span
+              >
+            </h1>
+            <h2
+              v-if="showMiniBanner"
+              class="conversor-subtitle-mobile"
+              :class="{ showOnMobile: showMiniBanner }"
+            >
+              {{ $t('hero.banner.msg') }}
+            </h2>
+          </div>
 
-          <conversor
-            :showMsgAfter="conversorShowMsgAfter"
-            :showSecondaryButton="conversorShowSecondaryButton"
-            :secondarybuttonColor="conversorSecondarybuttonColor"
-            :autoCalc="conversorAutoCalc"
-            :ctaAsLink="conversorCtaAsLink"
-          />
+          <h2 v-if="showBoxTitle" class="conversor-box-title">
+            {{ $t('hero.title') }}
+          </h2>
+
+          <div class="form-wrapper">
+            <conversor
+              :showMsgAfter="conversorShowMsgAfter"
+              :showSecondaryButton="conversorShowSecondaryButton"
+              :secondarybuttonColor="conversorSecondarybuttonColor"
+              :autoCalc="conversorAutoCalc"
+              :ctaAsLink="conversorCtaAsLink"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -46,12 +73,16 @@ export default {
       conversorAutoCalc: false,
       conversorCtaAsLink: false,
       conversorSecondarybuttonColor: 'default', // default (gold), blue
+      showMiniBanner: false,
+      bannerWithBg: false,
+      showBoxTitle: false,
     }
   },
   components: { Conversor, FloatingButton },
   mounted() {
     window.vm = {}
     vm.SiteHero = this
+    // CTA TEST
     if (this.$store.state.testCtaVersion === 'testA') {
       this.apllyTestA()
     }
@@ -63,6 +94,13 @@ export default {
     }
     if (this.$store.state.testCtaVersion === 'testD') {
       this.apllyTestD()
+    }
+    // BANNER TEST
+    if (this.$store.state.testBannerVersion === 'testA') {
+      this.apllyBannerTestA()
+    }
+    if (this.$store.state.testBannerVersion === 'testB') {
+      this.apllyBannerTestB()
     }
   },
   methods: {
@@ -102,6 +140,17 @@ export default {
       this.conversorAutoCalc = false
       this.conversorCtaAsLink = false
     },
+    /// APPLY BANNER TEST
+    apllyBannerTestA() {
+      this.showMiniBanner = true
+      this.bannerWithBg = false
+      this.showBoxTitle = false
+    },
+    apllyBannerTestB() {
+      this.showMiniBanner = true
+      this.bannerWithBg = true
+      this.showBoxTitle = true
+    },
     setCtaTestA() {
       this.$store.commit('setCtaTest', 'testA')
       this.apllyTestA()
@@ -118,6 +167,15 @@ export default {
       this.$store.commit('setCtaTest', 'testD')
       this.apllyTestD()
     },
+    /// SET BANNER TEST
+    setBannerTestA() {
+      this.$store.commit('setBannerTest', 'testA')
+      this.apllyBannerTestA()
+    },
+    setBannerTestB() {
+      this.$store.commit('setBannerTest', 'testB')
+      this.apllyBannerTestB()
+    },
   },
 }
 </script>
@@ -126,13 +184,20 @@ export default {
 @import '@/assets/style/vars.scss';
 //  1440 - 873 - 567
 
-h1 {
+h1,
+.conversor-box-title {
   font-family: JT Marnie;
   font-style: normal;
   font-weight: 400;
   font-size: 1.714rem;
   margin-bottom: 2rem;
   color: $headings;
+}
+.conversor-box-title {
+  padding: 1rem 2rem 0.5rem 2rem;
+  @media (min-width: $bp-mobile) {
+    display: none;
+  }
 }
 .hero {
   padding-top: 0;
@@ -144,15 +209,73 @@ h1 {
   box-sizing: border-box;
 
   .hero-conversor {
-    padding: 2rem 2rem 0.5rem 2rem;
+    /* padding: 2rem 2rem 0.5rem 2rem; */
+    padding: 0;
     margin-right: 0;
     box-sizing: border-box;
     max-width: 100vw;
+  }
+  .form-wrapper {
+    padding: 0 2rem 0.5rem 2rem;
+  }
+  .conversor-banner {
+    padding: 2rem 2rem 1rem 2rem;
+    .conversor-title-mobile,
+    .conversor-subtitle-mobile {
+      text-align: center;
+      font-weight: 300;
+    }
+    .conversor-subtitle-mobile {
+      font-size: 1.142rem;
+      margin-top: 1.42rem;
+    }
+    h1,
+    h2 {
+      margin: 0;
+    }
+    &.bgBanner {
+      background: $main-blue;
+      background-image: url('~@/assets/images/bg-hero-home.jpg');
+      background-size: cover;
+      background-position: center center;
+      height: 8.714rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0;
+      box-sizing: border-box;
+      .conversor-title-mobile,
+      .conversor-subtitle-mobile {
+        color: white;
+      }
+      .conversor-title-mobile {
+        font-size: 1.571rem;
+      }
+      @media (min-width: $bp-mobile) {
+        background: none;
+        padding: 2rem 2rem 1rem 2rem;
+      }
+    }
   }
 }
 .hero-description {
   display: none;
 }
+
+.hideOnMobile {
+  display: none;
+  @media (min-width: $bp-mobile) {
+    display: block;
+  }
+}
+.showOnMobile {
+  display: block;
+  @media (min-width: $bp-mobile) {
+    display: none;
+  }
+}
+
 @media (min-width: $bp-mobile) {
   h1 {
     margin-top: 0;
