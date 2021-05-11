@@ -111,6 +111,7 @@
                 <a
                   id="link-menu-send-money"
                   target="_blank"
+                  @click="dataLayerPushExtLink"
                   rel="noopener"
                   :href="$t('menu.link_send_money')"
                 >
@@ -138,6 +139,7 @@
                 <a
                   id="link-menu-track-money"
                   target="_blank"
+                  @click="dataLayerPushExtLink"
                   rel="noopener"
                   :href="$t('menu.link_track_money')"
                 >
@@ -211,6 +213,16 @@ export default {
     },
     closeMenu() {
       this.menuOpen ? (this.menuOpen = false) : null
+    },
+    dataLayerPushExtLink() {
+      console.log('EXT LINK')
+      window.dataLayer = window.dataLayer || []
+      dataLayer.push({
+        event: 'generic',
+        category: 'funil',
+        action: 'step_1',
+        label: 'clique_cta',
+      })
     },
   },
   // directives: {

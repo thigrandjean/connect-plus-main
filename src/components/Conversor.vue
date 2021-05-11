@@ -141,6 +141,7 @@
       :class="`cta-${secondarybuttonColor}`"
       target="_blank"
       rel="noopener"
+      @click="dataLayerPushExtLink"
       :href="$t('hero.conversor.link_cta_02')"
       >{{ $t('hero.conversor.cta_02') }}</a
     >
@@ -328,6 +329,16 @@ export default {
       this.currentSimbolB = selectedB.symbol
 
       this.convert()
+    },
+    dataLayerPushExtLink() {
+      console.log('EXT LINK')
+      window.dataLayer = window.dataLayer || []
+      dataLayer.push({
+        event: 'generic',
+        category: 'funil',
+        action: 'step_1',
+        label: 'clique_cta',
+      })
     },
   },
 
