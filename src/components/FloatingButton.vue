@@ -14,6 +14,7 @@
         floatinActionButton02: btnType === 'top',
       }"
       id="floating-action-btn"
+      @click="dataLayerPushExtLink"
       :href="link"
       target="_blank"
       rel="noopener"
@@ -52,6 +53,15 @@ export default {
       window.scrollY > 80
         ? this.floatingButtonEnabled()
         : this.floatingButtonDisabled()
+    },
+    dataLayerPushExtLink() {
+      window.dataLayer = window.dataLayer || []
+      dataLayer.push({
+        event: 'generic',
+        category: 'funil',
+        action: 'step_1',
+        label: 'clique_cta',
+      })
     },
   },
   watch: {

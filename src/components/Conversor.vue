@@ -331,7 +331,6 @@ export default {
       this.convert()
     },
     dataLayerPushExtLink() {
-      console.log('EXT LINK')
       window.dataLayer = window.dataLayer || []
       dataLayer.push({
         event: 'generic',

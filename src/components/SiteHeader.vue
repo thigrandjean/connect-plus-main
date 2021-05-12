@@ -215,7 +215,6 @@ export default {
       this.menuOpen ? (this.menuOpen = false) : null
     },
     dataLayerPushExtLink() {
-      console.log('EXT LINK')
       window.dataLayer = window.dataLayer || []
       dataLayer.push({
         event: 'generic',
