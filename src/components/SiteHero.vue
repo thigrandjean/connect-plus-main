@@ -219,7 +219,7 @@ h1,
     padding: 0 2rem 0.5rem 2rem;
   }
   .conversor-banner {
-    padding: 2rem 2rem 1rem 2rem;
+    padding: 2rem 0rem 1rem 0rem;
     .conversor-title-mobile,
     .conversor-subtitle-mobile {
       text-align: center;
