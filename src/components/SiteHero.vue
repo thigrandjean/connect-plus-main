@@ -26,7 +26,9 @@
               >
               <span
                 v-if="showMiniBanner"
-                :class="{ showOnMobile: showMiniBanner }"
+                :class="{
+                  showOnMobile: showMiniBanner,
+                }"
                 class="conversor-title-mobile"
                 >{{ $t('hero.banner.title') }}</span
               >
@@ -40,7 +42,7 @@
             </h2>
           </div>
 
-          <h2 v-if="showBoxTitle" class="conversor-box-title">
+          <h2 v-if="showBoxTitle" class="conversor-box-title hasPadding">
             {{ $t('hero.title') }}
           </h2>
 
@@ -288,7 +290,12 @@ h1,
     display: none;
   }
 }
-
+.hasPadding {
+  padding: 0 2rem;
+  @media (min-width: $bp-mobile) {
+    padding: 0;
+  }
+}
 @media (min-width: $bp-mobile) {
   h1 {
     margin-top: 0;
