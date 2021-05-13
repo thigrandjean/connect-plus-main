@@ -21,7 +21,7 @@
             <h1>
               <span
                 :class="{ hideOnMobile: showMiniBanner }"
-                class="conversor-title-desktop"
+                class="conversor-title-mobile-main"
                 >{{ $t('hero.title') }}</span
               >
               <span
@@ -193,8 +193,18 @@ h1,
   margin-bottom: 2rem;
   color: $headings;
 }
+.conversor-title-mobile {
+  padding: 0;
+  margin: 0;
+}
+.conversor-title-mobile-main {
+  padding: 0 2rem 0 2rem;
+  display: flex;
+  @media (min-width: $bp-mobile) {
+    padding: 0;
+  }
+}
 .conversor-box-title {
-  padding: 1rem 2rem 0.5rem 2rem;
   @media (min-width: $bp-mobile) {
     display: none;
   }
@@ -219,7 +229,10 @@ h1,
     padding: 0 2rem 0.5rem 2rem;
   }
   .conversor-banner {
-    padding: 2rem 0rem 1rem 0rem;
+    padding: 2rem 0 1rem 0;
+    @media (min-width: $bp-mobile) {
+      padding: 2rem 2rem 1rem 2rem;
+    }
     .conversor-title-mobile,
     .conversor-subtitle-mobile {
       text-align: center;

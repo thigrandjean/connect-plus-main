@@ -28,7 +28,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   appOptions.store = new Vuex.Store({
     state: {
       testCtaVersion: 'default',// 'default', 'testA', 'testB', 'testC', 'testD'
-      testBannerVersion: 'testA',// 'default', 'testA', 'testB'
+      testBannerVersion: 'default',// 'default', 'testA', 'testB'
       isTestB: true,
       currentLang: 'en',
       currentLangFlag: 'uk',
