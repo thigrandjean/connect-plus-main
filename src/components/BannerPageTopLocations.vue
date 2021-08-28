@@ -1,9 +1,7 @@
 <template>
   <div class="pages-banner">
-    <div id="search-our-locations">asdasdasd</div>
-
     <h1>{{ $t('ourlocations.title') }}</h1>
-    <h2>{{ $t('ourlocations.description') }}</h2>
+    <h2>{{ $t('ourlocations.description') }}!!!</h2>
 
     <div class="image-wrap">
       <g-image
@@ -22,7 +20,7 @@ $header-desk-h: 6.785rem;
 $header-menu-desk-h: 4.642rem; */
 
 .pages-banner {
-  height: 10.5rem;
+  height: 7.142rem;
   flex-direction: column;
   display: flex;
   justify-content: center;
@@ -33,6 +31,9 @@ $header-menu-desk-h: 4.642rem; */
   /* overflow: hidden; */
   @media (min-width: $bp-mobile) {
     height: 16.785rem;
+  }
+  .image-wrap {
+    overflow: hidden;
   }
   #search-our-locations {
     position: absolute;

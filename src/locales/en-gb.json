@@ -112,19 +112,20 @@
         }
     },
     "ourlocations": {
-        "title": "Our Locations",
+        "title": "Our locations",
         "description": "Find the agency closest to you",
         "cta": "See here where you can find us"
     },
     "locations": {
         "title": "Our locations",
         "infos": {
-            "address": "Address",
+            "address": "Adress",
             "telephone": "Telephone"
         },
+        "officesTitle": "Our Offices",
         "places": [{
                 "name": "United Kingdom",
-                "subTitle": "London HQ",
+                "subTitle": "London Headquarters",
                 "address": "40 Hanway Street",
                 "address2": "W1T 1US",
                 "address3": "London",
@@ -142,7 +143,7 @@
                 "distance": 2
             },
             {
-                "name": "Italy",
+                "name": "",
                 "subTitle": "Milan",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milan, Italy",
                 "telephone": "+39 06 9209 7109",
@@ -156,14 +157,6 @@
                 "telephone": "+34 603 42 27 03",
                 "latLng": [41.385347071427034, 2.1616914852496705],
                 "distance": 4
-            },
-            {
-                "name": "São Paulo",
-                "subTitle": "São Paulo",
-                "address": "Avenida Paulista, 1000",
-                "telephone": "+11 5555-5555",
-                "latLng": [-23.564735535943775, -46.651894686318684],
-                "distance": 5
             }
 
         ]

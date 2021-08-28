@@ -111,9 +111,9 @@
         }
     },
     "ourlocations": {
-        "title": "Our Locations",
-        "description": "Find the agency closest to you",
-        "cta": "See here where you can find us"
+        "title": "Le nostre sedi",
+        "description": "Trova l'agenzia più vicina a te",
+        "cta": "Guarda qui dove puoi trovarci"
     },
     "locations": {
         "title": "Le nostre sedi",
@@ -121,9 +121,10 @@
             "address": "Indirizzo",
             "telephone": "Telefono"
         },
+        "officesTitle": "I nostri uffici",
         "places": [{
                 "name": "Italy",
-                "subTitle": "Milan HQ",
+                "subTitle": "Sede di Milano",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milano, Italia",
                 "telephone": "+39 06 9209 7109"
             },
@@ -134,12 +135,18 @@
                 "telephone": "+39 06 9209 7109"
             },
             {
-                "name": "UK",
+                "name": "Regno Unito",
                 "subTitle": "Londres",
                 "address": "40 Hanway Street",
                 "address2": "W1T 1US",
                 "address3": "Londres",
                 "telephone": "+ 44 (0) 207 8361170"
+            },
+            {
+                "name": "Spagna",
+                "subTitle": "Barcelona",
+                "address": "Muntaner 20, 08011, Barcelona, Spain",
+                "telephone": "+34 603 42 27 03"
             }
         ]
     },

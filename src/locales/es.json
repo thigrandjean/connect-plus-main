@@ -113,8 +113,8 @@
     },
     "ourlocations": {
         "title": "Nuestras ubicaciones",
-        "description": "Find the agency closest to you",
-        "cta": "See here where you can find us"
+        "description": "Encuentra la agencia más cercana a ti",
+        "cta": "Mira aquí donde puedes encontrarnos"
     },
     "locations": {
         "title": "Nuestras ubicaciones",
@@ -122,9 +122,10 @@
             "address": "Dirección",
             "telephone": "Teléfono"
         },
+        "officesTitle": "Nuestras oficinas",
         "places": [{
                 "name": "Reino Unido",
-                "subTitle": "Londres HQ",
+                "subTitle": "Londres Headquarters",
                 "address": "Hanway Street 40",
                 "address2": "W1T 1US",
                 "address3": "Londres",
