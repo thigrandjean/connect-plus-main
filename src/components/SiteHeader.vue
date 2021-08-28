@@ -178,6 +178,11 @@
             }}</g-link>
           </li>
           <li class="menu-item">
+            <g-link id="link-menu-our-locations" :to="$tp('/locations')">{{
+              $t('menu.locations')
+            }}</g-link>
+          </li>
+          <li class="menu-item">
             <div class="header-menu-social-icons">
               <SocialIcons place="header-mobile" />
             </div>
@@ -397,7 +402,8 @@ header {
       border-top: 1px solid #2d3345;
 
       .menu {
-        max-width: $max-w * 0.825;
+        /* max-width: $max-w * 0.825; */
+        max-width: $max-w;
         margin: 0;
         width: 100%;
         height: $header-menu-desk-h;
