@@ -2,7 +2,7 @@
   "name": "connect",
   "private": true,
   "scripts": {
-    "build": "gridsome build && cp -r dist/* /Applications/MAMP/htdocs/connect.test",
+    "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore"
   },
