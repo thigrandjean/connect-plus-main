@@ -37,6 +37,7 @@ export default {
   margin-bottom: 0;
   box-sizing: border-box;
   padding: 0 2rem;
+  overflow: hidden;
   @media (min-width: $bp-mobile) {
     height: 12.857rem;
   }
