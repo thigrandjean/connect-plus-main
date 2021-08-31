@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <BannerPageTopLocations />
-    <SearchLocations />
+    <SearchLocations height="158" />
   </Layout>
 </template>
 

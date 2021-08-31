@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <h2 class="banner-title">{{ $t('ourlocations.description') }}</h2>
+    <h2 class="banner-title">{{ $t('ourlocations.title') }}</h2>
     <g-link
       id="banner-our-location-cta"
       class="cta cta-main cta-banner-locations"
@@ -37,6 +37,7 @@ export default {
   margin-bottom: 0;
   box-sizing: border-box;
   padding: 0 2rem;
+  overflow: hidden;
   @media (min-width: $bp-mobile) {
     height: 12.857rem;
   }
@@ -56,6 +57,10 @@ h2 {
 }
 .cta-banner-locations {
   height: 2.285rem;
+  width: unset;
+  max-width: unset;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   @media (min-width: $bp-mobile) {
     height: 2.857rem;
   }

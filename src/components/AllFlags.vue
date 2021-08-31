@@ -622,7 +622,8 @@ export default {
 .ua {
   background-position: center 43.6819%;
 }
-.gb {
+.gb,
+.uk {
   background-position: center 43.9036%;
 }
 .va {

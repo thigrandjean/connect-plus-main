@@ -13,10 +13,14 @@
       hide="true"
     />
 
-    <!-- <Separator /> -->
-    <BannerPageTopLocations />
-    <SearchLocations />
+    <div class="separatorwrapmobile">
+      <div class="separator-contact"></div>
+    </div>
+
+    <Separator />
+    <our-offices />
     <!-- <Locations /> -->
+    <banner-locations-contact-page link="/locations" />
   </Layout>
 </template>
 
@@ -25,8 +29,8 @@ import BannersPageFooter from '@/components/BannersPageFooter.vue'
 import ContactUs from '@/components/ContactUs.vue'
 import Separator from '@/components/Separator.vue'
 import Locations from '@/components/Locations.vue'
-import BannerPageTopLocations from '@/components/BannerPageTopLocations.vue'
-import SearchLocations from '../../components/SearchLocations.vue'
+import OurOffices from '../../components/OurOffices.vue'
+import BannerLocationsContactPage from '../../components/BannerLocationsContactPage.vue'
 
 export default {
   components: {
@@ -34,8 +38,8 @@ export default {
     ContactUs,
     Separator,
     Locations,
-    BannerPageTopLocations,
-    SearchLocations,
+    OurOffices,
+    BannerLocationsContactPage,
   },
 
   metaInfo() {
@@ -92,6 +96,23 @@ export default {
   p {
     text-align: justify;
   }
+}
+.separatorwrapmobile {
+  margin-top: -2.5rem;
+  padding: 0 2rem;
+  @media (min-width: $bp-mobile) {
+    display: none;
+  }
+}
+.separator-contact {
+  display: block;
+  /* width: calc(100vw - 6rem); */
+  width: 100%;
+  height: 1.071rem;
+  background: $main-gold;
+  margin: 1rem 0 1rem 0;
+  border-radius: 5rem;
+  box-sizing: border-box;
 }
 
 @media (min-width: $bp-mobile) {

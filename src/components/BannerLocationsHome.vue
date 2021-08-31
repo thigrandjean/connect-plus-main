@@ -1,10 +1,10 @@
 <template>
   <div class="banner">
-    <h2 class="banner-title">{{ $t('ourlocations.description') }}</h2>
+    <h2 class="banner-title">{{ $t('ourlocations.title') }}</h2>
     <g-link
       id="banner-our-location-cta"
       class="cta cta-main cta-banner-locations"
-      :to="$tp('/contact/#search-our-locations')"
+      :to="$tp('/locations')"
       >{{ $t('ourlocations.cta') }}</g-link
     >
     <div class="img-wrap">
@@ -49,6 +49,7 @@ h2 {
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  text-align: center;
   @media (min-width: $bp-mobile) {
     height: 2.857rem;
   }

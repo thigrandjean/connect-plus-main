@@ -497,7 +497,7 @@ export default {
   background: $main-gold;
   position: relative;
   @media (min-width: 361px) {
-    height: 21rem;
+    height: 11.285rem;
   }
 }
 .tooltip-title {
