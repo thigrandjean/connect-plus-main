@@ -133,6 +133,12 @@
                 "telephone": "+ 44 (0) 207 8361170"
             },
             {
+                "name": "España",
+                "subTitle": "Barcelona",
+                "address": "Muntaner 20, 08011, Barcelona, España",
+                "telephone": "+34 603 42 27 03"
+            },
+            {
                 "name": "Italia",
                 "subTitle": "Roma",
                 "address": "Via Cernaia 17, 00185, Roma, Italia",
@@ -143,12 +149,6 @@
                 "subTitle": "Milán",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milán, Italia",
                 "telephone": "+39 06 9209 7109"
-            },
-            {
-                "name": "España",
-                "subTitle": "Barcelona",
-                "address": "Muntaner 20, 08011, Barcelona, España",
-                "telephone": "+34 603 42 27 03"
             }
         ]
     },
