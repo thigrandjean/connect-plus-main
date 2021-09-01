@@ -296,6 +296,9 @@ header {
     justify-content: flex-end;
   }
   .header-menu-social-icons {
+    /* margin-top: 2rem; */
+    position: absolute;
+    bottom: 1.5rem;
     display: block;
   }
   .header-menu {
@@ -322,7 +325,7 @@ header {
       justify-content: center;
       box-sizing: border-box;
       li.menu-item {
-        margin: 1.5rem 0rem 1.5rem 0;
+        margin: 1rem 0rem;
         display: block;
       }
       li.menu-item-submenu {
@@ -334,7 +337,7 @@ header {
         }
       }
       li.sub-menu-item {
-        margin: 1.5rem 0 1.5rem 0;
+        margin: 1rem 0;
         display: block;
         a {
           span {

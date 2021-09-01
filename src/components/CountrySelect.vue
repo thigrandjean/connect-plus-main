@@ -32,8 +32,12 @@
         :id="`country-select-${country}`"
         @click.prevent="selectCountry(country)"
         href="#"
-        >{{ country.name }}</a
       >
+        <div class="flag">
+          <flags :country="country.code" />
+        </div>
+        {{ country.name }}
+      </a>
     </div>
   </div>
 </template>
@@ -130,9 +134,10 @@ export default {
       color: white;
       text-decoration: none;
       padding: 1rem;
-      width: 10rem;
+      width: 12rem;
       font-size: 1.142rem;
-
+      display: flex;
+      align-items: center;
       &:hover {
         background: white;
         color: $sec-blue-01;

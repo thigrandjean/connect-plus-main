@@ -137,19 +137,19 @@
             },
             {
                 "name": "Italy",
-                "subTitle": "Rome",
-                "address": "Via Cernaia 17, 00185, Rome, Italy",
-                "telephone": "+39 06 9209 7109",
-                "latLng": [41.905873946421146, 12.499214983409987],
-                "distance": 2
-            },
-            {
-                "name": "",
                 "subTitle": "Milan",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milan, Italy",
                 "telephone": "+39 06 9209 7109",
                 "latLng": [45.4928264018771, 9.216239383476823],
                 "distance": 3
+            },
+            {
+                "name": "",
+                "subTitle": "Rome",
+                "address": "Via Cernaia 17, 00185, Rome, Italy",
+                "telephone": "+39 06 9209 7109",
+                "latLng": [41.905873946421146, 12.499214983409987],
+                "distance": 2
             },
             {
                 "name": "Spain",

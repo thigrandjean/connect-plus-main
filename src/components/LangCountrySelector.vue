@@ -179,11 +179,12 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 3.751rem 2rem;
+  padding: 2rem 2rem 6rem 2rem;
 }
 .selector-logo {
   width: 10.714rem;
@@ -213,7 +214,7 @@ export default {
   line-height: 24px;
 }
 .selector-box {
-  margin: 2rem 0;
+  margin: 1.75rem 0;
   padding: 2rem;
   background: #fafbff;
   box-shadow: 0px 5px 10px rgba(61, 69, 92, 0.25);
@@ -287,7 +288,7 @@ export default {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 5px 5px;
   z-index: $layerTop;
-  max-height: 19rem;
+  max-height: 10rem;
   overflow-y: scroll;
 
   a {
