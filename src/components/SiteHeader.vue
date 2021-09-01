@@ -42,7 +42,7 @@
         <g-link
           id="logo-header"
           aria-label="Home page Connect Plus"
-          :to="$tp('/')"
+          :to="$tp('/home')"
           class="header-logo-item"
         >
           <logo-horizontal />
@@ -50,6 +50,9 @@
       </div>
 
       <div class="header-lang-select header-item">
+        <div class="hideOnMobile">
+          <CountrySelect listAlign="right" />
+        </div>
         <LangSelect />
       </div>
 
@@ -60,6 +63,9 @@
         @click="overlayClick"
       >
         <ul class="menu">
+          <div class="country-selector hideOnDesktop">
+            <CountrySelect listAlign="left" />
+          </div>
           <li class="close-menu-wrap">
             <a
               id="close-menu"
@@ -85,7 +91,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <g-link id="link-menu-home" :to="$tp('/')">{{
+            <g-link id="link-menu-home" :to="$tp('/home')">{{
               $t('menu.home')
             }}</g-link>
           </li>
@@ -197,6 +203,7 @@
 import LogoHorizontal from '@/components/LogoHorizontal.vue'
 import SocialIcons from '@/components/SocialIcons.vue'
 import LangSelect from '@/components/LangSelect.vue'
+import CountrySelect from '@/components/CountrySelect.vue'
 import { mapState } from 'vuex'
 // import ClickOutside from 'vue-click-outside'
 
@@ -207,7 +214,7 @@ export default {
     }
   },
 
-  components: { LogoHorizontal, SocialIcons, LangSelect },
+  components: { LogoHorizontal, SocialIcons, LangSelect, CountrySelect },
 
   methods: {
     overlayClick(e) {
@@ -237,7 +244,22 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/style/vars.scss';
-
+.hideOnMobile {
+  display: none;
+  @media (min-width: $bp-mobile) {
+    display: flex;
+  }
+}
+.hideOnDesktop {
+  display: flex;
+  @media (min-width: $bp-mobile) {
+    display: none;
+  }
+}
+.country-selector {
+  position: absolute;
+  top: 1rem;
+}
 header {
   width: 100%;
   display: flex;

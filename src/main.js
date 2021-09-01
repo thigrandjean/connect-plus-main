@@ -32,6 +32,13 @@ export default function (Vue, { router, head, isClient, appOptions }) {
       isTestB: true,
       currentLang: 'en',
       currentLangFlag: 'uk',
+      currentCurrency: "GBP",
+      currentCountry: "United Kingdom",
+      currentCountryFlag: 'uk',
+      countriesToSelect: [
+        { name: 'United Kingdom', code: 'uk', currency: 'GBP' },
+        { name: 'Italy', code: 'it', currency: 'EUR' },
+      ],
       bannerAbout: {
         headline: 'Learn more about our company',
         cta: 'See more about us',
@@ -223,13 +230,26 @@ export default function (Vue, { router, head, isClient, appOptions }) {
       loading: false
 
     },
+    getters: {
+      currentCurrency: state => state.currentCurrency,
+    },
+  
     mutations: {
       setCtaTest(state, test) {
         state.testCtaVersion = test
       },
       setBannerTest(state, test) {
         state.testBannerVersion = test
-      }
+      },
+      setCurrentCurrency(state, newCurrency) {
+        state.currentCurrency = newCurrency
+      },
+      setCurrentCountry(state, newCountry) {
+        state.currentCountry = newCountry
+      },
+      setCurrentCountryFlag(state, newFlag) {
+        state.currentCountryFlag = newFlag
+      },
     },
     actions: {
 

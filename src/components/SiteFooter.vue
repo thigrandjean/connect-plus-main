@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="logo">
-      <g-link :to="$tp('/')">
+      <g-link :to="$tp('/home')">
         <g-image
           id="logo-footer"
           src="~/assets/images/logo0-footer.png"

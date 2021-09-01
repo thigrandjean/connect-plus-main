@@ -188,7 +188,7 @@ export default {
       moedaBVal: '0',
       currentCountry: 'Brazil',
       curentFlag: 'br',
-      currentSimbolA: '€',
+      currentSimbolA: '£',
       currentSimbolB: 'R$',
       isCountryListOpen: false,
       isCurrencyListOpenA: false,
@@ -205,9 +205,11 @@ export default {
     }
   },
   mounted() {
-    this.changeCurrencyA(this.$t('currenciesfrom[0].code'))
+    // this.changeCurrencyA(this.$t('currenciesfrom[0].code'))
+    this.changeCurrencyA(this.$store.state.currentCurrency)
   },
-  computed: mapState(['testB']),
+  // computed: mapState(['testB']),
+  computed: mapState(['currentCurrency']),
   methods: {
     convertFromWP(code) {
       // pega o valor digitado
@@ -342,6 +344,9 @@ export default {
   },
 
   watch: {
+    currentCurrency: function () {
+      this.changeCurrencyA(this.$store.state.currentCurrency)
+    },
     moedaAVal: function () {
       this.autoCalc && this.convert()
     },
@@ -354,7 +359,7 @@ export default {
     },
 
     '$i18n.locale': function () {
-      this.changeCurrencyA(this.$t('currenciesfrom[0].code'))
+      // this.changeCurrencyA(this.$t('currenciesfrom[0].code'))
       if (this.$i18n.locale === 'en') this.changeCountry('Brazil')
       if (this.$i18n.locale === 'it') this.changeCountry('Brasile')
       if (this.$i18n.locale === 'es') this.changeCountry('Brasil')

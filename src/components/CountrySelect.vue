@@ -1,15 +1,15 @@
 <template>
-  <div class="lang-select" id="lang-select" v-click-outside="hide">
-    <!-- <div class="flag">
-      <flags :country="currentLocale" />
-    </div> -->
+  <div class="country-select" id="country-select" v-click-outside="hide">
+    <div class="flag">
+      <flags :country="$store.state.currentCountryFlag" />
+    </div>
     <a
-      class="current-lang"
+      class="current-country"
       @click.prevent="openLangSelect"
       href="#"
       id="lang-select"
     >
-      <span>{{ currentLocale }}</span>
+      <span>{{ $store.state.currentCountry }}</span>
       <svg
         width="12"
         height="7"
@@ -20,15 +20,19 @@
         <path d="M1 1L6 6L11 1" stroke-linejoin="round" />
       </svg>
     </a>
-    <div class="lang-select-list" v-if="langOpen">
+    <div
+      class="country-select-list"
+      :class="{ listOnLeft: listAlign == 'left' }"
+      v-if="countriesOpen"
+    >
       <a
-        class="lang-item"
-        v-for="locale in availableLocales"
-        :key="locale"
-        :id="`lang-select-${locale}`"
-        @click.prevent="selectLang(locale)"
+        class="country-item"
+        v-for="country in $store.state.countriesToSelect"
+        :key="country.code"
+        :id="`country-select-${country}`"
+        @click.prevent="selectCountry(country)"
         href="#"
-        >{{ langName(locale) }}</a
+        >{{ country.name }}</a
       >
     </div>
   </div>
@@ -40,14 +44,12 @@ import { mapState } from 'vuex'
 import Flags from '@/components/Flags.vue'
 
 export default {
+  props: ['listAlign'],
   components: { Flags },
 
   data() {
     return {
-      langOpen: false,
-      flag: 'uk',
-      currentLocale: this.$i18n.locale.toString(),
-      availableLocales: this.$i18n.availableLocales,
+      countriesOpen: false,
     }
   },
   created() {
@@ -58,28 +60,21 @@ export default {
     // this.currentLocale = this.$i18n.fallbackLocale
   },
   methods: {
-    langName(lang) {
-      return this.$store.state.languages.find((obj) => obj.code === lang).name
+    countryName(country) {
+      return this.$store.state.countries.find((obj) => obj.name === country)
+        .name
     },
-    selectLang(lang) {
+    selectCountry(country) {
       this.hide()
-      if (this.$i18n.locale === lang) return
-
-      this.flag = lang
-      this.$i18n.locale = lang
-      this.currentLocale = this.$i18n.locale
-      this.$router.push({
-        path: this.$tp(this.$route.path, this.currentLocale, true),
-      })
-
-      this.$store.state.currentLang = this.$i18n.locale
-      this.$store.state.currentLangFlag = this.$i18n.locale
+      this.$store.commit('setCurrentCountry', country.name)
+      this.$store.commit('setCurrentCountryFlag', country.code)
+      this.$store.commit('setCurrentCurrency', country.currency)
     },
     openLangSelect() {
-      this.langOpen = !this.langOpen
+      this.countriesOpen = !this.countriesOpen
     },
     hide() {
-      this.langOpen = false
+      this.countriesOpen = false
     },
   },
 
@@ -92,11 +87,13 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/style/vars.scss';
 
-.lang-select {
+.country-select {
   display: flex;
   align-items: center;
   position: relative;
   z-index: 100;
+  margin-right: 1rem;
+
   .flag {
     width: 1.75rem;
     // height: 0.928rem;
@@ -106,10 +103,10 @@ export default {
       width: 100%;
     }
   }
-  .current-lang {
+  .current-country {
     color: $main-gold;
     text-decoration: none;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     span {
       margin-right: 0.5rem;
     }
@@ -118,7 +115,7 @@ export default {
     }
   }
 
-  .lang-select-list {
+  .country-select-list {
     top: 2rem;
     right: 0;
 
@@ -129,7 +126,7 @@ export default {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 0px 0px 5px 5px;
     z-index: $layerTop;
-    .lang-item {
+    .country-item {
       color: white;
       text-decoration: none;
       padding: 1rem;
@@ -140,6 +137,10 @@ export default {
         background: white;
         color: $sec-blue-01;
       }
+    }
+    &.listOnLeft {
+      right: unset;
+      left: 0;
     }
   }
 }

@@ -25,9 +25,9 @@
       >
         <div class="current-country">
           <div class="flag">
-            <all-flags :country="curentFlag" />
+            <all-flags :country="$store.state.currentCountryFlag" />
           </div>
-          {{ currentCountry }}
+          {{ $store.state.currentCountry }}
         </div>
         <svg
           width="12"
@@ -43,9 +43,9 @@
             class="country-item"
             href="#"
             :id="`country-selector-set-${country.code}`"
-            v-for="country in countries"
+            v-for="country in $store.state.countriesToSelect"
             :key="country.name"
-            @click.prevent="changeCountry(country.name)"
+            @click.prevent="changeCurrency(country.name)"
           >
             <div class="flag">
               <all-flags :country="country.code" />
@@ -89,7 +89,7 @@
       <a
         id="cta-currency-exchange-link"
         class="cta cta-third"
-        :href="`/${currentLocale}`"
+        :href="`/${currentLocale}/home/`"
       >
         Save options and go
       </a>
@@ -110,19 +110,16 @@ export default {
 
   data() {
     return {
-      currentCountry: 'United Kingdom',
-      curentFlag: 'gb',
+      // currentCountry: '',
+      // curentCountryFlag: '',
       isCountryListOpen: false,
-      countries: [
-        { name: 'United Kingdom', code: 'uk' },
-        { name: 'Italy', code: 'it' },
-      ],
       langOpen: false,
       flag: 'uk',
       currentLocale: this.$i18n.locale.toString(),
       availableLocales: this.$i18n.availableLocales,
     }
   },
+  mounted() {},
   methods: {
     openCountryList() {
       this.isCountryListOpen = !this.isCountryListOpen
@@ -153,19 +150,14 @@ export default {
     hide() {
       this.langOpen = false
     },
-    changeCountry(country) {
-      let selected = this.countries.find((obj) => obj.name === country)
-      this.currentCountry = selected.name
-      this.currenciesSelectedCountry = selected.currency
-      this.moedaB = this.currenciesSelectedCountry[0]
-
-      let symbolChosen = this.$store.state.allcurrencies.find(
-        (obj) => obj.code === this.moedaB
+    changeCurrency(country) {
+      let selected = this.$store.state.countriesToSelect.find(
+        (obj) => obj.name === country
       )
-      this.currentSimbolB = symbolChosen.symbol
 
-      this.curentFlag = selected.code
-      this.convert()
+      this.$store.commit('setCurrentCountry', selected.name)
+      this.$store.commit('setCurrentCountryFlag', selected.code)
+      this.$store.commit('setCurrentCurrency', selected.currency)
     },
   },
   directives: {
@@ -197,6 +189,9 @@ export default {
   width: 10.714rem;
   img {
     width: 100%;
+  }
+  @media (min-width: $bp-sm-desk) {
+    width: 12rem;
   }
   @media (min-width: $bp-mobile) {
     width: 17.857rem;
@@ -313,5 +308,9 @@ export default {
     display: flex;
     align-items: center;
   }
+}
+
+.cta-third:hover {
+  border: 2px solid $sec-blue-03;
 }
 </style>
