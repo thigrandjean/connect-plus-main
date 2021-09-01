@@ -191,10 +191,9 @@ export default {
     width: 100%;
   }
   @media (min-width: $bp-mobile) {
-    width: 17.857rem;
   }
-  @media (min-width: $bp-sm-desk) {
-    width: 10.5rem;
+  @media (min-width: 1281px) {
+    width: 17rem;
   }
 }
 .flags-icons {
