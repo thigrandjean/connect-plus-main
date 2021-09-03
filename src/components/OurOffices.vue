@@ -3,11 +3,7 @@
     <h2>{{ $t('locations.officesTitle') }}</h2>
 
     <div class="locations-list">
-      <div
-        class="locations-item"
-        v-for="place in $t('locations.places')"
-        :key="place.name"
-      >
+      <div class="locations-item" v-for="place in offices" :key="place.name">
         <h3>{{ place.name }}</h3>
         <strong>{{ place.subTitle }}</strong>
 
@@ -30,7 +26,30 @@
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  data() {
+    return {
+      offices: '',
+    }
+  },
+  mounted: function () {
+    this.changeAdresses()
+  },
+  computed: mapState(['currentCountry']),
+  methods: {
+    changeAdresses() {
+      this.currentCountry == 'United Kingdom'
+        ? (this.offices = this.$t('locations.places'))
+        : (this.offices = this.$t('locations.placesItalia'))
+    },
+  },
+  watch: {
+    currentCountry: function () {
+      this.changeAdresses()
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>

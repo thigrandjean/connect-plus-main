@@ -45,9 +45,7 @@ export default {
   metaInfo() {
     return {
       title: this.$t('contactus.title'),
-      meta: [
-        { name: 'description', content: this.$t('contactus.description') },
-      ],
+      meta: [{ name: 'description', content: this.$t('contactus.subtitle') }],
     }
   },
 }
