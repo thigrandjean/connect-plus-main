@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <h2 class="banner-title">{{ $t('ourlocations.title') }}</h2>
+    <h2 class="banner-title">{{ $t('ourlocations.description') }}</h2>
     <g-link
       id="banner-our-location-cta"
       class="cta cta-main cta-banner-locations"
