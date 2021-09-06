@@ -39,6 +39,8 @@ h2 {
   position: relative;
   font-size: 1.5rem;
   color: white;
+  text-align: center;
+  padding: 0 1rem;
   @media (min-width: $bp-mobile) {
     font-size: 2.142rem;
     margin-right: 5rem;
