@@ -1,7 +1,7 @@
 <template>
   <div class="pages-banner">
     <h1>{{ $t('ourlocations.title') }}</h1>
-    <h2>{{ $t('ourlocations.description') }}!!!</h2>
+    <h2>{{ $t('ourlocations.description') }}</h2>
 
     <div class="image-wrap">
       <g-image

@@ -35,7 +35,7 @@
     },
     "footer": {
         "copy": "© Connect Plus Ltd 2020. All rights Reserved",
-        "license": "Regulated by FCA reference number fca 570843"
+        "license": "Regulated by the Financial Conduct Authority (FCA) under Reference Number 570843."
     },
     "features": {
         "title": "Moving money fast, cheap and safe",
@@ -106,15 +106,15 @@
         },
         "fields": {
             "name": "Name",
-            "email": "E-mail",
+            "email": "Email",
             "subject": "Subject",
             "message": "Message",
-            "cta": "Send Information"
+            "cta": "Send"
         }
     },
     "ourlocations": {
         "title": "Our locations",
-        "description": "Find the agency closest to you",
+        "description": "Find the closest agency to you",
         "cta": "See here where you can find us"
     },
     "locations": {
@@ -204,11 +204,11 @@
         "brands": [{
                 "name": "Financial Conduct Authority (FCA)",
                 "logo": "",
-                "nologo": "REGULATED BY FCA REFERENCE NUMBER FCA 570843",
-                "description": "Connect Plus Ltd is authorised by the Financial Conduct Authority, under the Payment Services Regulations, 2009, for the provision of payment services. FCA Registration No. (FRN 570843)."
+                "nologo": "REGULATED BY THE FINANCIAL CONDUCT AUTHORITY (FCA) UNDER REFERENCE NUMBER 570843.",
+                "description": "Connect Plus Business Ltd is authorised by the Financial Conduct Authority (FCA), under the Payment Services Regulations 2009, for the provision of payment services. FCA Registration Number (FRN 570843)."
             },
             {
-                "name": "Information Comissioners Office (ICO)",
+                "name": "Information Commissioner's Office (ICO)",
                 "logo": "ico.jpg",
                 "description": "Connect Plus is registered as a data controller with the Information Commissioner’s Office. The ICO is the UK’s independent authority set up to uphold information rights."
             }

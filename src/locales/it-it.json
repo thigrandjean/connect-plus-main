@@ -35,7 +35,7 @@
     },
     "footer": {
         "copy": "© Connect Plus Ltd 2020. All rights Reserved",
-        "license": "Autorizzazione Banca D'Italia 36885.2"
+        "license": "Regolamentata dal Financial Conduct Authority (FCA) con il numero di riferimento 570843."
     },
     "features": {
         "title": "Inviare denaro in modo rapido, economico e sicuro",
@@ -184,7 +184,7 @@
         "brands": [{
             "name": "",
             "logo": "",
-            "nologo": "Autorizzazione Banca D'Italia 36885.2",
+            "nologo": "REGOLAMENTATA DAL FINANCIAL CONDUCT AUTHORITY (FCA) CON IL NUMERO DI RIFERIMENTO 570843.",
             "description": "."
         }]
     },

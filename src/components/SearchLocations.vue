@@ -10,7 +10,7 @@
           @input="onSearch"
           class="search-input"
           type="search"
-          placeholder="Enter a zip code or a address"
+          placeholder="Enter a zip code or an address"
         />
         <div :class="{ focused: isSearcFocused }" class="search-button">
           <svg

@@ -48,6 +48,9 @@ export default {
     currentCountry: function () {
       this.changeAdresses()
     },
+    '$i18n.locale': function () {
+      this.changeAdresses()
+    },
   },
 }
 </script>
