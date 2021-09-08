@@ -126,7 +126,7 @@
         "officesTitle": "Nuestras oficinas",
         "places": [{
                 "name": "Reino Unido",
-                "subTitle": "Londres Headquarters",
+                "subTitle": "Oficina Central de Londres",
                 "address": "Hanway Street 40",
                 "address2": "W1T 1US",
                 "address3": "Londres",
@@ -134,7 +134,7 @@
             },
             {
                 "name": "Italia",
-                "subTitle": "Milán",
+                "subTitle": "Oficina Central de Milán",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milán, Italia",
                 "telephone": "+39 06 9209 7109"
             },
@@ -143,17 +143,11 @@
                 "subTitle": "Roma",
                 "address": "Via Cernaia 17, 00185, Roma, Italia",
                 "telephone": "+39 06 9209 7109"
-            },
-            {
-                "name": "España",
-                "subTitle": "Barcelona",
-                "address": "Muntaner 20, 08011, Barcelona, España",
-                "telephone": "+34 603 42 27 03"
             }
         ],
         "placesItalia": [{
                 "name": "Italia",
-                "subTitle": "Milán",
+                "subTitle": "Oficina Central de Milán",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milán, Italia",
                 "telephone": "+39 06 9209 7109"
             },
@@ -165,17 +159,11 @@
             },
             {
                 "name": "Reino Unido",
-                "subTitle": "Londres Headquarters",
+                "subTitle": "Oficina Central de Londres",
                 "address": "Hanway Street 40",
                 "address2": "W1T 1US",
                 "address3": "Londres",
                 "telephone": "+ 44 (0) 207 8361170"
-            },
-            {
-                "name": "España",
-                "subTitle": "Barcelona",
-                "address": "Muntaner 20, 08011, Barcelona, España",
-                "telephone": "+34 603 42 27 03"
             }
         ]
     },
