@@ -133,13 +133,13 @@
             },
             {
                 "name": "Italia",
-                "subTitle": "Sede Centrale di Milano",
+                "subTitle": "Milano",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milano, Italia",
                 "telephone": "+39 06 9209 7109"
             },
             {
                 "name": "",
-                "subTitle": "Roma Filiale",
+                "subTitle": "Roma",
                 "address": "Via Cernaia 17, 00185, Roma, Italia",
                 "telephone": "+39 06 9209 7109"
             }
@@ -158,7 +158,7 @@
             },
             {
                 "name": "Regno Unito",
-                "subTitle": "Sede Centrale di Londra",
+                "subTitle": "Londra",
                 "address": "40 Hanway Street",
                 "address2": "W1T 1US",
                 "address3": "Londres",

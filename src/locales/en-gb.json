@@ -137,7 +137,7 @@
             },
             {
                 "name": "Italy",
-                "subTitle": "Milan Headquarters",
+                "subTitle": "Milan",
                 "address": "Via Giulio e Corrado Venini 71, 20127, Milan, Italy",
                 "telephone": "+39 06 9209 7109",
                 "latLng": [45.4928264018771, 9.216239383476823],
@@ -171,7 +171,7 @@
             },
             {
                 "name": "United Kingdom",
-                "subTitle": "London Headquarters",
+                "subTitle": "London",
                 "address": "40 Hanway Street",
                 "address2": "W1T 1US",
                 "address3": "London",
