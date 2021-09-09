@@ -424,11 +424,17 @@ export default {
   border: none;
   outline: none;
   color: #757575;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.1s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  cursor: pointer;
+  &:hover {
+    color: #353c50;
+  }
+  &:active {
+    color: #e9e9e9;
+  }
   &.focused {
     color: #353c50;
   }
