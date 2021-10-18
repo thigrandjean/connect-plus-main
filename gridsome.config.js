@@ -6,7 +6,7 @@
 
 module.exports = {
   siteName: 'Connect Plus',
-  // siteUrl: 'https://cpmoneytransfer.com/',
+  siteUrl: 'https://cpmoneytransfer.com/',
   plugins: [
     // {
     //   use: 'gridsome-plugin-bundle-analyzer',
@@ -45,6 +45,9 @@ module.exports = {
         rewriteDefaultLanguage: true, // rewrite default locale, default: true
         messages: {}
       }
+    },
+    {
+      use: '@gridsome/plugin-sitemap',
     }
   ],
   transformers: {
