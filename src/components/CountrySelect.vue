@@ -73,6 +73,7 @@ export default {
       this.$store.commit('setCurrentCountry', country.name)
       this.$store.commit('setCurrentCountryFlag', country.code)
       this.$store.commit('setCurrentCurrency', country.currency)
+      this.$store.commit('setCurrentLink', country.link)
     },
     openLangSelect() {
       this.countriesOpen = !this.countriesOpen

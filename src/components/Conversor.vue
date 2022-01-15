@@ -142,7 +142,7 @@
       target="_blank"
       rel="noopener"
       @click="dataLayerPushExtLink"
-      :href="$t('hero.conversor.link_cta_02')"
+      :href="$store.state.currentLink"
       >{{ $t('hero.conversor.cta_02') }}</a
     >
   </div>

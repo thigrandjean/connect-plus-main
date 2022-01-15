@@ -158,6 +158,7 @@ export default {
       this.$store.commit('setCurrentCountry', selected.name)
       this.$store.commit('setCurrentCountryFlag', selected.code)
       this.$store.commit('setCurrentCurrency', selected.currency)
+      this.$store.commit('setCurrentLink', selected.link)
     },
   },
   directives: {

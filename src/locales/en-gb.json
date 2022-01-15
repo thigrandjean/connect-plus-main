@@ -30,7 +30,9 @@
             "ps": "*This is an indicative rate, only when the transaction is made will the real rate appear",
             "cta_01": "Currency Exchange",
             "cta_02": "Money transfer",
-            "link_cta_02": "https://connectplus.remitone.com/orm/"
+            "link_cta_02": "https://connectplus.remitone.com/orm/",
+            "link_cta_UK": "https://connectplus.remitone.com/orm/",
+            "link_cta_IT": "https://girodirectoit.connect-plus.co.uk/login.aspx?ReturnUrl=%2f"
         }
     },
     "footer": {

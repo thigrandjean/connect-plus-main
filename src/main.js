@@ -27,7 +27,7 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   appOptions.store = new Vuex.Store({
     state: {
-      testCtaVersion: 'default',// 'default', 'testA', 'testB', 'testC', 'testD'
+            testCtaVersion: 'default',// 'default', 'testA', 'testB', 'testC', 'testD'
       testBannerVersion: 'testA',// 'default', 'testA', 'testB'
       isTestB: true,
       currentLang: 'en',
@@ -35,9 +35,11 @@ export default function (Vue, { router, head, isClient, appOptions }) {
       currentCurrency: "GBP",
       currentCountry: "United Kingdom",
       currentCountryFlag: 'uk',
+      currentLink: 'https://connectplus.remitone.com/orm/',
       countriesToSelect: [
-        { name: 'United Kingdom', code: 'uk', currency: 'GBP' },
-        { name: 'Italy', code: 'it', currency: 'EUR' },
+        { name: 'United Kingdom', code: 'uk', currency: 'GBP', link: "https://connectplus.remitone.com/orm/" },
+        { name: 'Italy', code: 'it', currency: 'EUR', link: "https://girodirectoit.connect-plus.co.uk/login.aspx?ReturnUrl=%2f"
+      },
       ],
       bannerAbout: {
         headline: 'Learn more about our company',
@@ -249,6 +251,9 @@ export default function (Vue, { router, head, isClient, appOptions }) {
       },
       setCurrentCountryFlag(state, newFlag) {
         state.currentCountryFlag = newFlag
+      },
+      setCurrentLink(state, newLink) {
+        state.currentLink = newLink
       },
     },
     actions: {
