@@ -37,7 +37,8 @@
     },
     "footer": {
         "copy": "© Connect Plus Ltd 2020. All rights Reserved",
-        "license": "Regulated by the Financial Conduct Authority (FCA) under Reference Number 570843."
+        "licenseUk": "Regulated by the Financial Conduct Authority (FCA) under Reference Number 570843.",
+        "licenseIt": "Regulated by the Financial Conduct Authority (FCA) under Reference Number 570843."
     },
     "features": {
         "title": "Moving money fast, cheap and safe",
@@ -192,11 +193,6 @@
                 "logo": "",
                 "nologo": "REGULATED BY THE FINANCIAL CONDUCT AUTHORITY (FCA) UNDER REFERENCE NUMBER 570843.",
                 "description": "Connect Plus Business Ltd is authorised by the Financial Conduct Authority (FCA), under the Payment Services Regulations 2009, for the provision of payment services. FCA Registration Number (FRN 570843)."
-            },
-            {
-                "name": "Information Commissioner's Office (ICO)",
-                "logo": "ico.jpg",
-                "description": "Connect Plus is registered as a data controller with the Information Commissioner’s Office. The ICO is the UK’s independent authority set up to uphold information rights."
             }
         ]
     },

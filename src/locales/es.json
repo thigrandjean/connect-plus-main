@@ -37,7 +37,8 @@
     },
     "footer": {
         "copy": "© Connect Plus Ltd 2020. All rights Reserved",
-        "license": "Regulado por la Financial Conduct Authority (FCA) bajo el número de referencia 570843."
+        "licenseUk": "Regulado por la Financial Conduct Authority (FCA) bajo el número de referencia 570843.",
+        "licenseIt": "Regulado por la Financial Conduct Authority (FCA) bajo el número de referencia 570843."
     },
     "features": {
         "title": "Mover dinero de forma rápida, barata y segura",

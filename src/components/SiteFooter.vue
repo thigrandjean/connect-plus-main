@@ -87,7 +87,7 @@
 
     <div class="copyright">
       <p>{{ $t('footer.copy') }}</p>
-      <p>{{ $t('footer.license') }}</p>
+      <p>{{ $t('footer.licenseUk') }}</p>
     </div>
   </footer>
 </template>
