@@ -30,7 +30,9 @@
           />
         </div>
         <div v-else class="brands-logo nologo">
-          <span>{{ brand.nologo }}</span>
+          <!-- <span>{{ brand.nologo }}</span> -->
+          <span v-if="$store.state.currentCountry == 'United Kingdom'" v-html="$store.state.regulators.en"></span>
+          <span v-if="$store.state.currentCountry == 'Italy'" v-html="$store.state.regulators.it"></span>
         </div>
       </div>
     </div>

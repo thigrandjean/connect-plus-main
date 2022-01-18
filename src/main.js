@@ -41,6 +41,10 @@ export default function (Vue, { router, head, isClient, appOptions }) {
         { name: 'Italy', code: 'it', currency: 'EUR', link: "https://girodirectoit.connect-plus.co.uk/login.aspx?ReturnUrl=%2f"
       },
       ],
+      regulators: {
+        en: "Regulated by the financial conduct authority (fca) under reference number 570843.",
+        it: "P.IVA 10830400965<br>Autorizzazione Banca D'Italia 36885.2"
+      },
       bannerAbout: {
         headline: 'Learn more about our company',
         cta: 'See more about us',

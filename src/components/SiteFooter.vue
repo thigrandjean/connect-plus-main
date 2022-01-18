@@ -87,7 +87,9 @@
 
     <div class="copyright">
       <p>{{ $t('footer.copy') }}</p>
-      <p>{{ $t('footer.licenseUk') }}</p>
+      <!-- <p>{{ $t('footer.licenseUk') }}</p> -->
+      <p><span v-if="$store.state.currentCountry == 'United Kingdom'" v-html="$store.state.regulators.en"></span>
+      <span v-if="$store.state.currentCountry == 'Italy'" v-html="$store.state.regulators.it"></span></p>
     </div>
   </footer>
 </template>
