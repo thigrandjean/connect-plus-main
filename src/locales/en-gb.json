@@ -141,9 +141,9 @@
             {
                 "name": "Italy",
                 "subTitle": "Milan",
-                "address": "Via Giulio e Corrado Venini 71, 20127, Milan, Italy",
+                "address": "Viale Abruzzi, 94, 20131 Milan, Italy",
                 "telephone": "+39 06 9209 7109",
-                "latLng": [45.4928264018771, 9.216239383476823],
+                "latLng": [45.485679248573014, 9.2182250293067],
                 "distance": 3
             },
             {
@@ -159,9 +159,9 @@
         "placesItalia": [{
                 "name": "Italy",
                 "subTitle": "Milan Headquarters",
-                "address": "Via Giulio e Corrado Venini 71, 20127, Milan, Italy",
+                "address": "Viale Abruzzi, 94, 20131 Milan, Italy",
                 "telephone": "+39 06 9209 7109",
-                "latLng": [45.4928264018771, 9.216239383476823],
+                "latLng": [45.485679248573014, 9.2182250293067],
                 "distance": 3
             },
             {

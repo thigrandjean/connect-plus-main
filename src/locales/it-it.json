@@ -136,9 +136,11 @@
             },
             {
                 "name": "Italia",
-                "subTitle": "Milano",
-                "address": "Via Giulio e Corrado Venini 71, 20127, Milano, Italia",
-                "telephone": "+39 06 9209 7109"
+                "subTitle": "Milano MI",
+                "address": "Viale Abruzzi, 94, 20131 Milano, Italia",
+                "telephone": "+39 06 9209 7109",
+                "latLng": [45.485679248573014, 9.2182250293067],
+                "distance": 3
             },
             {
                 "name": "",
@@ -150,7 +152,7 @@
         "placesItalia": [{
                 "name": "Italia",
                 "subTitle": "Sede Centrale di Milano",
-                "address": "Via Giulio e Corrado Venini 71, 20127, Milano, Italia",
+                "address": "Viale Abruzzi, 94, 20131 Milano, Italia",
                 "telephone": "+39 06 9209 7109"
             },
             {
