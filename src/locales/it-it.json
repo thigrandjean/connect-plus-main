@@ -14,6 +14,22 @@
         "contact": "Contatti",
         "locations": "Le nostre sedi",
         "terms": "Termini di utilizzo e informativa sulla privacy ",
+        "termsItaly": [
+            { 
+                "txt": "Termini di utilizzo e informativa sulla privacy (Italia)",
+                "link": "/terms/italy"
+            },
+            { 
+                "txt": "Termini di utilizzo e informativa sulla privacy (Spagna)",
+                "link": "/terms/spain"
+            }
+        ],
+        "termsUk": [
+            { 
+                "txt": "Termini di utilizzo e informativa sulla privacy",
+                "link": "/terms/uk"
+            }
+        ],
         "anti_money_laundering": "Anti Riciclaggio di Denaro"
     },
     "hero": {

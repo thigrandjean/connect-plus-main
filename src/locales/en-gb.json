@@ -14,6 +14,22 @@
         "contact": "Contact",
         "locations": "Our locations",
         "terms": "Terms of Use, Conditions and Privacy Policy",
+        "termsItaly": [
+            { 
+                "txt": "Terms of Use, Conditions and Privacy Policy (Iitaly)",
+                "link": "/terms/italy"
+            },
+            { 
+                "txt": "Terms of Use, Conditions and Privacy Policy (Spain)",
+                "link": "/terms/spain"
+            }
+        ],
+        "termsUk": [
+            { 
+                "txt": "Terms of Use, Conditions and Privacy Policy",
+                "link": "/terms/uk"
+            }
+        ],
         "anti_money_laundering": "Anti Money Laundering"
     },
     "hero": {

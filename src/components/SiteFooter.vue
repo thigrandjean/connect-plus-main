@@ -10,7 +10,7 @@
       </g-link>
     </div>
 
-    <nav class="menu">
+    <!-- <nav class="menu">
       <ul>
         <li class="menu-item menu-item-1">
           <a target="_blank" rel="noopener" :href="$t('menu.link_send_money')">
@@ -66,9 +66,9 @@
             $t('menu.contact')
           }}</g-link>
         </li>
-        <li class="menu-item menu-item-8">
+        <li class="menu-item menu-item-8" v-for="item in $t('menu.termsItaly')" :key="item.link">
           <g-link id="link-footer-terms" :to="$tp('/terms')">{{
-            $t('menu.terms')
+            item.txt
           }}</g-link>
         </li>
         <li class="menu-item menu-item-9">
@@ -79,7 +79,87 @@
           >
         </li>
       </ul>
-    </nav>
+    </nav> -->
+
+<nav class="menu">
+  <ul class="column">
+     <li class="menu-ite">
+          <a target="_blank" rel="noopener" :href="$t('menu.link_send_money')">
+            <span>{{ $t('menu.send_money') }}</span>
+            <svg
+              width="7"
+              height="12"
+              viewBox="0 0 7 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M1 11L6 6L1 1" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a
+            id="link-footer-send-money"
+            target="_blank"
+            rel="noopener"
+            :href="$t('menu.link_track_money')"
+          >
+            <span>{{ $t('menu.track_money') }}</span>
+            <svg
+              width="7"
+              height="12"
+              viewBox="0 0 7 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M1 11L6 6L1 1" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </li>
+  </ul>
+  <ul class="column">
+    <li class="menu-item">
+          <g-link id="link-footer-about" :to="$tp('/about')">{{
+            $t('menu.about_us')
+          }}</g-link>
+        </li>
+        <li class="menu-item">
+          <g-link id="link-footer-how-it-works" :to="$tp('/howitworks')">{{
+            $t('menu.how_it_works')
+          }}</g-link>
+        </li>
+        <li class="menu-item">
+          <g-link id="link-footer-work-with-us" :to="$tp('/workwithus')">{{
+            $t('menu.work_with_us')
+          }}</g-link>
+        </li>
+  </ul>
+  <ul class="column">
+            <li class="menu-item">
+          <g-link id="link-footer-contect" :to="$tp('/contact')">{{
+            $t('menu.contact')
+          }}</g-link>
+        </li>
+        <li v-if="$store.state.currentCountry == 'Italy'" class="menu-item">
+          <g-link v-for="item in $t('menu.termsItaly')" :key="item.link" class="link-footer-terms"  :to="item.link">{{
+            item.txt
+          }}</g-link>
+        </li>
+        <li v-if="$store.state.currentCountry == 'United Kingdom'" class="menu-item">
+          <g-link v-for="item in $t('menu.termsUk')" :key="item.link" class="link-footer-terms" :to="$tp(item.link)">
+            {{ item.txt }}</g-link>
+        </li>
+        <li class="menu-item">
+          <g-link
+            id="link-footer-about-anti-money-laundering"
+            :to="$tp('/antimoneylaundering')"
+            >{{ $t('menu.anti_money_laundering') }}</g-link
+          >
+        </li>
+  </ul>
+</nav>
+
+
 
     <div class="social">
       <SocialIcons place="footer" />
@@ -162,9 +242,9 @@ footer {
       justify-content: center;
     }
 
-    nav.menu {
-      grid-area: nav;
-    }
+    // nav.menu {
+    //   grid-area: nav;
+    // }
 
     .social {
       grid-area: icons;
@@ -176,47 +256,55 @@ footer {
       margin-top: 2rem;
       padding-top: 1rem;
     }
-    nav ul {
+    nav {
+      margin: 0 auto;
       display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+    }
+    nav ul {
+      display: block;
+      width: 100%;
+      padding: 0;
       a {
+        padding: .75rem 0;
         border: none;
       }
     }
-    .menu-item-1 {
-      grid-row: 1;
-      grid-column: 1;
-    }
-    // .menu-item-2 { grid-row: 2; grid-column: 1; }
-    .menu-item-3 {
-      grid-row: 2;
-      grid-column: 1;
-    }
+    // .menu-item-1 {
+    //   grid-row: 1;
+    //   grid-column: 1;
+    // }
+    // // .menu-item-2 { grid-row: 2; grid-column: 1; }
+    // .menu-item-3 {
+    //   grid-row: 2;
+    //   grid-column: 1;
+    // }
 
-    .menu-item-4 {
-      grid-row: 1;
-      grid-column: 2;
-    }
-    .menu-item-5 {
-      grid-row: 2;
-      grid-column: 2;
-    }
-    .menu-item-6 {
-      grid-row: 3;
-      grid-column: 2;
-    }
+    // .menu-item-4 {
+    //   grid-row: 1;
+    //   grid-column: 2;
+    // }
+    // .menu-item-5 {
+    //   grid-row: 2;
+    //   grid-column: 2;
+    // }
+    // .menu-item-6 {
+    //   grid-row: 3;
+    //   grid-column: 2;
+    // }
 
-    .menu-item-7 {
-      grid-row: 1;
-      grid-column: 3;
-    }
-    .menu-item-8 {
-      grid-row: 2;
-      grid-column: 3;
-    }
-    .menu-item-9 {
-      grid-row: 3;
-      grid-column: 3;
-    }
+    // .menu-item-7 {
+    //   grid-row: 1;
+    //   grid-column: 3;
+    // }
+    // .menu-item-8 {
+    //   grid-row: 2;
+    //   grid-column: 3;
+    // }
+    // .menu-item-9 {
+    //   grid-row: 3;
+    //   grid-column: 3;
+    // }
   }
 }
 </style>
