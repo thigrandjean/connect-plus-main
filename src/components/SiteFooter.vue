@@ -264,7 +264,7 @@ footer {
     nav ul {
       display: block;
       width: 100%;
-      padding: 0;
+      padding: 1rem;
       a {
         padding: .75rem 0;
         border: none;
