@@ -141,7 +141,10 @@
           }}</g-link>
         </li>
         <li v-if="$store.state.currentCountry == 'Italy'" class="menu-item">
-          <g-link v-for="item in $t('menu.termsItaly')" :key="item.link" class="link-footer-terms"  :to="item.link">{{
+          <!-- <g-link v-for="item in $t('menu.termsItaly')" :key="item.link" class="link-footer-terms"  :to="`https://www.cpmoneytransfer.com/it${item.link}`">{{
+            item.txt
+          }}</g-link> -->
+          <g-link v-for="item in $t('menu.termsItaly')" :key="item.link" class="link-footer-terms"  :to="$tp(item.link)">{{
             item.txt
           }}</g-link>
         </li>
