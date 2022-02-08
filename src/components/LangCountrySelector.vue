@@ -119,7 +119,6 @@ export default {
       availableLocales: this.$i18n.availableLocales,
     }
   },
-  mounted() {},
   methods: {
     openCountryList() {
       this.isCountryListOpen = !this.isCountryListOpen

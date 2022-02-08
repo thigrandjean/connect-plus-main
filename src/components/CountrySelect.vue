@@ -44,7 +44,6 @@
 
 <script>
 import ClickOutside from 'vue-click-outside'
-import { mapState } from 'vuex'
 import Flags from '@/components/Flags.vue'
 
 export default {
@@ -63,6 +62,15 @@ export default {
     // this.$i18n.locale = locale.toLowerCase()
     // this.currentLocale = this.$i18n.fallbackLocale
   },
+    mounted() {
+      const queryCountry = this.$route.query.country
+
+      if (queryCountry) {
+        const countryObj = this.$store.state.countries.find((obj) => obj.code === queryCountry)
+        this.changeCountry(countryObj)
+      }
+
+  },
   methods: {
     countryName(country) {
       return this.$store.state.countries.find((obj) => obj.name === country)
@@ -70,6 +78,9 @@ export default {
     },
     selectCountry(country) {
       this.hide()
+      this.changeCountry(country)
+    },
+    changeCountry(country) {
       this.$store.commit('setCurrentCountry', country.name)
       this.$store.commit('setCurrentCountryFlag', country.code)
       this.$store.commit('setCurrentCurrency', country.currency)
