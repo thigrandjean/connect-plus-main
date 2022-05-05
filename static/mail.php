@@ -39,7 +39,7 @@ try {
 	// $mail->Host = 'localhost';
 	// $mail->SMTPAuth = false;
 	$mail->SMTPAutoTLS = false; 
-	// $mail->Port = 25; 
+
 
 	$mail->SMTPAuth = true; 
 	$mail->Host = 'mail.cpmoneytransfer.com';
